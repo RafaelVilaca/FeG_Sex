@@ -1,0 +1,5 @@
+C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex.Entidades\bin\Debug\Loja_FeG_Sex.Entidades.dll
+C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex.Entidades\bin\Debug\Loja_FeG_Sex.Entidades.pdb
+C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex.Entidades\obj\Debug\Loja_FeG_Sex.Entidades.csprojResolveAssemblyReference.cache
+C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex.Entidades\obj\Debug\Loja_FeG_Sex.Entidades.dll
+C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex.Entidades\obj\Debug\Loja_FeG_Sex.Entidades.pdb

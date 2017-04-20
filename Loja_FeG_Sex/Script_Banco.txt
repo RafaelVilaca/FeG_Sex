@@ -1,0 +1,107 @@
+Create database FeG_Sex;
+Go
+Use FeG_Sex;
+Go
+Create Table Produtos(
+Id_Prod int primary key identity,
+Descricao varchar(100),
+Quantidade int,
+Dt_Cadastro datetime,
+Vl_Compra varchar(10),
+Vl_Venda varchar(10)
+)
+GO
+Create Table Clientes(
+Id_Cliente int primary Key identity,
+Nome varchar(50),
+Email varchar(50),
+Sexo char(1),
+Dt_Nasc datetime,
+Dt_Cadastro datetime,
+Telefone varchar(15),
+Celular varchar(15),
+Rua varchar(50),
+Numero varchar(5),
+Bairro varchar(30),
+Complemento varchar(20)
+)
+GO
+Create Table Vendas(
+Id_Vendas int primary key identity,
+Id_Produto int,
+Id_Cliente int,
+Quantidade int,
+VL_Venda varchar(10),
+Dt_Transacao datetime,
+Constraint FK_Prod Foreign Key (Id_Produto) references Produtos(Id_Prod),
+Constraint FK_Cli Foreign Key (Id_Cliente) references Clientes(Id_Cliente)
+)
+
+GO
+
+USE [FeG_Sex]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_insert_material]    Script Date: 20/04/2017 10:57:52 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create Procedure [dbo].[sp_update_cliente]
+@ID int,
+@Nome varchar(50),
+@Email varchar(50),
+@Sexo char(1),
+@Dt_Nasc datetime,
+@Dt_Cadastro datetime,
+@Rua varchar(50),
+@Numero int,
+@Bairro varchar(30),
+@Complemento varchar(20),
+@Celular varchar(15),
+@Telefone varchar(15)
+
+AS Begin
+
+Update Clientes Set Nome = @Nome, Email = @Email, Sexo = @Sexo, Dt_Nasc = @Dt_Nasc, Dt_Cadastro = @Dt_Cadastro,
+Telefone = @Telefone, Celular = @Celular, Rua = @Rua, Numero = @Numero, Bairro = @Bairro, Complemento = @Complemento
+Where Id_Cliente = @ID;
+
+END
+
+
+GO
+
+
+USE [FeG_Sex]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_insert_material]    Script Date: 20/04/2017 10:57:52 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create Procedure [dbo].[sp_insert_cliente]
+
+@Nome varchar(50),
+@Email varchar(50),
+@Sexo char(1),
+@Dt_Nasc datetime,
+@Dt_Cadastro datetime,
+@Rua varchar(50),
+@Numero int,
+@Bairro varchar(30),
+@Complemento varchar(20),
+@Celular varchar(15),
+@Telefone varchar(15)
+
+AS Begin
+
+INSERT INTO Clientes(Nome, Email, Sexo, Dt_Nasc, Dt_Cadastro, Telefone, Celular, Rua, Numero, Bairro, Complemento)
+VALUES (@Nome, @Email, @Sexo, @Dt_Nasc, @Dt_Cadastro, @Telefone, @Celular, @Rua, @Numero, @Bairro, @Complemento);
+
+END
+
+
+GO
+
+
+

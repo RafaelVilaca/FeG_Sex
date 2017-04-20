@@ -1,0 +1,8 @@
+Projeto Lojinha
+
+- CRUD - Produtos
+- CRUD - Clientes
+- Vendas
+
+Planejamento para 2 semanas
+Final do Projeto dia 05/05/2017
