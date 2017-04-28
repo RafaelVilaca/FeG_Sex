@@ -1,6 +1,12 @@
 C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.exe.config
 C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.exe
 C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.pdb
+C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.Business.dll
+C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.Entidades.dll
+C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.Repositorio.dll
+C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.Business.pdb
+C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.Entidades.pdb
+C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.Repositorio.pdb
 C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.Forms.csprojResolveAssemblyReference.cache
 C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.Forms.Calculadora.FormCalculadora.resources
 C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.Forms.FormClientes.resources
@@ -15,9 +21,3 @@ C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loj
 C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.Forms.csproj.GenerateResource.Cache
 C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.exe
 C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.pdb
-C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.Business.dll
-C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.Repositorio.dll
-C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.Entidades.dll
-C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.Business.pdb
-C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.Repositorio.pdb
-C:\Users\usuario\Desktop\Projeto Lojinha\Loja_FeG_Sex\Loja_FeG_Sex\bin\Debug\Loja_FeG_Sex.Entidades.pdb

@@ -1,16 +1,22 @@
 Create database FeG_Sex;
+
 Go
+
 Use FeG_Sex;
+
 Go
+
 Create Table Produtos(
 Id_Prod int primary key identity,
 Descricao varchar(100),
 Quantidade int,
 Dt_Cadastro datetime,
-Vl_Compra varchar(10),
-Vl_Venda varchar(10)
+Vl_Compra decimal(10,2),
+Vl_Venda decimal(10,2)
 )
+
 GO
+
 Create Table Clientes(
 Id_Cliente int primary Key identity,
 Nome varchar(50),
@@ -18,14 +24,16 @@ Email varchar(50),
 Sexo char(1),
 Dt_Nasc datetime,
 Dt_Cadastro datetime,
-Telefone varchar(15),
-Celular varchar(15),
+Telefone bigint,
+Celular bigint,
 Rua varchar(50),
-Numero varchar(5),
+Numero int,
 Bairro varchar(30),
 Complemento varchar(20)
 )
+
 GO
+
 Create Table Vendas(
 Id_Vendas int primary key identity,
 Id_Produto int,
@@ -39,14 +47,8 @@ Constraint FK_Cli Foreign Key (Id_Cliente) references Clientes(Id_Cliente)
 
 GO
 
-USE [FeG_Sex]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_insert_material]    Script Date: 20/04/2017 10:57:52 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-Create Procedure [dbo].[sp_update_cliente]
+Create Procedure sp_update_cliente
+
 @ID int,
 @Nome varchar(50),
 @Email varchar(50),
@@ -68,17 +70,8 @@ Where Id_Cliente = @ID;
 
 END
 
-
 GO
 
-
-USE [FeG_Sex]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_insert_material]    Script Date: 20/04/2017 10:57:52 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 Create Procedure [dbo].[sp_insert_cliente]
 
 @Nome varchar(50),
@@ -100,8 +93,76 @@ VALUES (@Nome, @Email, @Sexo, @Dt_Nasc, @Dt_Cadastro, @Telefone, @Celular, @Rua,
 
 END
 
+GO
+
+Create Procedure sp_insert_produto
+
+@Descricao varchar(100),
+@Quantidade int,
+@Dt_Cadastro DateTime,
+@Vl_Compra varchar(10),
+@Vl_Venda varchar(10)
+
+AS
+
+BEGIN
+
+insert into Produtos(Descricao, Quantidade, Dt_Cadastro, Vl_Compra, Vl_Venda)
+Values(@Descricao, @Quantidade, @Dt_Cadastro, @Vl_Compra, @Vl_Venda);
+
+END
+
+Create Proc sp_update_produto
+
+@ID int,
+@Descricao varchar(100),
+@Quantidade int,
+@Dt_Cadastro DateTime,
+@Vl_Compra varchar(10),
+@Vl_Venda varchar(10)
+
+AS
+
+BEGIN
+
+Update Produtos Set Descricao = @Descricao, Quantidade = @Quantidade, Dt_Cadastro = @Dt_Cadastro, Vl_Compra = @Vl_Compra, Vl_Venda = @Vl_Venda
+Where Id_Prod = @ID;
+
+END
+
+GO
+
+Create Proc sp_insert_venda
+
+@Id_Prod int,
+@Id_Cliente int,
+@Quantidade int,
+@Vl_Venda varchar(10),
+@Dt_Transacao DateTime
+
+AS
+
+Begin
+
+Insert into Vendas (Id_Produto, Id_Cliente, Quantidade, VL_Venda, Dt_Transacao) 
+Values (@Id_Prod, @Id_Cliente, @Quantidade, @Vl_Venda, @Dt_Transacao)
+
+END
+
 
 GO
 
 
+CREATE TRIGGER TRG_Baixa_Estoque ON Vendas
+AFTER INSERT
+AS
+BEGIN
+	DECLARE
+	@Quantidade int,
+	@Id_Produto int
 
+	SELECT @Quantidade = Quantidade, @Id_Produto = Id_Produto FROM INSERTED
+
+	Update Produtos set Quantidade = Quantidade - @Quantidade Where Id_Prod = @Id_Produto;
+END
+GO

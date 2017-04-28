@@ -90,13 +90,14 @@
             // 
             // txt_Data
             // 
+            this.txt_Data.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Data.ForeColor = System.Drawing.Color.Black;
             this.txt_Data.Location = new System.Drawing.Point(403, 93);
             this.txt_Data.MaxLength = 30;
             this.txt_Data.Name = "txt_Data";
             this.txt_Data.ReadOnly = true;
-            this.txt_Data.Size = new System.Drawing.Size(123, 26);
-            this.txt_Data.TabIndex = 20;
+            this.txt_Data.Size = new System.Drawing.Size(123, 22);
+            this.txt_Data.TabIndex = 5;
             this.txt_Data.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label10
@@ -110,13 +111,15 @@
             // 
             // msk_Celular
             // 
+            this.msk_Celular.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.msk_Celular.ForeColor = System.Drawing.Color.Black;
             this.msk_Celular.Location = new System.Drawing.Point(532, 93);
             this.msk_Celular.Mask = "(99) 00000-0000";
             this.msk_Celular.Name = "msk_Celular";
-            this.msk_Celular.Size = new System.Drawing.Size(110, 26);
-            this.msk_Celular.TabIndex = 16;
+            this.msk_Celular.Size = new System.Drawing.Size(110, 22);
+            this.msk_Celular.TabIndex = 7;
             this.msk_Celular.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.msk_Celular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.msk_Celular_KeyDown);
             // 
             // label9
             // 
@@ -134,8 +137,9 @@
             this.msk_Telefone.Mask = "(99) 0000-0000";
             this.msk_Telefone.Name = "msk_Telefone";
             this.msk_Telefone.Size = new System.Drawing.Size(110, 26);
-            this.msk_Telefone.TabIndex = 14;
+            this.msk_Telefone.TabIndex = 6;
             this.msk_Telefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.msk_Telefone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.msk_Celular_KeyDown);
             // 
             // label8
             // 
@@ -154,7 +158,7 @@
             this.groupBox1.Location = new System.Drawing.Point(292, 31);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(105, 88);
-            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sexo";
             // 
@@ -207,7 +211,7 @@
             this.txt_Email.MaxLength = 50;
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(276, 26);
-            this.txt_Email.TabIndex = 3;
+            this.txt_Email.TabIndex = 2;
             this.txt_Email.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
@@ -407,13 +411,14 @@
             this.Controls.Add(this.btn_Confirmar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grp_dados_Cliente);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormInsereCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cliente";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormInsereCliente_FormClosed);
             this.Load += new System.EventHandler(this.FormInsereCliente_Load);
             this.grp_dados_Cliente.ResumeLayout(false);
             this.grp_dados_Cliente.PerformLayout();

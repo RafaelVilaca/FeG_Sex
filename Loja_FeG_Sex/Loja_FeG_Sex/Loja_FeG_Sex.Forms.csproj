@@ -181,9 +181,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Loja_FeG_Sex.Business\Loja_FeG_Sex.Business.csproj">
       <Project>{2CF07DC2-A705-4331-867E-66FFF811307E}</Project>
       <Name>Loja_FeG_Sex.Business</Name>

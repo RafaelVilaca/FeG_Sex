@@ -11,7 +11,10 @@ namespace Loja_FeG_Sex.Entidades
         public string Descricao { get; set; }
         public int Qtde { get; set; }
         public DateTime Dt_Cadastro { get; set; }
-        public string Vl_Compra { get; set; }
-        public string Vl_Venda { get; set; }
+        public decimal Vl_Compra { get; set; }
+        public decimal Vl_Venda { get; set; }
+
+        public string compraFormatado => $"R${Vl_Compra}";
+        public string vendaFormatado => $"R${Vl_Venda}";
     }
 }

@@ -1,15 +1,12 @@
 ﻿using Loja_FeG_Sex.Entidades;
+using Loja_FeG_Sex.Repositorio.Repositorio;
 using System;
 using System.Collections.Generic;
-using Loja_FeG_Sex.Repositorio;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 
 namespace Loja_FeG_Sex.Repositorio
 {
-    public class ClienteRepositorio : IRepositorio<ClientesVo>
+    public class ClienteRepositorio : ICliente
     {
         private Contexto contexto;
 
@@ -18,7 +15,22 @@ namespace Loja_FeG_Sex.Repositorio
             using (contexto = new Contexto())
             {
                 var strQuery = "Select * From Clientes ";
-                strQuery += " where 1 = 1 order by Descricao asc ";
+                strQuery += " order by Nome ";
+                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+                return ReaderObjeto(retorno);
+            }
+        }
+
+        public IEnumerable<ClientesVo> ListarTodos(string filtro)
+        {
+            List<SqlParameter> param = new List<SqlParameter>();
+            param.Add(new SqlParameter() { ParameterName = "@filtro", Value = filtro });
+                       
+            using (contexto = new Contexto())
+            {
+                var strQuery = "Select * From Clientes ";
+                strQuery += " where Nome Like('%@filtro%') ";
+                strQuery += " order by Nome ";
                 var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
                 return ReaderObjeto(retorno);
             }
@@ -93,8 +105,8 @@ namespace Loja_FeG_Sex.Repositorio
                     Sexo = reader["Sexo"] != DBNull.Value ? reader["Sexo"].ToString() : "",
                     Dt_Cadastro = DateTime.Parse(reader["Dt_Cadastro"].ToString()),
                     Dt_Nasc = DateTime.Parse(reader["Dt_Nasc"].ToString()),
-                    Telefone = reader["Telefone"] != DBNull.Value ? reader["Telefone"].ToString() : null,
-                    Celular = reader["Celular"] != DBNull.Value ? reader["Celular"].ToString() : null,
+                    Telefone = reader["Telefone"] != DBNull.Value ? long.Parse(reader["Telefone"].ToString()) : 0,
+                    Celular = reader["Celular"] != DBNull.Value ? long.Parse(reader["Celular"].ToString()) : 0,
                     Rua = reader["Rua"] != DBNull.Value ? reader["Rua"].ToString() : null,
                     Numero = reader["Numero"] != DBNull.Value ? int.Parse(reader["Numero"].ToString()) : 0,
                     Bairro = reader["Bairro"] != DBNull.Value ? reader["Bairro"].ToString() : null,

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Loja_FeG_Sex.Forms.Calculadora
@@ -17,26 +10,12 @@ namespace Loja_FeG_Sex.Forms.Calculadora
         {
             InitializeComponent();
         }
-
-        private void btn_mais_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                double n1 = Convert.ToDouble(txt_n1.Text);
-                double res = Convert.ToDouble(txt_result.Text);
-                txt_result.Text = (metodo.Soma(n1, res)).ToString();
-                txt_n1.Text = "";
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Numero Incorreto \nCorrija por favor");
-            }
-        }
-
+                
         private void btn_Limpar_Click(object sender, EventArgs e)
         {
             txt_n1.Text = "";
             txt_result.Text = "0";
+            lbl_Conta.Text = "";
         }
 
         private void FormCalculadora_Load(object sender, EventArgs e)
@@ -96,7 +75,28 @@ namespace Loja_FeG_Sex.Forms.Calculadora
 
         private void btn_Virgula_Click(object sender, EventArgs e)
         {
-            txt_n1.Text = (txt_n1.Text + ",");
+            string virgula = txt_n1.Text;
+
+            if (!virgula.Contains(","))
+                txt_n1.Text = (txt_n1.Text + ",");
+        }
+
+        private void btn_mais_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double n1 = Convert.ToDouble(txt_n1.Text);
+                double res = Convert.ToDouble(txt_result.Text);
+                txt_result.Text = (metodo.Soma(n1, res)).ToString();
+                txt_n1.Text = "";
+
+                lbl_Conta.Text = (lbl_Conta.Text + n1 + "+");
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Numero Incorreto \nCorrija por favor");
+            }
         }
 
         private void btn_menos_Click(object sender, EventArgs e)
@@ -107,6 +107,10 @@ namespace Loja_FeG_Sex.Forms.Calculadora
                 double res = Convert.ToDouble(txt_result.Text);
                 txt_result.Text = (metodo.Subtracao(n1, res)).ToString();
                 txt_n1.Text = "";
+
+                lbl_Conta.Text = (lbl_Conta.Text + n1 + "-");
+
+
             }
             catch (Exception)
             {
@@ -120,8 +124,15 @@ namespace Loja_FeG_Sex.Forms.Calculadora
             {
                 double n1 = Convert.ToDouble(txt_n1.Text);
                 double res = Convert.ToDouble(txt_result.Text);
+
+                if (res == 0)
+                    res = 1;
+
                 txt_result.Text = (metodo.Divisao(n1, res)).ToString();
                 txt_n1.Text = "";
+
+                lbl_Conta.Text = (lbl_Conta.Text + n1 + "/");
+
             }
             catch (Exception)
             {
@@ -135,13 +146,24 @@ namespace Loja_FeG_Sex.Forms.Calculadora
             {
                 double n1 = Convert.ToDouble(txt_n1.Text);
                 double res = Convert.ToDouble(txt_result.Text);
+
+                if (res == 0)
+                    res = 1;
+
                 txt_result.Text = (metodo.Multi(n1, res)).ToString();
                 txt_n1.Text = "";
+                lbl_Conta.Text = (lbl_Conta.Text + n1 + "*");
+
             }
             catch (Exception)
             {
                 MessageBox.Show("Numero Incorreto \nCorrija por favor");
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

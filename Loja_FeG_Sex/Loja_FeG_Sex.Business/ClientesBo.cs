@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using Loja_FeG_Sex.Entidades;
-using Loja_FeG_Sex.Repositorio;
+using Loja_FeG_Sex.Repositorio.Repositorio;
 
 namespace Loja_FeG_Sex.Business
 {
     public class ClientesBo
     {
-        private readonly IRepositorio<ClientesVo> repositorio;
-        private ClienteRepositorio clienteRepositorio;
+        private readonly ICliente repositorio;
+        //private ClienteRepositorio clienteRepositorio;
 
-        public ClientesBo(IRepositorio<ClientesVo> repo)
+        public ClientesBo(ICliente repo)
         {
             repositorio = repo;
         }
@@ -22,6 +22,11 @@ namespace Loja_FeG_Sex.Business
         public IEnumerable<ClientesVo> ListarTodos()
         {
             return repositorio.ListarTodos();
-        }        
+        }
+
+        public IEnumerable<ClientesVo> ListarTodos(string filtro)
+        {
+            return repositorio.ListarTodos(filtro);
+        }
     }
 }

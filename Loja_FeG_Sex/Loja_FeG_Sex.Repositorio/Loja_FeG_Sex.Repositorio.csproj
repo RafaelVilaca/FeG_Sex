@@ -42,9 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteRepositorio.cs" />
+    <Compile Include="ProdutoRepositorio.cs" />
     <Compile Include="Repositorio\Contexto.cs" />
+    <Compile Include="Repositorio\ICliente.cs" />
+    <Compile Include="Repositorio\IProdutos.cs" />
     <Compile Include="Repositorio\IRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\IVendas.cs" />
+    <Compile Include="VendaRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Loja_FeG_Sex.Entidades\Loja_FeG_Sex.Entidades.csproj">

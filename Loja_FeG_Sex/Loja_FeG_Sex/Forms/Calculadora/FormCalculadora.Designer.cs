@@ -54,6 +54,7 @@
             this.btn_Virgula = new System.Windows.Forms.Button();
             this.grp_Numeros = new System.Windows.Forms.GroupBox();
             this.grp_Operacao = new System.Windows.Forms.GroupBox();
+            this.lbl_Conta = new System.Windows.Forms.Label();
             this.grp_Numeros.SuspendLayout();
             this.grp_Operacao.SuspendLayout();
             this.SuspendLayout();
@@ -80,10 +81,10 @@
             // 
             this.txt_n1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_n1.Location = new System.Drawing.Point(152, 55);
-            this.txt_n1.MaxLength = 10;
+            this.txt_n1.MaxLength = 5;
             this.txt_n1.Name = "txt_n1";
             this.txt_n1.ReadOnly = true;
-            this.txt_n1.Size = new System.Drawing.Size(171, 32);
+            this.txt_n1.Size = new System.Drawing.Size(162, 32);
             this.txt_n1.TabIndex = 9;
             this.txt_n1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -128,7 +129,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(329, 56);
+            this.label4.Location = new System.Drawing.Point(323, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 31);
             this.label4.TabIndex = 15;
@@ -469,12 +470,25 @@
             this.grp_Operacao.TabStop = false;
             this.grp_Operacao.Text = "Operações";
             // 
+            // lbl_Conta
+            // 
+            this.lbl_Conta.AutoSize = true;
+            this.lbl_Conta.BackColor = System.Drawing.SystemColors.Highlight;
+            this.lbl_Conta.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Conta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_Conta.Location = new System.Drawing.Point(197, 94);
+            this.lbl_Conta.Name = "lbl_Conta";
+            this.lbl_Conta.Size = new System.Drawing.Size(0, 19);
+            this.lbl_Conta.TabIndex = 35;
+            this.lbl_Conta.Click += new System.EventHandler(this.label6_Click);
+            // 
             // FormCalculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(642, 371);
+            this.Controls.Add(this.lbl_Conta);
             this.Controls.Add(this.grp_Operacao);
             this.Controls.Add(this.grp_Numeros);
             this.Controls.Add(this.label5);
@@ -485,6 +499,7 @@
             this.Controls.Add(this.txt_result);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_n1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -526,5 +541,6 @@
         private System.Windows.Forms.Button btn_Virgula;
         private System.Windows.Forms.GroupBox grp_Numeros;
         private System.Windows.Forms.GroupBox grp_Operacao;
+        private System.Windows.Forms.Label lbl_Conta;
     }
 }
