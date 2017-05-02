@@ -48,12 +48,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Busca = new System.Windows.Forms.TextBox();
             this.grp_Crescente = new System.Windows.Forms.GroupBox();
-            this.btn_venda_dec = new System.Windows.Forms.Button();
+            this.btn_Venda_asc = new System.Windows.Forms.Button();
             this.btn_Compra_asc = new System.Windows.Forms.Button();
             this.btn_dt_Cad_asc = new System.Windows.Forms.Button();
             this.btn_qtde_asc = new System.Windows.Forms.Button();
             this.btn_desc_asc = new System.Windows.Forms.Button();
-            this.btn_Venda_asc = new System.Windows.Forms.Button();
+            this.btn_venda_dec = new System.Windows.Forms.Button();
             this.grp_Decrescente = new System.Windows.Forms.GroupBox();
             this.btn_compra_dec = new System.Windows.Forms.Button();
             this.btn_dt_cad_dec = new System.Windows.Forms.Button();
@@ -275,22 +275,22 @@
             this.grp_Crescente.TabStop = false;
             this.grp_Crescente.Text = "Ordenar por ordem Crescente:";
             // 
-            // btn_venda_dec
+            // btn_Venda_asc
             // 
-            this.btn_venda_dec.BackColor = System.Drawing.Color.MediumBlue;
-            this.btn_venda_dec.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn_venda_dec.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btn_venda_dec.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
-            this.btn_venda_dec.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_venda_dec.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_venda_dec.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_venda_dec.Location = new System.Drawing.Point(296, 19);
-            this.btn_venda_dec.Name = "btn_venda_dec";
-            this.btn_venda_dec.Size = new System.Drawing.Size(48, 25);
-            this.btn_venda_dec.TabIndex = 30;
-            this.btn_venda_dec.Text = "Venda";
-            this.btn_venda_dec.UseVisualStyleBackColor = false;
-            this.btn_venda_dec.Click += new System.EventHandler(this.btn_venda_dec_Click);
+            this.btn_Venda_asc.BackColor = System.Drawing.Color.MediumBlue;
+            this.btn_Venda_asc.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_Venda_asc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btn_Venda_asc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.btn_Venda_asc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Venda_asc.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Venda_asc.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_Venda_asc.Location = new System.Drawing.Point(296, 19);
+            this.btn_Venda_asc.Name = "btn_Venda_asc";
+            this.btn_Venda_asc.Size = new System.Drawing.Size(48, 25);
+            this.btn_Venda_asc.TabIndex = 30;
+            this.btn_Venda_asc.Text = "Venda";
+            this.btn_Venda_asc.UseVisualStyleBackColor = false;
+            this.btn_Venda_asc.Click += new System.EventHandler(this.btn_Venda_asc_Click);
             // 
             // btn_Compra_asc
             // 
@@ -360,22 +360,22 @@
             this.btn_desc_asc.UseVisualStyleBackColor = false;
             this.btn_desc_asc.Click += new System.EventHandler(this.btn_desc_asc_Click);
             // 
-            // btn_Venda_asc
+            // btn_venda_dec
             // 
-            this.btn_Venda_asc.BackColor = System.Drawing.Color.MediumBlue;
-            this.btn_Venda_asc.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn_Venda_asc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btn_Venda_asc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
-            this.btn_Venda_asc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Venda_asc.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Venda_asc.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Venda_asc.Location = new System.Drawing.Point(296, 19);
-            this.btn_Venda_asc.Name = "btn_Venda_asc";
-            this.btn_Venda_asc.Size = new System.Drawing.Size(48, 25);
-            this.btn_Venda_asc.TabIndex = 30;
-            this.btn_Venda_asc.Text = "Venda";
-            this.btn_Venda_asc.UseVisualStyleBackColor = false;
-            this.btn_Venda_asc.Click += new System.EventHandler(this.btn_Venda_asc_Click);
+            this.btn_venda_dec.BackColor = System.Drawing.Color.MediumBlue;
+            this.btn_venda_dec.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_venda_dec.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btn_venda_dec.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.btn_venda_dec.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_venda_dec.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_venda_dec.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_venda_dec.Location = new System.Drawing.Point(296, 19);
+            this.btn_venda_dec.Name = "btn_venda_dec";
+            this.btn_venda_dec.Size = new System.Drawing.Size(48, 25);
+            this.btn_venda_dec.TabIndex = 30;
+            this.btn_venda_dec.Text = "Venda";
+            this.btn_venda_dec.UseVisualStyleBackColor = false;
+            this.btn_venda_dec.Click += new System.EventHandler(this.btn_venda_dec_Click);
             // 
             // grp_Decrescente
             // 
@@ -466,6 +466,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1040, 498);
             this.Controls.Add(this.grp_Decrescente);
             this.Controls.Add(this.grp_Crescente);

@@ -24,9 +24,9 @@ namespace Loja_FeG_Sex.Business
             return repositorio.ListarTodos();
         }
 
-        public IEnumerable<ClientesVo> ListarTodos(string filtro)
-        {
-            return repositorio.ListarTodos(filtro);
-        }
+        //public IEnumerable<ClientesVo> ListarTodos(string filtro)
+        //{
+        //    return repositorio.ListarTodos(filtro);
+        //}
     }
 }

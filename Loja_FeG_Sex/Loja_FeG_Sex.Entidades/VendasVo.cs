@@ -13,6 +13,8 @@ namespace Loja_FeG_Sex.Entidades
         public int Qtde { get; set; }
         public decimal Vl_Venda { get; set; }
         public DateTime Dt_Transacao { get; set; }
+        public string Tipo_Recebimento { get; set; }
+        public DateTime Data_Recebimento { get; set; }
 
         public VendasVo()
         {
@@ -21,5 +23,6 @@ namespace Loja_FeG_Sex.Entidades
         }
 
         public string vendaFormatado => $"R${Vl_Venda}";
+        public string pagamentoFormatado => $"{Tipo_Recebimento}: {Data_Recebimento}";
     }
 }

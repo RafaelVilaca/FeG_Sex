@@ -21,20 +21,20 @@ namespace Loja_FeG_Sex.Repositorio
             }
         }
 
-        public IEnumerable<ClientesVo> ListarTodos(string filtro)
-        {
-            List<SqlParameter> param = new List<SqlParameter>();
-            param.Add(new SqlParameter() { ParameterName = "@filtro", Value = filtro });
+        //public IEnumerable<ClientesVo> ListarTodos(string filtro)
+        //{
+        //    List<SqlParameter> param = new List<SqlParameter>();
+        //    param.Add(new SqlParameter() { ParameterName = "@filtro", Value = filtro });
                        
-            using (contexto = new Contexto())
-            {
-                var strQuery = "Select * From Clientes ";
-                strQuery += " where Nome Like('%@filtro%') ";
-                strQuery += " order by Nome ";
-                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
-                return ReaderObjeto(retorno);
-            }
-        }
+        //    using (contexto = new Contexto())
+        //    {
+        //        var strQuery = "Select * From Clientes ";
+        //        strQuery += " where Nome Like('%@filtro%') ";
+        //        strQuery += " order by Nome ";
+        //        var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+        //        return ReaderObjeto(retorno);
+        //    }
+        //}
 
         public string Salvar(ClientesVo entidade)
         {

@@ -23,83 +23,7 @@ namespace Loja_FeG_Sex.Repositorio
                 var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
                 return ReaderObjeto(retorno);
             }
-        }
-
-        public decimal ListarValor(int id)
-        {
-            List<SqlParameter> param = new List<SqlParameter>();
-            param.Add(new SqlParameter() { ParameterName = "@id", Value = id });
-
-            using (contexto = new Contexto())
-            {
-                var strQuery = " Select p.Vl_Venda from Produtos p ";
-                strQuery += " Where p.Id_Prod = @id ";
-                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
-                return ReaderValor(retorno);
-            }
-        }
-
-        public IEnumerable<VendasVo> ListarTodos(string filtroNome, string filtroProduto, DateTime? dataInicial, DateTime? dataFinal)
-        {
-            List<SqlParameter> param = new List<SqlParameter>();
-            param.Add(new SqlParameter() { ParameterName = "@filtroNome", Value = filtroNome });
-            param.Add(new SqlParameter() { ParameterName = "@filtroProduto", Value = filtroProduto });
-            param.Add(new SqlParameter() { ParameterName = "@dt_inicial", Value = dataInicial });
-            param.Add(new SqlParameter() { ParameterName = "@dt_final", Value = dataFinal });
-
-            if (filtroNome != "" && filtroProduto != "")
-            {
-                var strQuery = "Select v.*, c.Nome as Nome_Cliente, p.Descricao as Desc_Produto From Vendas v ";
-                strQuery += " INNER JOIN Clientes c ";
-                strQuery += " on c.Id_Cliente = v.Id_Cliente ";
-                strQuery += " INNER JOIN Produtos p ";
-                strQuery += " on p.Id_Prod = v.Id_Produto ";
-                strQuery += " Where v.Dt_Transacao Between @dt_inicial AND @dt_final ";
-                strQuery += " AND c.Nome LIKE ('%@filtroNome%') ";
-                strQuery += " AND p.Descricao LIKE ('%@filtroProduto%') ";
-                strQuery += " order by v.Id_Vendas asc ";
-                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
-                return ReaderObjeto(retorno);
-            }
-            else if (filtroNome != "" && filtroProduto == "")
-            {
-                var strQuery = "Select v.*, c.Nome as Nome_Cliente, p.Descricao as Desc_Produto From Vendas v ";
-                strQuery += " INNER JOIN Clientes c ";
-                strQuery += " on c.Id_Cliente = v.Id_Cliente ";
-                strQuery += " INNER JOIN Produtos p ";
-                strQuery += " on p.Id_Prod = v.Id_Produto ";
-                strQuery += " Where v.Dt_Transacao Between @dt_inicial AND @dt_final ";
-                strQuery += " AND c.Nome LIKE ('%@filtroNome%') ";
-                strQuery += " order by v.Id_Vendas asc ";
-                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
-                return ReaderObjeto(retorno);
-            }
-            else if (filtroNome == "" && filtroProduto != "")
-            {
-                var strQuery = "Select v.*, c.Nome as Nome_Cliente, p.Descricao as Desc_Produto From Vendas v ";
-                strQuery += " INNER JOIN Clientes c ";
-                strQuery += " on c.Id_Cliente = v.Id_Cliente ";
-                strQuery += " INNER JOIN Produtos p ";
-                strQuery += " on p.Id_Prod = v.Id_Produto ";
-                strQuery += " Where v.Dt_Transacao Between @dt_inicial AND @dt_final ";
-                strQuery += " AND p.Descricao LIKE ('%@filtroProduto%') ";
-                strQuery += " order by v.Id_Vendas asc ";
-                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
-                return ReaderObjeto(retorno);
-            }
-            else
-            {
-                var strQuery = "Select v.*, c.Nome as Nome_Cliente, p.Descricao as Desc_Produto From Vendas v ";
-                strQuery += " INNER JOIN Clientes c ";
-                strQuery += " on c.Id_Cliente = v.Id_Cliente ";
-                strQuery += " INNER JOIN Produtos p ";
-                strQuery += " on p.Id_Prod = v.Id_Produto ";
-                strQuery += " Where v.Dt_Transacao Between @dt_inicial AND @dt_final ";
-                strQuery += " order by v.Id_Vendas asc ";
-                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
-                return ReaderObjeto(retorno);
-            }
-        }
+        }        
 
         public string Salvar(VendasVo entidade)
         {
@@ -117,7 +41,9 @@ namespace Loja_FeG_Sex.Repositorio
                 param.Add(new SqlParameter() { ParameterName = "@Id_Prod", Value = entidade.Id_Prod });
                 param.Add(new SqlParameter() { ParameterName = "@Quantidade", Value = entidade.Qtde });
                 param.Add(new SqlParameter() { ParameterName = "@Dt_Transacao", Value = entidade.Dt_Transacao });
-                param.Add(new SqlParameter() { ParameterName = "@VL_Venda", Value = entidade.Vl_Venda });
+                param.Add(new SqlParameter() { ParameterName = "@Vl_Venda", Value = entidade.Vl_Venda });
+                param.Add(new SqlParameter() { ParameterName = "@Dt_Pagamento", Value = entidade.Data_Recebimento });
+                param.Add(new SqlParameter() { ParameterName = "@Tipo_Pagamento", Value = entidade.Tipo_Recebimento });
 
                 mensagem = "Cadastro inserido com Sucesso!!!";
 
@@ -163,12 +89,14 @@ namespace Loja_FeG_Sex.Repositorio
                 };
                 var temObjeto = new VendasVo()
                 {
-                    Id_Venda = reader["Id_Venda"] != DBNull.Value ? int.Parse(reader["Id_Venda"].ToString()) : 0,
+                    //Id_Venda = reader["Id_Venda"] != DBNull.Value ? int.Parse(reader["Id_Venda"].ToString()) : 0,
                     Produto = produto,
                     Cliente = cliente,
                     Qtde = reader["Quantidade"] != DBNull.Value ? int.Parse(reader["Quantidade"].ToString()) : 0,
                     Dt_Transacao = DateTime.Parse(reader["Dt_Transacao"].ToString()),
-                    Vl_Venda = reader["Vl_Venda"] != DBNull.Value ? decimal.Parse(reader["Vl_Venda"].ToString()) : 0
+                    Vl_Venda = reader["Vl_Venda"] != DBNull.Value ? decimal.Parse(reader["Vl_Venda"].ToString()) : 0,
+                    Data_Recebimento = DateTime.Parse(reader["Data_Pagamento"].ToString()),
+                    Tipo_Recebimento = reader["Tipo_Pagamento"] != DBNull.Value ? reader["Tipo_Pagamento"].ToString() : ""
                 };
                 venda.Add(temObjeto);
             }
@@ -176,15 +104,66 @@ namespace Loja_FeG_Sex.Repositorio
             return venda;
         }
 
-        private decimal ReaderValor(SqlDataReader reader)
-        {
-            decimal valor = 0;
+        //public IEnumerable<VendasVo> ListarTodos(string filtroNome, string filtroProduto, DateTime? dataInicial, DateTime? dataFinal)
+        //{
+        //    List<SqlParameter> param = new List<SqlParameter>();
+        //    param.Add(new SqlParameter() { ParameterName = "@filtroNome", Value = filtroNome });
+        //    param.Add(new SqlParameter() { ParameterName = "@filtroProduto", Value = filtroProduto });
+        //    param.Add(new SqlParameter() { ParameterName = "@dt_inicial", Value = dataInicial });
+        //    param.Add(new SqlParameter() { ParameterName = "@dt_final", Value = dataFinal });
 
-            while (reader.Read())
-                valor = decimal.Parse(reader["Vl_Venda"].ToString());
-
-            reader.Close();
-            return valor;
-        }
+        //    if (filtroNome != "" && filtroProduto != "")
+        //    {
+        //        var strQuery = "Select v.*, c.Nome as Nome_Cliente, p.Descricao as Desc_Produto From Vendas v ";
+        //        strQuery += " INNER JOIN Clientes c ";
+        //        strQuery += " on c.Id_Cliente = v.Id_Cliente ";
+        //        strQuery += " INNER JOIN Produtos p ";
+        //        strQuery += " on p.Id_Prod = v.Id_Produto ";
+        //        strQuery += " Where v.Dt_Transacao Between @dt_inicial AND @dt_final ";
+        //        strQuery += " AND c.Nome LIKE ('%@filtroNome%') ";
+        //        strQuery += " AND p.Descricao LIKE ('%@filtroProduto%') ";
+        //        strQuery += " order by v.Id_Vendas asc ";
+        //        var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+        //        return ReaderObjeto(retorno);
+        //    }
+        //    else if (filtroNome != "" && filtroProduto == "")
+        //    {
+        //        var strQuery = "Select v.*, c.Nome as Nome_Cliente, p.Descricao as Desc_Produto From Vendas v ";
+        //        strQuery += " INNER JOIN Clientes c ";
+        //        strQuery += " on c.Id_Cliente = v.Id_Cliente ";
+        //        strQuery += " INNER JOIN Produtos p ";
+        //        strQuery += " on p.Id_Prod = v.Id_Produto ";
+        //        strQuery += " Where v.Dt_Transacao Between @dt_inicial AND @dt_final ";
+        //        strQuery += " AND c.Nome LIKE ('%@filtroNome%') ";
+        //        strQuery += " order by v.Id_Vendas asc ";
+        //        var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+        //        return ReaderObjeto(retorno);
+        //    }
+        //    else if (filtroNome == "" && filtroProduto != "")
+        //    {
+        //        var strQuery = "Select v.*, c.Nome as Nome_Cliente, p.Descricao as Desc_Produto From Vendas v ";
+        //        strQuery += " INNER JOIN Clientes c ";
+        //        strQuery += " on c.Id_Cliente = v.Id_Cliente ";
+        //        strQuery += " INNER JOIN Produtos p ";
+        //        strQuery += " on p.Id_Prod = v.Id_Produto ";
+        //        strQuery += " Where v.Dt_Transacao Between @dt_inicial AND @dt_final ";
+        //        strQuery += " AND p.Descricao LIKE ('%@filtroProduto%') ";
+        //        strQuery += " order by v.Id_Vendas asc ";
+        //        var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+        //        return ReaderObjeto(retorno);
+        //    }
+        //    else
+        //    {
+        //        var strQuery = "Select v.*, c.Nome as Nome_Cliente, p.Descricao as Desc_Produto From Vendas v ";
+        //        strQuery += " INNER JOIN Clientes c ";
+        //        strQuery += " on c.Id_Cliente = v.Id_Cliente ";
+        //        strQuery += " INNER JOIN Produtos p ";
+        //        strQuery += " on p.Id_Prod = v.Id_Produto ";
+        //        strQuery += " Where v.Dt_Transacao Between @dt_inicial AND @dt_final ";
+        //        strQuery += " order by v.Id_Vendas asc ";
+        //        var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+        //        return ReaderObjeto(retorno);
+        //    }
+        //}
     }
 }

@@ -41,6 +41,8 @@ Id_Cliente int,
 Quantidade int,
 VL_Venda varchar(10),
 Dt_Transacao datetime,
+Tipo_Pagamento varchar(10),
+Data_Pagamento datetime,
 Constraint FK_Prod Foreign Key (Id_Produto) references Produtos(Id_Prod),
 Constraint FK_Cli Foreign Key (Id_Cliente) references Clientes(Id_Cliente)
 )
@@ -138,14 +140,16 @@ Create Proc sp_insert_venda
 @Id_Cliente int,
 @Quantidade int,
 @Vl_Venda varchar(10),
-@Dt_Transacao DateTime
+@Dt_Transacao DateTime,
+@Dt_Pagamento DateTime,
+@Tipo_Pagamento varchar(15)
 
 AS
 
 Begin
 
-Insert into Vendas (Id_Produto, Id_Cliente, Quantidade, VL_Venda, Dt_Transacao) 
-Values (@Id_Prod, @Id_Cliente, @Quantidade, @Vl_Venda, @Dt_Transacao)
+Insert into Vendas (Id_Produto, Id_Cliente, Quantidade, VL_Venda, Dt_Transacao, Data_Pagamento, Tipo_Pagamento) 
+Values (@Id_Prod, @Id_Cliente, @Quantidade, @Vl_Venda, @Dt_Transacao, @Dt_Pagamento, @Tipo_Pagamento)
 
 END
 

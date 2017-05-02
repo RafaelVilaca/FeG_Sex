@@ -6,7 +6,6 @@ namespace Loja_FeG_Sex.Repositorio.Repositorio
 {
     public interface IVendas : IRepositorio<VendasVo>
     {
-        IEnumerable<VendasVo> ListarTodos(string filtroNome, string filtroProduto, DateTime? dataInicial, DateTime? dataFinal);
-        decimal ListarValor(int id);
+        //IEnumerable<VendasVo> ListarTodos(string filtroNome, string filtroProduto, DateTime? dataInicial, DateTime? dataFinal);
     }
 }

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVendas));
             this.btn_Sair = new System.Windows.Forms.Button();
             this.btn_Venda = new System.Windows.Forms.Button();
@@ -60,6 +63,7 @@
             this.Qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dt_Transacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendaFormatado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Vendas)).BeginInit();
             this.grp_Decrescente.SuspendLayout();
             this.grp_Crescente.SuspendLayout();
@@ -76,7 +80,7 @@
             this.btn_Sair.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Sair.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Sair.ForeColor = System.Drawing.Color.Coral;
-            this.btn_Sair.Location = new System.Drawing.Point(773, 440);
+            this.btn_Sair.Location = new System.Drawing.Point(966, 440);
             this.btn_Sair.Name = "btn_Sair";
             this.btn_Sair.Size = new System.Drawing.Size(246, 46);
             this.btn_Sair.TabIndex = 10;
@@ -93,7 +97,7 @@
             this.btn_Venda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Venda.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Venda.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Venda.Location = new System.Drawing.Point(773, 382);
+            this.btn_Venda.Location = new System.Drawing.Point(966, 382);
             this.btn_Venda.Name = "btn_Venda";
             this.btn_Venda.Size = new System.Drawing.Size(245, 46);
             this.btn_Venda.TabIndex = 13;
@@ -107,7 +111,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(832, 106);
+            this.label5.Location = new System.Drawing.Point(1025, 106);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 30);
             this.label5.TabIndex = 23;
@@ -120,7 +124,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(855, 66);
+            this.label2.Location = new System.Drawing.Point(1048, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 30);
             this.label2.TabIndex = 22;
@@ -133,21 +137,47 @@
             this.dtg_Vendas.AllowUserToDeleteRows = false;
             this.dtg_Vendas.BackgroundColor = System.Drawing.Color.Navy;
             this.dtg_Vendas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Vendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_Vendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Vendas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nome_Cliente,
             this.Desc_Produto,
             this.Qtde,
             this.Dt_Transacao,
-            this.vendaFormatado});
+            this.vendaFormatado,
+            this.Pagamento});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_Vendas.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_Vendas.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dtg_Vendas.Location = new System.Drawing.Point(12, 70);
             this.dtg_Vendas.Name = "dtg_Vendas";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtg_Vendas.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Vendas.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dtg_Vendas.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg_Vendas.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dtg_Vendas.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Navy;
-            this.dtg_Vendas.Size = new System.Drawing.Size(755, 416);
+            this.dtg_Vendas.Size = new System.Drawing.Size(948, 416);
             this.dtg_Vendas.TabIndex = 25;
             // 
             // grp_Decrescente
@@ -331,7 +361,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, -1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(755, 69);
+            this.groupBox1.Size = new System.Drawing.Size(862, 69);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tabela";
@@ -339,7 +369,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(512, 17);
+            this.label6.Location = new System.Drawing.Point(598, 17);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 15);
             this.label6.TabIndex = 35;
@@ -348,7 +378,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(646, 17);
+            this.label4.Location = new System.Drawing.Point(738, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 34;
@@ -357,7 +387,7 @@
             // dtp_inicial
             // 
             this.dtp_inicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_inicial.Location = new System.Drawing.Point(496, 37);
+            this.dtp_inicial.Location = new System.Drawing.Point(582, 37);
             this.dtp_inicial.Name = "dtp_inicial";
             this.dtp_inicial.Size = new System.Drawing.Size(102, 21);
             this.dtp_inicial.TabIndex = 33;
@@ -367,7 +397,7 @@
             // dtp_final
             // 
             this.dtp_final.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_final.Location = new System.Drawing.Point(630, 37);
+            this.dtp_final.Location = new System.Drawing.Point(722, 37);
             this.dtp_final.Name = "dtp_final";
             this.dtp_final.Size = new System.Drawing.Size(102, 21);
             this.dtp_final.TabIndex = 32;
@@ -375,7 +405,7 @@
             // 
             // txt_Nome
             // 
-            this.txt_Nome.Location = new System.Drawing.Point(242, 37);
+            this.txt_Nome.Location = new System.Drawing.Point(314, 37);
             this.txt_Nome.Name = "txt_Nome";
             this.txt_Nome.Size = new System.Drawing.Size(227, 21);
             this.txt_Nome.TabIndex = 31;
@@ -385,7 +415,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(280, 19);
+            this.label3.Location = new System.Drawing.Point(352, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 15);
             this.label3.TabIndex = 30;
@@ -394,7 +424,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 19);
+            this.label1.Location = new System.Drawing.Point(68, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 15);
             this.label1.TabIndex = 29;
@@ -402,7 +432,7 @@
             // 
             // txt_Descricao
             // 
-            this.txt_Descricao.Location = new System.Drawing.Point(9, 37);
+            this.txt_Descricao.Location = new System.Drawing.Point(40, 37);
             this.txt_Descricao.Name = "txt_Descricao";
             this.txt_Descricao.Size = new System.Drawing.Size(227, 21);
             this.txt_Descricao.TabIndex = 28;
@@ -416,7 +446,7 @@
             this.groupBox2.Controls.Add(this.grp_Crescente);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(773, 179);
+            this.groupBox2.Location = new System.Drawing.Point(966, 179);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(246, 174);
             this.groupBox2.TabIndex = 36;
@@ -428,7 +458,7 @@
             this.Nome_Cliente.DataPropertyName = "Nome";
             this.Nome_Cliente.HeaderText = "Nome Cliente";
             this.Nome_Cliente.Name = "Nome_Cliente";
-            this.Nome_Cliente.Width = 200;
+            this.Nome_Cliente.Width = 190;
             // 
             // Desc_Produto
             // 
@@ -459,12 +489,20 @@
             this.vendaFormatado.Name = "vendaFormatado";
             this.vendaFormatado.Width = 90;
             // 
+            // Pagamento
+            // 
+            this.Pagamento.DataPropertyName = "pagamentoFormatado";
+            this.Pagamento.HeaderText = "Relatório Pagamento";
+            this.Pagamento.Name = "Pagamento";
+            this.Pagamento.Width = 200;
+            // 
             // FormVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1030, 498);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1224, 498);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtg_Vendas);
@@ -523,5 +561,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Qtde;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dt_Transacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendaFormatado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pagamento;
     }
 }

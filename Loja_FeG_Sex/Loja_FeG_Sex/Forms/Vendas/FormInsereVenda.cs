@@ -24,7 +24,15 @@ namespace Loja_FeG_Sex.Forms.Vendas
             nud_QTD.Value = 0;
             cb_Cliente.SelectedIndex = 0;
             cb_Produto.SelectedIndex = 0;
-
+            txt_Total.Text = "";
+            txt_troco.Text = "";
+            txt_venda_banco.Text = "";
+            nud_Desconto.Value = decimal.Parse("0,00");
+            nud_recebido.Value = decimal.Parse("0,00");
+            lblRecebimento.Visible = false;
+            dtp_recebimento.Value = DateTime.Now;
+            dtp_recebimento.Visible = false;
+            rd_AVista.Checked = true;
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -58,15 +66,35 @@ namespace Loja_FeG_Sex.Forms.Vendas
             //cb_Produto.MaxDropDownItems = 10;            
 
             txt_Data.Text = DateTime.Now.ToString();
+            lblRecebimento.Visible = false;
+            dtp_recebimento.Value = DateTime.Now;
+            dtp_recebimento.Visible = false;
+            rd_AVista.Checked = true;
         }
 
         private void btn_Confirmar_Click(object sender, EventArgs e)
         {
             VendasVo entidades = new VendasVo();
 
+            int verificaEstoque = (cb_Produto.SelectedItem as ProdutosVo).Qtde;
+            string nomeTipoPagamento = "";
+
+            if (rd_AVista.Checked == true)
+                nomeTipoPagamento = "À Vista";
+            else if (rd_boleto.Checked == true)
+                nomeTipoPagamento = "Boleto";
+            else if (rd_cartao.Checked == true)
+                nomeTipoPagamento = "Cartão";
+            else
+                nomeTipoPagamento = "À Prazo";
+
             if (nud_QTD.Value == decimal.Parse("0,00"))
             {
                 MessageBox.Show("Quantidade Zerada\nCorrija por favor!");
+            }
+            else if (nud_QTD.Value > verificaEstoque)
+            {
+                MessageBox.Show("Quantidade Requerida Maior que Estoque\nCorrija por favor!");
             }
             else
             {
@@ -74,7 +102,9 @@ namespace Loja_FeG_Sex.Forms.Vendas
                 entidades.Id_Prod = int.Parse(cb_Produto.SelectedValue.ToString());
                 entidades.Dt_Transacao = DateTime.Parse(txt_Data.Text);
                 entidades.Qtde = int.Parse(nud_QTD.Value.ToString());
-                entidades.Vl_Venda = decimal.Parse(txt_venda_banco.Text);
+                entidades.Vl_Venda = decimal.Parse(txt_Total.Text);
+                entidades.Data_Recebimento = dtp_recebimento.Value;
+                entidades.Tipo_Recebimento = nomeTipoPagamento;
 
                 string mensagem = vendasBo.Salvar(entidades);
                 MessageBox.Show(mensagem);
@@ -84,7 +114,6 @@ namespace Loja_FeG_Sex.Forms.Vendas
 
         private void nud_Venda_ValueChanged(object sender, EventArgs e)
         {
-            //txt_Total.Text = nud_Venda.Value.ToString();
         }
 
         private void cb_Cliente_SelectedIndexChanged(object sender, EventArgs e)
@@ -95,9 +124,6 @@ namespace Loja_FeG_Sex.Forms.Vendas
         {
             try
             {
-                //var teste = cb_Produto.SelectedIndex;//ValueMember = "Id_Prod";
-                //int id = 0;// int.Parse(teste.ValueMember);
-                //var produtoValor = VendasConstrutor.vendasBo().ListarValor(id);
                 txt_venda_banco.Text = (cb_Produto.SelectedItem as ProdutosVo).Vl_Venda.ToString();
             }
             catch (Exception) { }
@@ -135,9 +161,35 @@ namespace Loja_FeG_Sex.Forms.Vendas
             }
             catch (Exception)
             {
-
-                throw;
             }
+        }
+
+        private void grp_dados_Cliente_Enter(object sender, EventArgs e)
+        {
+        }
+
+        private void rd_AVista_CheckedChanged(object sender, EventArgs e)
+        {
+            lblRecebimento.Visible = false;
+            dtp_recebimento.Visible = false;
+        }
+
+        private void rd_boleto_CheckedChanged(object sender, EventArgs e)
+        {
+            lblRecebimento.Visible = true;
+            dtp_recebimento.Visible = true;
+        }
+
+        private void rd_prazo_CheckedChanged(object sender, EventArgs e)
+        {
+            lblRecebimento.Visible = true;
+            dtp_recebimento.Visible = true;
+        }
+
+        private void rd_cartao_CheckedChanged(object sender, EventArgs e)
+        {
+            lblRecebimento.Visible = false;
+            dtp_recebimento.Visible = false;
         }
     }
 }

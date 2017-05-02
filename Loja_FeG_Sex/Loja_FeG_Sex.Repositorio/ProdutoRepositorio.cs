@@ -22,58 +22,6 @@ namespace Loja_FeG_Sex.Repositorio
             }
         }
 
-        public IEnumerable<ProdutosVo> ListarTodos(int id)
-        {
-            List<SqlParameter> param = new List<SqlParameter>();
-            param.Add(new SqlParameter() { ParameterName = "@id", Value = id });
-
-            using (contexto = new Contexto())
-            {
-                var strQuery = "Select * From Produtos ";
-                strQuery += " Where Id_Prod = @id ";
-                strQuery += " order by Descricao asc ";
-                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
-                return ReaderObjeto(retorno);
-            }
-        }
-
-        public IEnumerable<ProdutosVo> ListarTodos(string filtro, decimal? qtde)
-        {
-            List<SqlParameter> param = new List<SqlParameter>();
-
-            param.Add(new SqlParameter() { ParameterName = "@filtro", Value = filtro });
-            param.Add(new SqlParameter() { ParameterName = "@qtde", Value = qtde });
-
-            using (contexto = new Contexto())
-            {
-                if (filtro != "" && qtde == 0)
-                {
-                    var strQuery = "Select * From Produtos ";
-                    strQuery += " Where Descricao LIKE('%@filtro%') ";
-                    strQuery += " order by Descricao asc ";
-                    var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
-                    return ReaderObjeto(retorno);
-                }
-                else if(filtro != "" && qtde > 0)
-                {
-                    var strQuery = "Select * From Produtos ";
-                    strQuery += " Where Descricao LIKE('%@filtro%') ";
-                    strQuery += " AND Quantidade <= @qtde ";
-                    strQuery += " order by Descricao asc ";
-                    var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
-                    return ReaderObjeto(retorno);
-                }
-                else
-                {
-                    var strQuery = "Select * From Produtos ";
-                    strQuery += " Where Quantidade <= @qtde ";
-                    strQuery += " order by Descricao asc ";
-                    var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
-                    return ReaderObjeto(retorno);
-                }
-            }
-        }
-
         public string Salvar(ProdutosVo entidade)
         {
             var mensagem = "";
@@ -137,5 +85,57 @@ namespace Loja_FeG_Sex.Repositorio
             reader.Close();
             return produto;
         }
+
+        //public IEnumerable<ProdutosVo> ListarTodos(int id)
+        //{
+        //    List<SqlParameter> param = new List<SqlParameter>();
+        //    param.Add(new SqlParameter() { ParameterName = "@id", Value = id });
+
+        //    using (contexto = new Contexto())
+        //    {
+        //        var strQuery = "Select * From Produtos ";
+        //        strQuery += " Where Id_Prod = @id ";
+        //        strQuery += " order by Descricao asc ";
+        //        var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+        //        return ReaderObjeto(retorno);
+        //    }
+        //}
+
+        //public IEnumerable<ProdutosVo> ListarTodos(string filtro, decimal? qtde)
+        //{
+        //    List<SqlParameter> param = new List<SqlParameter>();
+
+        //    param.Add(new SqlParameter() { ParameterName = "@filtro", Value = filtro });
+        //    param.Add(new SqlParameter() { ParameterName = "@qtde", Value = qtde });
+
+        //    using (contexto = new Contexto())
+        //    {
+        //        if (filtro != "" && qtde == 0)
+        //        {
+        //            var strQuery = "Select * From Produtos ";
+        //            strQuery += " Where Descricao LIKE('%@filtro%') ";
+        //            strQuery += " order by Descricao asc ";
+        //            var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+        //            return ReaderObjeto(retorno);
+        //        }
+        //        else if(filtro != "" && qtde > 0)
+        //        {
+        //            var strQuery = "Select * From Produtos ";
+        //            strQuery += " Where Descricao LIKE('%@filtro%') ";
+        //            strQuery += " AND Quantidade <= @qtde ";
+        //            strQuery += " order by Descricao asc ";
+        //            var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+        //            return ReaderObjeto(retorno);
+        //        }
+        //        else
+        //        {
+        //            var strQuery = "Select * From Produtos ";
+        //            strQuery += " Where Quantidade <= @qtde ";
+        //            strQuery += " order by Descricao asc ";
+        //            var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+        //            return ReaderObjeto(retorno);
+        //        }
+        //    }
+        //}        
     }
 }

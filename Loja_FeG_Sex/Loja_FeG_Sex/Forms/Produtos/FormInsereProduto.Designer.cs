@@ -32,6 +32,10 @@
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Confirmar = new System.Windows.Forms.Button();
             this.grp_dados_Cliente = new System.Windows.Forms.GroupBox();
+            this.nup_venda = new System.Windows.Forms.NumericUpDown();
+            this.nup_compra = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.nud_Qtd = new System.Windows.Forms.NumericUpDown();
@@ -42,14 +46,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.nup_compra = new System.Windows.Forms.NumericUpDown();
-            this.nup_venda = new System.Windows.Forms.NumericUpDown();
             this.grp_dados_Cliente.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Qtd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nup_compra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nup_venda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nup_compra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Qtd)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Cancelar
@@ -109,6 +109,46 @@
             this.grp_dados_Cliente.TabIndex = 18;
             this.grp_dados_Cliente.TabStop = false;
             this.grp_dados_Cliente.Text = "Dados do Produto";
+            // 
+            // nup_venda
+            // 
+            this.nup_venda.DecimalPlaces = 2;
+            this.nup_venda.Location = new System.Drawing.Point(390, 103);
+            this.nup_venda.Name = "nup_venda";
+            this.nup_venda.Size = new System.Drawing.Size(75, 26);
+            this.nup_venda.TabIndex = 31;
+            this.nup_venda.ThousandsSeparator = true;
+            // 
+            // nup_compra
+            // 
+            this.nup_compra.DecimalPlaces = 2;
+            this.nup_compra.Location = new System.Drawing.Point(254, 103);
+            this.nup_compra.Name = "nup_compra";
+            this.nup_compra.Size = new System.Drawing.Size(75, 26);
+            this.nup_compra.TabIndex = 30;
+            this.nup_compra.ThousandsSeparator = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(219, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 19);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "R$";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(355, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 19);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "R$";
             // 
             // label9
             // 
@@ -217,51 +257,12 @@
             this.label3.Text = "DOCE";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(355, 105);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 19);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "R$";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(219, 105);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 19);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "R$";
-            // 
-            // nup_compra
-            // 
-            this.nup_compra.DecimalPlaces = 2;
-            this.nup_compra.Location = new System.Drawing.Point(254, 103);
-            this.nup_compra.Name = "nup_compra";
-            this.nup_compra.Size = new System.Drawing.Size(75, 26);
-            this.nup_compra.TabIndex = 30;
-            this.nup_compra.ThousandsSeparator = true;
-            // 
-            // nup_venda
-            // 
-            this.nup_venda.DecimalPlaces = 2;
-            this.nup_venda.Location = new System.Drawing.Point(390, 103);
-            this.nup_venda.Name = "nup_venda";
-            this.nup_venda.Size = new System.Drawing.Size(75, 26);
-            this.nup_venda.TabIndex = 31;
-            this.nup_venda.ThousandsSeparator = true;
-            // 
             // FormInsereProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(625, 206);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -278,9 +279,9 @@
             this.Load += new System.EventHandler(this.FormInsereProduto_Load);
             this.grp_dados_Cliente.ResumeLayout(false);
             this.grp_dados_Cliente.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Qtd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nup_compra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nup_venda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nup_compra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Qtd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

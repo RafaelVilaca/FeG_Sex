@@ -31,9 +31,40 @@ namespace Loja_FeG_Sex.Forms
         private object Lista(IEnumerable<ClientesVo> clientes)
         {
             object Cliente;
-
-            if (txt_Busca.Text == "")
-                Cliente = clientes.Select(x => new
+            try
+            {
+                if (txt_Busca.Text == "")
+                    Cliente = clientes.Select(x => new
+                    {
+                        x.Nome,
+                        x.Email,
+                        x.Dt_Nasc,
+                        x.Dt_Cadastro,
+                        x.Sexo,
+                        x.TelefoneFormatado,
+                        x.CelularFormatado,
+                        x.Endereco
+                    }).ToList();
+                else
+                    Cliente = clientes
+                        .Where(x => x.Nome.Contains(txt_Busca.Text))
+                        .Select(x => new
+                        {
+                            x.Nome,
+                            x.Email,
+                            x.Dt_Nasc,
+                            x.Dt_Cadastro,
+                            x.Sexo,
+                            x.TelefoneFormatado,
+                            x.CelularFormatado,
+                            x.Endereco
+                        }).ToList();
+            }
+            catch (Exception)
+            {
+                Cliente = clientes
+                .Where(x => x.Nome.Contains(txt_Busca.Text))
+                .Select(x => new
                 {
                     x.Nome,
                     x.Email,
@@ -44,19 +75,7 @@ namespace Loja_FeG_Sex.Forms
                     x.CelularFormatado,
                     x.Endereco
                 }).ToList();
-            else
-                Cliente = clientes.Where(x => x.Nome.Contains(txt_Busca.Text)).Select(x => new
-                {
-                    x.Nome,
-                    x.Email,
-                    x.Dt_Nasc,
-                    x.Dt_Cadastro,
-                    x.Sexo,
-                    x.TelefoneFormatado,
-                    x.CelularFormatado,
-                    x.Endereco
-                }).ToList();
-
+            }
             return Cliente;
         }
 
@@ -117,7 +136,7 @@ namespace Loja_FeG_Sex.Forms
 
         private void txt_Busca_TextChanged(object sender, EventArgs e)
         {
-            var clientes = ClientesConstrutor.clienteBo().ListarTodos(txt_Busca.Text);
+            var clientes = ClientesConstrutor.clienteBo().ListarTodos();
             dtg_Clientes.DataSource = Lista(clientes);
         }
     }

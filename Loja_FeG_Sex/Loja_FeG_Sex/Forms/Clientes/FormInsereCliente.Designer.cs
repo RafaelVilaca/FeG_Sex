@@ -379,7 +379,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Transparent;
-            this.label11.Location = new System.Drawing.Point(10, 268);
+            this.label11.Location = new System.Drawing.Point(10, 265);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(140, 30);
             this.label11.TabIndex = 23;
@@ -392,7 +392,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Transparent;
-            this.label12.Location = new System.Drawing.Point(39, 235);
+            this.label12.Location = new System.Drawing.Point(39, 232);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(81, 30);
             this.label12.TabIndex = 22;
@@ -404,6 +404,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(678, 295);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);

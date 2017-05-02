@@ -32,7 +32,17 @@
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Confirmar = new System.Windows.Forms.Button();
             this.grp_dados_Cliente = new System.Windows.Forms.GroupBox();
-            this.btn_Calc = new System.Windows.Forms.Button();
+            this.nud_recebido = new System.Windows.Forms.NumericUpDown();
+            this.txt_troco = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txt_venda_banco = new System.Windows.Forms.TextBox();
+            this.txt_Total = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.nud_Desconto = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.cb_Cliente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cb_Produto = new System.Windows.Forms.ComboBox();
@@ -42,23 +52,21 @@
             this.txt_Data = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_Calc = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.nud_Desconto = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt_Total = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txt_venda_banco = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txt_troco = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.nud_recebido = new System.Windows.Forms.NumericUpDown();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rd_AVista = new System.Windows.Forms.RadioButton();
+            this.rd_cartao = new System.Windows.Forms.RadioButton();
+            this.rd_boleto = new System.Windows.Forms.RadioButton();
+            this.rd_prazo = new System.Windows.Forms.RadioButton();
+            this.lblRecebimento = new System.Windows.Forms.Label();
+            this.dtp_recebimento = new System.Windows.Forms.DateTimePicker();
             this.grp_dados_Cliente.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_QTD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Desconto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_recebido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Desconto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_QTD)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Cancelar
@@ -70,7 +78,7 @@
             this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cancelar.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancelar.ForeColor = System.Drawing.Color.Coral;
-            this.btn_Cancelar.Location = new System.Drawing.Point(399, 272);
+            this.btn_Cancelar.Location = new System.Drawing.Point(395, 347);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(142, 46);
             this.btn_Cancelar.TabIndex = 24;
@@ -87,7 +95,7 @@
             this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Confirmar.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Confirmar.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Confirmar.Location = new System.Drawing.Point(249, 272);
+            this.btn_Confirmar.Location = new System.Drawing.Point(245, 347);
             this.btn_Confirmar.Name = "btn_Confirmar";
             this.btn_Confirmar.Size = new System.Drawing.Size(144, 46);
             this.btn_Confirmar.TabIndex = 23;
@@ -98,6 +106,7 @@
             // grp_dados_Cliente
             // 
             this.grp_dados_Cliente.BackColor = System.Drawing.Color.Transparent;
+            this.grp_dados_Cliente.Controls.Add(this.groupBox1);
             this.grp_dados_Cliente.Controls.Add(this.nud_recebido);
             this.grp_dados_Cliente.Controls.Add(this.txt_troco);
             this.grp_dados_Cliente.Controls.Add(this.label13);
@@ -122,26 +131,137 @@
             this.grp_dados_Cliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.grp_dados_Cliente.Location = new System.Drawing.Point(12, 12);
             this.grp_dados_Cliente.Name = "grp_dados_Cliente";
-            this.grp_dados_Cliente.Size = new System.Drawing.Size(525, 239);
+            this.grp_dados_Cliente.Size = new System.Drawing.Size(525, 314);
             this.grp_dados_Cliente.TabIndex = 22;
             this.grp_dados_Cliente.TabStop = false;
             this.grp_dados_Cliente.Text = "Dados da Venda";
+            this.grp_dados_Cliente.Enter += new System.EventHandler(this.grp_dados_Cliente_Enter);
             // 
-            // btn_Calc
+            // nud_recebido
             // 
-            this.btn_Calc.BackColor = System.Drawing.Color.Navy;
-            this.btn_Calc.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn_Calc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btn_Calc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
-            this.btn_Calc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Calc.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Calc.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Calc.Location = new System.Drawing.Point(133, 257);
-            this.btn_Calc.Name = "btn_Calc";
-            this.btn_Calc.Size = new System.Drawing.Size(28, 28);
-            this.btn_Calc.TabIndex = 30;
-            this.btn_Calc.UseVisualStyleBackColor = false;
-            this.btn_Calc.Click += new System.EventHandler(this.btn_Calc_Click);
+            this.nud_recebido.DecimalPlaces = 2;
+            this.nud_recebido.ForeColor = System.Drawing.Color.Black;
+            this.nud_recebido.Location = new System.Drawing.Point(399, 172);
+            this.nud_recebido.Name = "nud_recebido";
+            this.nud_recebido.Size = new System.Drawing.Size(107, 26);
+            this.nud_recebido.TabIndex = 42;
+            this.nud_recebido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nud_recebido.ThousandsSeparator = true;
+            this.nud_recebido.ValueChanged += new System.EventHandler(this.nud_recebido_ValueChanged);
+            // 
+            // txt_troco
+            // 
+            this.txt_troco.ForeColor = System.Drawing.Color.Black;
+            this.txt_troco.Location = new System.Drawing.Point(399, 205);
+            this.txt_troco.MaxLength = 30;
+            this.txt_troco.Name = "txt_troco";
+            this.txt_troco.ReadOnly = true;
+            this.txt_troco.Size = new System.Drawing.Size(107, 26);
+            this.txt_troco.TabIndex = 41;
+            this.txt_troco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.Location = new System.Drawing.Point(338, 208);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(52, 19);
+            this.label13.TabIndex = 40;
+            this.label13.Text = "Troco:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label12.Location = new System.Drawing.Point(272, 174);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(115, 19);
+            this.label12.TabIndex = 38;
+            this.label12.Text = "Total Recebido:";
+            // 
+            // txt_venda_banco
+            // 
+            this.txt_venda_banco.Location = new System.Drawing.Point(38, 141);
+            this.txt_venda_banco.Name = "txt_venda_banco";
+            this.txt_venda_banco.ReadOnly = true;
+            this.txt_venda_banco.Size = new System.Drawing.Size(85, 26);
+            this.txt_venda_banco.TabIndex = 37;
+            // 
+            // txt_Total
+            // 
+            this.txt_Total.ForeColor = System.Drawing.Color.Black;
+            this.txt_Total.Location = new System.Drawing.Point(399, 138);
+            this.txt_Total.MaxLength = 30;
+            this.txt_Total.Name = "txt_Total";
+            this.txt_Total.ReadOnly = true;
+            this.txt_Total.Size = new System.Drawing.Size(107, 26);
+            this.txt_Total.TabIndex = 36;
+            this.txt_Total.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label11.Location = new System.Drawing.Point(272, 141);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(121, 19);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Total à Receber:";
+            // 
+            // nud_Desconto
+            // 
+            this.nud_Desconto.DecimalPlaces = 2;
+            this.nud_Desconto.ForeColor = System.Drawing.Color.Black;
+            this.nud_Desconto.Location = new System.Drawing.Point(179, 141);
+            this.nud_Desconto.Name = "nud_Desconto";
+            this.nud_Desconto.Size = new System.Drawing.Size(75, 26);
+            this.nud_Desconto.TabIndex = 34;
+            this.nud_Desconto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nud_Desconto.ThousandsSeparator = true;
+            this.nud_Desconto.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(144, 143);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 19);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "R$";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(168, 120);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 19);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Desconto:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(7, 145);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 19);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "R$";
             // 
             // cb_Cliente
             // 
@@ -254,13 +374,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Selecionar Produto";
             // 
+            // btn_Calc
+            // 
+            this.btn_Calc.BackColor = System.Drawing.Color.Navy;
+            this.btn_Calc.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_Calc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btn_Calc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.btn_Calc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Calc.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Calc.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_Calc.Location = new System.Drawing.Point(129, 332);
+            this.btn_Calc.Name = "btn_Calc";
+            this.btn_Calc.Size = new System.Drawing.Size(28, 28);
+            this.btn_Calc.TabIndex = 30;
+            this.btn_Calc.UseVisualStyleBackColor = false;
+            this.btn_Calc.Click += new System.EventHandler(this.btn_Calc_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(20, 288);
+            this.label5.Location = new System.Drawing.Point(16, 363);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 30);
             this.label5.TabIndex = 26;
@@ -273,138 +409,98 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(49, 255);
+            this.label4.Location = new System.Drawing.Point(45, 330);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 30);
             this.label4.TabIndex = 25;
             this.label4.Text = "DOCE";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // groupBox1
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(7, 145);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 19);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "R$";
+            this.groupBox1.Controls.Add(this.dtp_recebimento);
+            this.groupBox1.Controls.Add(this.lblRecebimento);
+            this.groupBox1.Controls.Add(this.rd_prazo);
+            this.groupBox1.Controls.Add(this.rd_boleto);
+            this.groupBox1.Controls.Add(this.rd_cartao);
+            this.groupBox1.Controls.Add(this.rd_AVista);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.Location = new System.Drawing.Point(11, 174);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(255, 134);
+            this.groupBox1.TabIndex = 43;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Formas de Pagamento:";
             // 
-            // nud_Desconto
+            // rd_AVista
             // 
-            this.nud_Desconto.DecimalPlaces = 2;
-            this.nud_Desconto.ForeColor = System.Drawing.Color.Black;
-            this.nud_Desconto.Location = new System.Drawing.Point(179, 141);
-            this.nud_Desconto.Name = "nud_Desconto";
-            this.nud_Desconto.Size = new System.Drawing.Size(75, 26);
-            this.nud_Desconto.TabIndex = 34;
-            this.nud_Desconto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nud_Desconto.ThousandsSeparator = true;
-            this.nud_Desconto.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.rd_AVista.AutoSize = true;
+            this.rd_AVista.Location = new System.Drawing.Point(36, 26);
+            this.rd_AVista.Name = "rd_AVista";
+            this.rd_AVista.Size = new System.Drawing.Size(72, 23);
+            this.rd_AVista.TabIndex = 0;
+            this.rd_AVista.TabStop = true;
+            this.rd_AVista.Text = "À Vista";
+            this.rd_AVista.UseVisualStyleBackColor = true;
+            this.rd_AVista.CheckedChanged += new System.EventHandler(this.rd_AVista_CheckedChanged);
             // 
-            // label7
+            // rd_cartao
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(144, 143);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 19);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "R$";
+            this.rd_cartao.AutoSize = true;
+            this.rd_cartao.Location = new System.Drawing.Point(143, 26);
+            this.rd_cartao.Name = "rd_cartao";
+            this.rd_cartao.Size = new System.Drawing.Size(69, 23);
+            this.rd_cartao.TabIndex = 1;
+            this.rd_cartao.TabStop = true;
+            this.rd_cartao.Text = "Cartão";
+            this.rd_cartao.UseVisualStyleBackColor = true;
+            this.rd_cartao.CheckedChanged += new System.EventHandler(this.rd_cartao_CheckedChanged);
             // 
-            // label8
+            // rd_boleto
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(168, 120);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 19);
-            this.label8.TabIndex = 32;
-            this.label8.Text = "Desconto:";
+            this.rd_boleto.AutoSize = true;
+            this.rd_boleto.Location = new System.Drawing.Point(36, 55);
+            this.rd_boleto.Name = "rd_boleto";
+            this.rd_boleto.Size = new System.Drawing.Size(67, 23);
+            this.rd_boleto.TabIndex = 2;
+            this.rd_boleto.TabStop = true;
+            this.rd_boleto.Text = "Boleto";
+            this.rd_boleto.UseVisualStyleBackColor = true;
+            this.rd_boleto.CheckedChanged += new System.EventHandler(this.rd_boleto_CheckedChanged);
             // 
-            // txt_Total
+            // rd_prazo
             // 
-            this.txt_Total.ForeColor = System.Drawing.Color.Black;
-            this.txt_Total.Location = new System.Drawing.Point(399, 138);
-            this.txt_Total.MaxLength = 30;
-            this.txt_Total.Name = "txt_Total";
-            this.txt_Total.ReadOnly = true;
-            this.txt_Total.Size = new System.Drawing.Size(107, 26);
-            this.txt_Total.TabIndex = 36;
-            this.txt_Total.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.rd_prazo.AutoSize = true;
+            this.rd_prazo.Location = new System.Drawing.Point(143, 55);
+            this.rd_prazo.Name = "rd_prazo";
+            this.rd_prazo.Size = new System.Drawing.Size(77, 23);
+            this.rd_prazo.TabIndex = 3;
+            this.rd_prazo.TabStop = true;
+            this.rd_prazo.Text = "À Prazo";
+            this.rd_prazo.UseVisualStyleBackColor = true;
+            this.rd_prazo.CheckedChanged += new System.EventHandler(this.rd_prazo_CheckedChanged);
             // 
-            // label11
+            // lblRecebimento
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(272, 141);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(121, 19);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "Total à Receber:";
+            this.lblRecebimento.AutoSize = true;
+            this.lblRecebimento.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecebimento.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecebimento.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblRecebimento.Location = new System.Drawing.Point(57, 81);
+            this.lblRecebimento.Name = "lblRecebimento";
+            this.lblRecebimento.Size = new System.Drawing.Size(139, 19);
+            this.lblRecebimento.TabIndex = 27;
+            this.lblRecebimento.Text = "Data Recebimento:";
+            this.lblRecebimento.Visible = false;
             // 
-            // txt_venda_banco
+            // dtp_recebimento
             // 
-            this.txt_venda_banco.Location = new System.Drawing.Point(38, 141);
-            this.txt_venda_banco.Name = "txt_venda_banco";
-            this.txt_venda_banco.ReadOnly = true;
-            this.txt_venda_banco.Size = new System.Drawing.Size(85, 26);
-            this.txt_venda_banco.TabIndex = 37;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label12.Location = new System.Drawing.Point(272, 174);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(115, 19);
-            this.label12.TabIndex = 38;
-            this.label12.Text = "Total Recebido:";
-            // 
-            // txt_troco
-            // 
-            this.txt_troco.ForeColor = System.Drawing.Color.Black;
-            this.txt_troco.Location = new System.Drawing.Point(399, 205);
-            this.txt_troco.MaxLength = 30;
-            this.txt_troco.Name = "txt_troco";
-            this.txt_troco.ReadOnly = true;
-            this.txt_troco.Size = new System.Drawing.Size(107, 26);
-            this.txt_troco.TabIndex = 41;
-            this.txt_troco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label13.Location = new System.Drawing.Point(338, 208);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 19);
-            this.label13.TabIndex = 40;
-            this.label13.Text = "Troco:";
-            // 
-            // nud_recebido
-            // 
-            this.nud_recebido.DecimalPlaces = 2;
-            this.nud_recebido.ForeColor = System.Drawing.Color.Black;
-            this.nud_recebido.Location = new System.Drawing.Point(399, 172);
-            this.nud_recebido.Name = "nud_recebido";
-            this.nud_recebido.Size = new System.Drawing.Size(107, 26);
-            this.nud_recebido.TabIndex = 42;
-            this.nud_recebido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nud_recebido.ThousandsSeparator = true;
-            this.nud_recebido.ValueChanged += new System.EventHandler(this.nud_recebido_ValueChanged);
+            this.dtp_recebimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_recebimento.Location = new System.Drawing.Point(64, 100);
+            this.dtp_recebimento.Name = "dtp_recebimento";
+            this.dtp_recebimento.Size = new System.Drawing.Size(122, 26);
+            this.dtp_recebimento.TabIndex = 28;
+            this.dtp_recebimento.Visible = false;
             // 
             // FormInsereVenda
             // 
@@ -412,7 +508,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(551, 330);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(551, 400);
             this.Controls.Add(this.btn_Calc);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -429,9 +526,11 @@
             this.Load += new System.EventHandler(this.FormInsereVenda_Load);
             this.grp_dados_Cliente.ResumeLayout(false);
             this.grp_dados_Cliente.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_QTD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Desconto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_recebido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Desconto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_QTD)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -465,5 +564,12 @@
         private System.Windows.Forms.TextBox txt_troco;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DateTimePicker dtp_recebimento;
+        private System.Windows.Forms.Label lblRecebimento;
+        private System.Windows.Forms.RadioButton rd_prazo;
+        private System.Windows.Forms.RadioButton rd_boleto;
+        private System.Windows.Forms.RadioButton rd_cartao;
+        private System.Windows.Forms.RadioButton rd_AVista;
     }
 }

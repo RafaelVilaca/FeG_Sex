@@ -25,14 +25,9 @@ namespace Loja_FeG_Sex.Business
             return repositorio.ListarTodos();
         }
 
-        public decimal ListarValor(int id)
-        {
-            return repositorio.ListarValor(id);
-        }
-
-        public IEnumerable<VendasVo> ListarTodos(string filtroNome, string filtroProduto, DateTime? dataInicial, DateTime? dataFinal)
-        {
-            return repositorio.ListarTodos(filtroNome, filtroProduto, dataInicial, dataFinal);
-        }
+        //public IEnumerable<VendasVo> ListarTodos(string filtroNome, string filtroProduto, DateTime? dataInicial, DateTime? dataFinal)
+        //{
+        //    return repositorio.ListarTodos(filtroNome, filtroProduto, dataInicial, dataFinal);
+        //}
     }
 }

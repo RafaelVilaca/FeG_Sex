@@ -31,46 +31,12 @@ namespace Loja_FeG_Sex.Forms
         private object Lista(IEnumerable<ProdutosVo> produtos)
         {
             object Produtos;
-
-            if (txt_Busca.Text != "" && nud_busca.Value > 0)
-                Produtos = produtos
-                .Where(x => x.Descricao.Contains(txt_Busca.Text) && x.Qtde <= nud_busca.Value)
-                .Select(x => new
-                {
-                    x.Descricao,
-                    x.Qtde,
-                    x.Dt_Cadastro,
-                    x.compraFormatado,
-                    x.vendaFormatado
-                }).ToList();
-
-
-            else if (txt_Busca.Text == "" && nud_busca.Value != 0)
-                Produtos = produtos
-                .Where(x => x.Qtde <= nud_busca.Value)
-                .Select(x => new
-                {
-                    x.Descricao,
-                    x.Qtde,
-                    x.Dt_Cadastro,
-                    x.compraFormatado,
-                    x.vendaFormatado
-                }).ToList();
-
-            else if (txt_Busca.Text != "" && nud_busca.Value == 0)
-                Produtos = produtos
-                .Where(x => x.Descricao.Contains(txt_Busca.Text))
-                .Select(x => new
-                {
-                    x.Descricao,
-                    x.Qtde,
-                    x.Dt_Cadastro,
-                    x.compraFormatado,
-                    x.vendaFormatado
-                }).ToList();
-
-            else
-                Produtos = produtos.Select(x => new
+            try
+            {
+                if (txt_Busca.Text != "" && nud_busca.Value > 0)
+                    Produtos = produtos
+                    .Where(x => x.Descricao.Contains(txt_Busca.Text) && x.Qtde <= nud_busca.Value)
+                    .Select(x => new
                     {
                         x.Descricao,
                         x.Qtde,
@@ -79,6 +45,51 @@ namespace Loja_FeG_Sex.Forms
                         x.vendaFormatado
                     }).ToList();
 
+
+                else if (txt_Busca.Text == "" && nud_busca.Value != 0)
+                    Produtos = produtos
+                    .Where(x => x.Qtde <= nud_busca.Value)
+                    .Select(x => new
+                    {
+                        x.Descricao,
+                        x.Qtde,
+                        x.Dt_Cadastro,
+                        x.compraFormatado,
+                        x.vendaFormatado
+                    }).ToList();
+
+                else if (txt_Busca.Text != "" && nud_busca.Value == 0)
+                    Produtos = produtos
+                    .Where(x => x.Descricao.Contains(txt_Busca.Text))
+                    .Select(x => new
+                    {
+                        x.Descricao,
+                        x.Qtde,
+                        x.Dt_Cadastro,
+                        x.compraFormatado,
+                        x.vendaFormatado
+                    }).ToList();
+
+                else
+                    Produtos = produtos.Select(x => new
+                    {
+                        x.Descricao,
+                        x.Qtde,
+                        x.Dt_Cadastro,
+                        x.compraFormatado,
+                        x.vendaFormatado
+                    }).ToList();
+            }
+            catch(Exception) {
+                Produtos = produtos.Select(x => new
+                {
+                    x.Descricao,
+                    x.Qtde,
+                    x.Dt_Cadastro,
+                    x.compraFormatado,
+                    x.vendaFormatado
+                }).ToList();
+            }
             return Produtos;
         }
 
@@ -150,13 +161,13 @@ namespace Loja_FeG_Sex.Forms
 
         private void txt_Busca_TextChanged(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos(txt_Busca.Text, nud_busca.Value);
+            var produtos = ProdutosConstrutor.produtosBo().ListarTodos();//(txt_Busca.Text, nud_busca.Value);
             dtg_Produtos.DataSource = Lista(produtos);
         }
 
         private void nud_busca_ValueChanged(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos(txt_Busca.Text, nud_busca.Value);
+            var produtos = ProdutosConstrutor.produtosBo().ListarTodos();// (txt_Busca.Text, nud_busca.Value);
             dtg_Produtos.DataSource = Lista(produtos);
         }
     }
