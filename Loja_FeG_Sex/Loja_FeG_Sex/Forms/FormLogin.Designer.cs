@@ -1,4 +1,4 @@
-﻿namespace Loja_FeG_Sex
+﻿namespace Loja_FeG_Sex.Forms
 {
     partial class FormLogin
     {
@@ -46,7 +46,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 16.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(201, 9);
+            this.label1.Location = new System.Drawing.Point(201, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 25);
             this.label1.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             this.txt_Login.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Login.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txt_Login.Location = new System.Drawing.Point(113, 37);
+            this.txt_Login.Location = new System.Drawing.Point(113, 59);
             this.txt_Login.MaxLength = 20;
             this.txt_Login.Name = "txt_Login";
             this.txt_Login.Size = new System.Drawing.Size(260, 29);
@@ -69,7 +69,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 16.25F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(201, 69);
+            this.label2.Location = new System.Drawing.Point(201, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 25);
             this.label2.TabIndex = 2;
@@ -79,39 +79,41 @@
             // 
             this.txt_Senha.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Senha.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txt_Senha.Location = new System.Drawing.Point(113, 97);
+            this.txt_Senha.Location = new System.Drawing.Point(113, 119);
             this.txt_Senha.MaxLength = 20;
             this.txt_Senha.Name = "txt_Senha";
             this.txt_Senha.PasswordChar = '*';
             this.txt_Senha.Size = new System.Drawing.Size(260, 29);
-            this.txt_Senha.TabIndex = 3;
+            this.txt_Senha.TabIndex = 2;
             this.txt_Senha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lbl_Verificacao
             // 
             this.lbl_Verificacao.AutoSize = true;
             this.lbl_Verificacao.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Verificacao.Font = new System.Drawing.Font("Times New Roman", 16.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_Verificacao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Verificacao.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Verificacao.Location = new System.Drawing.Point(157, 247);
+            this.lbl_Verificacao.Location = new System.Drawing.Point(176, 7);
             this.lbl_Verificacao.Name = "lbl_Verificacao";
-            this.lbl_Verificacao.Size = new System.Drawing.Size(0, 25);
+            this.lbl_Verificacao.Size = new System.Drawing.Size(0, 19);
             this.lbl_Verificacao.TabIndex = 4;
             // 
             // btn_Login
             // 
             this.btn_Login.BackColor = System.Drawing.Color.MediumBlue;
+            this.btn_Login.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Login.BackgroundImage")));
+            this.btn_Login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Login.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
             this.btn_Login.FlatAppearance.BorderSize = 3;
             this.btn_Login.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btn_Login.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkTurquoise;
             this.btn_Login.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Login.Font = new System.Drawing.Font("Times New Roman", 18.25F, System.Drawing.FontStyle.Bold);
-            this.btn_Login.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Login.Location = new System.Drawing.Point(13, 150);
+            this.btn_Login.ForeColor = System.Drawing.Color.MediumBlue;
+            this.btn_Login.Location = new System.Drawing.Point(13, 161);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(221, 57);
-            this.btn_Login.TabIndex = 5;
+            this.btn_Login.TabIndex = 3;
             this.btn_Login.Text = "Fazer Login";
             this.btn_Login.UseVisualStyleBackColor = false;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
@@ -119,16 +121,18 @@
             // btn_Cancelar
             // 
             this.btn_Cancelar.BackColor = System.Drawing.Color.MediumBlue;
+            this.btn_Cancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Cancelar.BackgroundImage")));
+            this.btn_Cancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_Cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.btn_Cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cancelar.Font = new System.Drawing.Font("Times New Roman", 18.25F, System.Drawing.FontStyle.Bold);
-            this.btn_Cancelar.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Cancelar.Location = new System.Drawing.Point(245, 150);
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.MediumBlue;
+            this.btn_Cancelar.Location = new System.Drawing.Point(245, 161);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(221, 57);
-            this.btn_Cancelar.TabIndex = 6;
+            this.btn_Cancelar.TabIndex = 4;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = false;
             this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
@@ -139,7 +143,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(329, 243);
+            this.label5.Location = new System.Drawing.Point(173, 254);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 30);
             this.label5.TabIndex = 23;
@@ -152,7 +156,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(358, 210);
+            this.label3.Location = new System.Drawing.Point(202, 221);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 30);
             this.label3.TabIndex = 22;
@@ -164,7 +168,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(477, 280);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(477, 301);
             this.ControlBox = false;
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -175,7 +180,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_Login);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;

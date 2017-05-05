@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Loja_FeG_Sex.Forms.ChaLingerie;
+using System;
 using System.Windows.Forms;
+using Loja_FeG_Sex.Forms.Clientes;
+using Loja_FeG_Sex.Forms.Produtos;
+using Loja_FeG_Sex.Forms.Vendas;
 
 namespace Loja_FeG_Sex.Forms
 {
@@ -19,30 +16,38 @@ namespace Loja_FeG_Sex.Forms
 
         private void btn_Sair_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            Close();
+            //Application.Restart();
         }
 
         private void btn_Clientes_Click(object sender, EventArgs e)
         {
-            FormClientes novajanela = new FormClientes();
-            novajanela.ShowDialog();
+            FormClientes janelaCliente = new FormClientes();
+            janelaCliente.ShowDialog();
         }
 
         private void btn_Vendas_Click(object sender, EventArgs e)
         {
-            FormVendas novajanela = new FormVendas();
-            novajanela.ShowDialog();
+            FormVendas janelaVendas = new FormVendas();
+            janelaVendas.ShowDialog();
         }
 
         private void btn_Produtos_Click(object sender, EventArgs e)
         {
-            FormProdutos novajanela = new FormProdutos();
-            novajanela.ShowDialog();
+            FormProdutos janelaProdutos = new FormProdutos();
+            janelaProdutos.ShowDialog();
         }
 
-        private void FormPrincipal_Load(object sender, EventArgs e)
+        private void btn_ChaLingerie_Click(object sender, EventArgs e)
         {
+            FormLingeries janelaCha = new FormLingeries();
+            janelaCha.ShowDialog();
+        }
 
+        private void FormPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //btn_Sair_Click(sender, e);
+            Application.Restart();
         }
     }
 }

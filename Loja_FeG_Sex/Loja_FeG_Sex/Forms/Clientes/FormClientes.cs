@@ -1,13 +1,12 @@
-﻿using Loja_FeG_Sex.Business;
-using Loja_FeG_Sex.Entidades;
-using Loja_FeG_Sex.Forms.Cliente;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Loja_FeG_Sex.Business;
+using Loja_FeG_Sex.Entidades;
 
-namespace Loja_FeG_Sex.Forms
+namespace Loja_FeG_Sex.Forms.Clientes
 {
     public partial class FormClientes : Form
     {
@@ -23,18 +22,17 @@ namespace Loja_FeG_Sex.Forms
 
         private void btn_Inserir_Click(object sender, EventArgs e)
         {
-            FormInsereCliente novajanela = new FormInsereCliente(/*this*/);
-            novajanela.ShowDialog();
+            FormInsereCliente insereCliente = new FormInsereCliente(/*this*/);
+            insereCliente.ShowDialog();
             FormClientes_Load(sender, e);
         }
 
-        private object Lista(IEnumerable<ClientesVo> clientes)
+        private void Lista(IEnumerable<ClientesVo> clientes)
         {
-            object Cliente;
             try
             {
-                if (txt_Busca.Text == "")
-                    Cliente = clientes.Select(x => new
+                dtg_Clientes.DataSource = clientes.Where(x => x.Nome.Contains(txt_Busca.Text))
+                    .Select(x => new
                     {
                         x.Nome,
                         x.Email,
@@ -43,101 +41,89 @@ namespace Loja_FeG_Sex.Forms
                         x.Sexo,
                         x.TelefoneFormatado,
                         x.CelularFormatado,
-                        x.Endereco
+                        x.Endereco,
+                        x.Situacao
                     }).ToList();
-                else
-                    Cliente = clientes
-                        .Where(x => x.Nome.Contains(txt_Busca.Text))
-                        .Select(x => new
-                        {
-                            x.Nome,
-                            x.Email,
-                            x.Dt_Nasc,
-                            x.Dt_Cadastro,
-                            x.Sexo,
-                            x.TelefoneFormatado,
-                            x.CelularFormatado,
-                            x.Endereco
-                        }).ToList();
+
+                var linhas = dtg_Clientes.Rows.Cast<DataGridViewRow>();
+                foreach (var r in linhas.Where(x => x.Cells[8].Value.ToString() == "Desativo"))
+                {
+                    //dtg_Clientes.Rows[r.Index].DefaultCellStyle.BackColor = Color.Red;
+                    r.DefaultCellStyle.BackColor = Color.MistyRose;
+                    r.DefaultCellStyle.ForeColor = Color.Red;
+                }
             }
             catch (Exception)
             {
-                Cliente = clientes
-                .Where(x => x.Nome.Contains(txt_Busca.Text))
-                .Select(x => new
-                {
-                    x.Nome,
-                    x.Email,
-                    x.Dt_Nasc,
-                    x.Dt_Cadastro,
-                    x.Sexo,
-                    x.TelefoneFormatado,
-                    x.CelularFormatado,
-                    x.Endereco
-                }).ToList();
+                MessageBox.Show(@"Problemas ao montar a lista de Clientes");
             }
-            return Cliente;
         }
 
         public void FormClientes_Load(object sender, EventArgs e)
         {
             var clientes = ClientesConstrutor.clienteBo().ListarTodos();
-            dtg_Clientes.DataSource = Lista(clientes);
+            Lista(clientes);
         }
 
         private void btn_nome_asc_Click(object sender, EventArgs e)
         {
             var clientes = ClientesConstrutor.clienteBo().ListarTodos();
-            dtg_Clientes.DataSource = Lista(clientes);
+            Lista(clientes);
         }
 
         private void btn_nome_dec_Click(object sender, EventArgs e)
         {
             var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderByDescending(x => x.Nome);
-            dtg_Clientes.DataSource = Lista(clientes);
+            Lista(clientes);
         }
 
         private void btn_dtCad_dec_Click(object sender, EventArgs e)
         {
             var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderByDescending(x => x.Dt_Cadastro);
-            dtg_Clientes.DataSource = Lista(clientes);
+            Lista(clientes);
         }
 
         private void btn_sexo_dec_Click(object sender, EventArgs e)
         {
             var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderByDescending(x => x.Sexo);
-            dtg_Clientes.DataSource = Lista(clientes);
+            Lista(clientes);
         }
 
         private void btn_sexo_asc_Click(object sender, EventArgs e)
         {
             var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderBy(x => x.Sexo);
-            dtg_Clientes.DataSource = Lista(clientes);
+            Lista(clientes);
         }
 
         private void btn_dtCad_asc_Click(object sender, EventArgs e)
         {
             var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderBy(x => x.Dt_Cadastro);
-            dtg_Clientes.DataSource = Lista(clientes);
-            dtg_Clientes.Refresh();
+            Lista(clientes);
         }
 
         private void btn_Nasc_asc_Click(object sender, EventArgs e)
         {
             var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderBy(x => x.Dt_Nasc);
-            dtg_Clientes.DataSource = Lista(clientes);
+            Lista(clientes);
         }
 
         private void btn_dtNasc_dec_Click(object sender, EventArgs e)
         {
             var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderByDescending(x => x.Dt_Nasc);
-            dtg_Clientes.DataSource = Lista(clientes);
+            Lista(clientes);
         }
 
         private void txt_Busca_TextChanged(object sender, EventArgs e)
         {
             var clientes = ClientesConstrutor.clienteBo().ListarTodos();
-            dtg_Clientes.DataSource = Lista(clientes);
+            Lista(clientes);
+        }
+
+        private void btn_Editar_Click(object sender, EventArgs e)
+        {
+            FormEditarCliente editarCliente = new FormEditarCliente(/*this*/);
+            editarCliente.ShowDialog();
+            FormClientes_Load(sender, e);
         }
     }
 }

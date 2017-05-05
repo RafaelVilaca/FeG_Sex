@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="ClientesBo.cs" />
     <Compile Include="ClientesConstrutor.cs" />
+    <Compile Include="LingeriesBo.cs" />
+    <Compile Include="LingeriesConstrutor.cs" />
     <Compile Include="ProdutosBo.cs" />
     <Compile Include="ProdutosConstrutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

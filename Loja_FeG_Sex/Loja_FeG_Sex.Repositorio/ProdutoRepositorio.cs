@@ -22,11 +22,23 @@ namespace Loja_FeG_Sex.Repositorio
             }
         }
 
+        public IEnumerable<ProdutosVo> ListarAtivos()
+        {
+            using (contexto = new Contexto())
+            {
+                var strQuery = "Select p.* From Produtos p ";
+                strQuery += " Where p.Ativo = 1 ";
+                strQuery += " order by Descricao asc ";
+                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+                return ReaderObjeto(retorno);
+            }
+        }        
+
         public string Salvar(ProdutosVo entidade)
         {
             var mensagem = "";
 
-            if (entidade.Id_Prod == 0)
+            if (entidade.Id_Prod == null)
             {
                 var nomeProc = "sp_insert_produto";
 
@@ -39,6 +51,7 @@ namespace Loja_FeG_Sex.Repositorio
                     param.Add(new SqlParameter() { ParameterName = "@Quantidade", Value = entidade.Qtde });
                     param.Add(new SqlParameter() { ParameterName = "@Vl_Compra", Value = entidade.Vl_Compra });
                     param.Add(new SqlParameter() { ParameterName = "@Vl_Venda", Value = entidade.Vl_Venda });
+                    param.Add(new SqlParameter() { ParameterName = "@Ativo", Value = entidade.Ativo });
 
                     mensagem = "Cadastro inserido com Sucesso!!!";
 
@@ -49,18 +62,22 @@ namespace Loja_FeG_Sex.Repositorio
             {
                 var nomeProc = "sp_update_produto";
 
-                List<SqlParameter> param = new List<SqlParameter>();
+                using (contexto = new Contexto())
+                {
+                    List<SqlParameter> param = new List<SqlParameter>();
 
-                param.Add(new SqlParameter() { ParameterName = "@ID", Value = entidade.Id_Prod });
-                param.Add(new SqlParameter() { ParameterName = "@Descricao", Value = entidade.Descricao });
-                param.Add(new SqlParameter() { ParameterName = "@Dt_Cadastro", Value = entidade.Dt_Cadastro });
-                param.Add(new SqlParameter() { ParameterName = "@Quantidade", Value = entidade.Qtde });
-                param.Add(new SqlParameter() { ParameterName = "@Vl_Compra", Value = entidade.Vl_Compra });
-                param.Add(new SqlParameter() { ParameterName = "@Vl_Venda", Value = entidade.Vl_Venda });
+                    param.Add(new SqlParameter() { ParameterName = "@ID", Value = entidade.Id_Prod });
+                    param.Add(new SqlParameter() { ParameterName = "@Descricao", Value = entidade.Descricao });
+                    param.Add(new SqlParameter() { ParameterName = "@Dt_Cadastro", Value = entidade.Dt_Cadastro });
+                    param.Add(new SqlParameter() { ParameterName = "@Quantidade", Value = entidade.Qtde });
+                    param.Add(new SqlParameter() { ParameterName = "@Vl_Compra", Value = entidade.Vl_Compra });
+                    param.Add(new SqlParameter() { ParameterName = "@Vl_Venda", Value = entidade.Vl_Venda });
+                    param.Add(new SqlParameter() { ParameterName = "@Ativo", Value = entidade.Ativo });
 
-                contexto.ExecutaProc(nomeProc, param);
+                    mensagem = "Cadastro atualizado com Sucesso!!!";
 
-                mensagem = "Cadastro atualizado com Sucesso!!!";
+                    contexto.ExecutaProc(nomeProc, param);                    
+                }
             }
 
             return mensagem.ToString();
@@ -78,7 +95,8 @@ namespace Loja_FeG_Sex.Repositorio
                     Qtde = reader["Quantidade"] != DBNull.Value ? int.Parse(reader["Quantidade"].ToString()) : 0,
                     Dt_Cadastro = DateTime.Parse(reader["Dt_Cadastro"].ToString()),
                     Vl_Compra = reader["Vl_Compra"] != DBNull.Value ? decimal.Parse(reader["Vl_Compra"].ToString()) : 0,
-                    Vl_Venda = reader["Vl_Venda"] != DBNull.Value ? decimal.Parse(reader["Vl_Venda"].ToString()) : 0
+                    Vl_Venda = reader["Vl_Venda"] != DBNull.Value ? decimal.Parse(reader["Vl_Venda"].ToString()) : 0,
+                    Ativo = reader["Ativo"] != DBNull.Value ? bool.Parse(reader["Ativo"].ToString()) : false
                 };
                 produto.Add(temObjeto);
             }

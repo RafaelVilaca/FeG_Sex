@@ -18,7 +18,7 @@ namespace Loja_FeG_Sex.Repositorio
                 strQuery += " INNER JOIN Clientes c ";
                 strQuery += " on c.Id_Cliente = v.Id_Cliente ";
                 strQuery += " INNER JOIN Produtos p ";
-                strQuery += " on p.Id_Prod = v.Id_Produto ";
+                strQuery += " on p.Id_Prod = v.Id_Produto ";                
                 strQuery += " order by v.Id_Vendas asc ";
                 var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
                 return ReaderObjeto(retorno);
@@ -56,12 +56,14 @@ namespace Loja_FeG_Sex.Repositorio
 
             //    List<SqlParameter> param = new List<SqlParameter>();
 
-            //    param.Add(new SqlParameter() { ParameterName = "@Id_Venda", Value = entidade.Id_Venda });
-            //    param.Add(new SqlParameter() { ParameterName = "@Id_Cliente", Value = entidade.Clientes });
-            //param.Add(new SqlParameter() { ParameterName = "@Id_Prod", Value = entidade.Produtos });
+            //param.Add(new SqlParameter() { ParameterName = "@Id_Venda", Value = entidade.Id_Venda });
+            //param.Add(new SqlParameter() { ParameterName = "@Id_Cliente", Value = entidade.Id_Cliente });
+            //param.Add(new SqlParameter() { ParameterName = "@Id_Prod", Value = entidade.Id_Prod });
             //param.Add(new SqlParameter() { ParameterName = "@Quantidade", Value = entidade.Qtde });
             //param.Add(new SqlParameter() { ParameterName = "@Dt_Transacao", Value = entidade.Dt_Transacao });
             //param.Add(new SqlParameter() { ParameterName = "@Vl_Venda", Value = entidade.Vl_Venda });
+            //param.Add(new SqlParameter() { ParameterName = "@Dt_Pagamento", Value = entidade.Data_Recebimento });
+            //param.Add(new SqlParameter() { ParameterName = "@Tipo_Pagamento", Value = entidade.Tipo_Recebimento });
 
             //    contexto.ExecutaProc(nomeProc, param);
 
@@ -89,7 +91,6 @@ namespace Loja_FeG_Sex.Repositorio
                 };
                 var temObjeto = new VendasVo()
                 {
-                    //Id_Venda = reader["Id_Venda"] != DBNull.Value ? int.Parse(reader["Id_Venda"].ToString()) : 0,
                     Produto = produto,
                     Cliente = cliente,
                     Qtde = reader["Quantidade"] != DBNull.Value ? int.Parse(reader["Quantidade"].ToString()) : 0,

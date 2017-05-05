@@ -12,7 +12,8 @@ Descricao varchar(100),
 Quantidade int,
 Dt_Cadastro datetime,
 Vl_Compra decimal(10,2),
-Vl_Venda decimal(10,2)
+Vl_Venda decimal(10,2),
+Ativo bit
 )
 
 GO
@@ -29,7 +30,8 @@ Celular bigint,
 Rua varchar(50),
 Numero int,
 Bairro varchar(30),
-Complemento varchar(20)
+Complemento varchar(20),
+Ativo bit
 )
 
 GO
@@ -39,12 +41,24 @@ Id_Vendas int primary key identity,
 Id_Produto int,
 Id_Cliente int,
 Quantidade int,
-VL_Venda varchar(10),
+Vl_Venda decimal(10,2),
 Dt_Transacao datetime,
 Tipo_Pagamento varchar(10),
 Data_Pagamento datetime,
 Constraint FK_Prod Foreign Key (Id_Produto) references Produtos(Id_Prod),
 Constraint FK_Cli Foreign Key (Id_Cliente) references Clientes(Id_Cliente)
+)
+
+GO
+
+Create Table ChaLingerie(
+Id_ChaLingerie int primary key identity,
+Descricao varchar(200),
+Data_Cadastro datetime,
+Id_Cliente int,
+Vl_Receber decimal(10, 2),
+Data_Evento datetime
+Constraint FK_Cli_Lingerie Foreign Key (Id_Cliente) references Clientes(Id_Cliente)
 )
 
 GO
@@ -62,12 +76,13 @@ Create Procedure sp_update_cliente
 @Bairro varchar(30),
 @Complemento varchar(20),
 @Celular varchar(15),
-@Telefone varchar(15)
+@Telefone varchar(15),
+@Ativo bit
 
 AS Begin
 
 Update Clientes Set Nome = @Nome, Email = @Email, Sexo = @Sexo, Dt_Nasc = @Dt_Nasc, Dt_Cadastro = @Dt_Cadastro,
-Telefone = @Telefone, Celular = @Celular, Rua = @Rua, Numero = @Numero, Bairro = @Bairro, Complemento = @Complemento
+Telefone = @Telefone, Celular = @Celular, Rua = @Rua, Numero = @Numero, Bairro = @Bairro, Complemento = @Complemento, Ativo = @Ativo
 Where Id_Cliente = @ID;
 
 END
@@ -86,12 +101,13 @@ Create Procedure [dbo].[sp_insert_cliente]
 @Bairro varchar(30),
 @Complemento varchar(20),
 @Celular varchar(15),
-@Telefone varchar(15)
+@Telefone varchar(15),
+@Ativo bit
 
 AS Begin
 
-INSERT INTO Clientes(Nome, Email, Sexo, Dt_Nasc, Dt_Cadastro, Telefone, Celular, Rua, Numero, Bairro, Complemento)
-VALUES (@Nome, @Email, @Sexo, @Dt_Nasc, @Dt_Cadastro, @Telefone, @Celular, @Rua, @Numero, @Bairro, @Complemento);
+INSERT INTO Clientes(Nome, Email, Sexo, Dt_Nasc, Dt_Cadastro, Telefone, Celular, Rua, Numero, Bairro, Complemento, Ativo)
+VALUES (@Nome, @Email, @Sexo, @Dt_Nasc, @Dt_Cadastro, @Telefone, @Celular, @Rua, @Numero, @Bairro, @Complemento, @Ativo);
 
 END
 
@@ -103,16 +119,19 @@ Create Procedure sp_insert_produto
 @Quantidade int,
 @Dt_Cadastro DateTime,
 @Vl_Compra varchar(10),
-@Vl_Venda varchar(10)
+@Vl_Venda varchar(10),
+@Ativo bit
 
 AS
 
 BEGIN
 
-insert into Produtos(Descricao, Quantidade, Dt_Cadastro, Vl_Compra, Vl_Venda)
-Values(@Descricao, @Quantidade, @Dt_Cadastro, @Vl_Compra, @Vl_Venda);
+insert into Produtos(Descricao, Quantidade, Dt_Cadastro, Vl_Compra, Vl_Venda, Ativo)
+Values(@Descricao, @Quantidade, @Dt_Cadastro, @Vl_Compra, @Vl_Venda, @Ativo);
 
 END
+
+GO
 
 Create Proc sp_update_produto
 
@@ -121,13 +140,14 @@ Create Proc sp_update_produto
 @Quantidade int,
 @Dt_Cadastro DateTime,
 @Vl_Compra varchar(10),
-@Vl_Venda varchar(10)
+@Vl_Venda varchar(10),
+@Ativo bit
 
 AS
 
 BEGIN
 
-Update Produtos Set Descricao = @Descricao, Quantidade = @Quantidade, Dt_Cadastro = @Dt_Cadastro, Vl_Compra = @Vl_Compra, Vl_Venda = @Vl_Venda
+Update Produtos Set Descricao = @Descricao, Quantidade = @Quantidade, Dt_Cadastro = @Dt_Cadastro, Vl_Compra = @Vl_Compra, Vl_Venda = @Vl_Venda, Ativo = @Ativo
 Where Id_Prod = @ID;
 
 END
@@ -169,4 +189,42 @@ BEGIN
 
 	Update Produtos set Quantidade = Quantidade - @Quantidade Where Id_Prod = @Id_Produto;
 END
+GO
+
+Create Procedure sp_update_cha
+
+@Id_ChaLingerie int,
+@Descricao varchar(200),
+@Data_Cadastro datetime,
+@Id_Cliente int,
+@Vl_Receber decimal(10, 2),
+@Data_Evento datetime
+
+AS
+BEGIN
+
+UPDATE ChaLingerie SET Descricao = @Descricao, Data_Cadastro = @Data_Cadastro, 
+Id_Cliente = @Id_Cliente, Vl_Receber = @Vl_Receber, Data_Evento = @Data_Evento
+Where Id_ChaLingerie = @Id_ChaLingerie;
+
+END
+
+GO
+
+Create Procedure sp_insert_cha
+
+@Descricao varchar(200),
+@Data_Cadastro datetime,
+@Id_Cliente int,
+@Vl_Receber decimal(10, 2),
+@Data_Evento datetime
+
+AS
+BEGIN
+
+INSERT INTO ChaLingerie(Descricao, Data_Cadastro, Id_Cliente, Vl_Receber, Data_Evento)
+Values (@Descricao, @Data_Cadastro, @Id_Cliente, @Vl_Receber, @Data_Evento);
+
+END
+
 GO

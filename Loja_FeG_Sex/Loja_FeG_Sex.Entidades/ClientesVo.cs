@@ -15,7 +15,8 @@ namespace Loja_FeG_Sex.Entidades
         public int Numero { get; set; }
         public string Bairro { get; set; }
         public string Complemento { get; set; }
-
+        public bool Ativo { get; set; }
+        
         public string TelefoneFormatado =>
             Telefone.HasValue ? 
             $"({Telefone.ToString().Substring(0, 2)}) {Telefone.ToString().Substring(2, 4)} - {Telefone.ToString().Substring(6, 4)}" : "0";
@@ -25,5 +26,12 @@ namespace Loja_FeG_Sex.Entidades
             $"({Celular.ToString().Substring(0, 2)}) {Celular.ToString().Substring(2, 5)} - {Celular.ToString().Substring(7, 4)}" : "0";
 
         public string Endereco => $"{Rua}, {Numero}, {Bairro}, {Complemento}";
+
+        public string Situacao => Ativo == true ? "Ativo" : "Desativo";
+
+        //public override string ToString()
+        //{
+        //    return Nome;
+        //}
     }
 }

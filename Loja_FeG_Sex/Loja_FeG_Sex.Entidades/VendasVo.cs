@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Loja_FeG_Sex.Entidades
 {
@@ -22,7 +18,7 @@ namespace Loja_FeG_Sex.Entidades
             this.Produto = new ProdutosVo();
         }
 
-        public string vendaFormatado => $"R${Vl_Venda}";
+        public string vendaFormatado => $"R$ {Vl_Venda}";
         public string pagamentoFormatado => $"{Tipo_Recebimento}: {Data_Recebimento}";
     }
 }

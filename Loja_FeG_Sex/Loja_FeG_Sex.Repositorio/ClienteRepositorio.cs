@@ -21,11 +21,23 @@ namespace Loja_FeG_Sex.Repositorio
             }
         }
 
+        public IEnumerable<ClientesVo> ListarAtivos()
+        {
+            using (contexto = new Contexto())
+            {
+                var strQuery = "Select c.* From Clientes c ";
+                strQuery += " Where c.Ativo = 1 ";
+                strQuery += " order by Nome ";
+                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+                return ReaderObjeto(retorno);
+            }
+        }
+
         //public IEnumerable<ClientesVo> ListarTodos(string filtro)
         //{
         //    List<SqlParameter> param = new List<SqlParameter>();
         //    param.Add(new SqlParameter() { ParameterName = "@filtro", Value = filtro });
-                       
+
         //    using (contexto = new Contexto())
         //    {
         //        var strQuery = "Select * From Clientes ";
@@ -40,7 +52,7 @@ namespace Loja_FeG_Sex.Repositorio
         {
             var mensagem = "";
 
-            if (entidade.Id_Cliente == 0)
+            if (entidade.Id_Cliente == null)
             {
                 var nomeProc = "sp_insert_cliente";
 
@@ -59,6 +71,7 @@ namespace Loja_FeG_Sex.Repositorio
                     param.Add(new SqlParameter() { ParameterName = "@Complemento", Value = entidade.Complemento });
                     param.Add(new SqlParameter() { ParameterName = "@Celular", Value = entidade.Celular });
                     param.Add(new SqlParameter() { ParameterName = "@Telefone", Value = entidade.Telefone });
+                    param.Add(new SqlParameter() { ParameterName = "@Ativo", Value = entidade.Ativo });
 
                     mensagem = "Cadastro inserido com Sucesso!!!";
 
@@ -69,24 +82,28 @@ namespace Loja_FeG_Sex.Repositorio
             {
                 var nomeProc = "sp_update_cliente";
 
-                List<SqlParameter> param = new List<SqlParameter>();
+                using (contexto = new Contexto())
+                {
+                    List<SqlParameter> param = new List<SqlParameter>();
 
-                param.Add(new SqlParameter() { ParameterName = "@ID", Value = entidade.Id_Cliente });
-                param.Add(new SqlParameter() { ParameterName = "@Nome", Value = entidade.Nome });
-                param.Add(new SqlParameter() { ParameterName = "@Email", Value = entidade.Email });
-                param.Add(new SqlParameter() { ParameterName = "@Sexo", Value = entidade.Sexo });
-                param.Add(new SqlParameter() { ParameterName = "@Dt_Nasc", Value = entidade.Dt_Nasc });
-                param.Add(new SqlParameter() { ParameterName = "@Dt_Cadastro", Value = entidade.Dt_Cadastro });
-                param.Add(new SqlParameter() { ParameterName = "@Rua", Value = entidade.Rua });
-                param.Add(new SqlParameter() { ParameterName = "@Numero", Value = entidade.Numero });
-                param.Add(new SqlParameter() { ParameterName = "@Bairro", Value = entidade.Bairro });
-                param.Add(new SqlParameter() { ParameterName = "@Complemento", Value = entidade.Complemento });
-                param.Add(new SqlParameter() { ParameterName = "@Celular", Value = entidade.Celular });
-                param.Add(new SqlParameter() { ParameterName = "@Telefone", Value = entidade.Telefone });
+                    param.Add(new SqlParameter() { ParameterName = "@ID", Value = entidade.Id_Cliente });
+                    param.Add(new SqlParameter() { ParameterName = "@Nome", Value = entidade.Nome });
+                    param.Add(new SqlParameter() { ParameterName = "@Email", Value = entidade.Email });
+                    param.Add(new SqlParameter() { ParameterName = "@Sexo", Value = entidade.Sexo });
+                    param.Add(new SqlParameter() { ParameterName = "@Dt_Nasc", Value = entidade.Dt_Nasc });
+                    param.Add(new SqlParameter() { ParameterName = "@Dt_Cadastro", Value = entidade.Dt_Cadastro });
+                    param.Add(new SqlParameter() { ParameterName = "@Rua", Value = entidade.Rua });
+                    param.Add(new SqlParameter() { ParameterName = "@Numero", Value = entidade.Numero });
+                    param.Add(new SqlParameter() { ParameterName = "@Bairro", Value = entidade.Bairro });
+                    param.Add(new SqlParameter() { ParameterName = "@Complemento", Value = entidade.Complemento });
+                    param.Add(new SqlParameter() { ParameterName = "@Celular", Value = entidade.Celular });
+                    param.Add(new SqlParameter() { ParameterName = "@Telefone", Value = entidade.Telefone });
+                    param.Add(new SqlParameter() { ParameterName = "@Ativo", Value = entidade.Ativo });
 
-                contexto.ExecutaProc(nomeProc, param);
+                    contexto.ExecutaProc(nomeProc, param);
 
-                mensagem = "Cadastro atualizado com Sucesso!!!";
+                    mensagem = "Cadastro atualizado com Sucesso!!!";
+                }
             }
 
             return mensagem.ToString();
@@ -110,7 +127,8 @@ namespace Loja_FeG_Sex.Repositorio
                     Rua = reader["Rua"] != DBNull.Value ? reader["Rua"].ToString() : null,
                     Numero = reader["Numero"] != DBNull.Value ? int.Parse(reader["Numero"].ToString()) : 0,
                     Bairro = reader["Bairro"] != DBNull.Value ? reader["Bairro"].ToString() : null,
-                    Complemento = reader["Complemento"] != DBNull.Value ? reader["Complemento"].ToString() : null
+                    Complemento = reader["Complemento"] != DBNull.Value ? reader["Complemento"].ToString() : null,
+                    Ativo = reader["Ativo"] != DBNull.Value ? bool.Parse(reader["Ativo"].ToString()) : false
                 };
                 cliente.Add(temObjeto);
             }

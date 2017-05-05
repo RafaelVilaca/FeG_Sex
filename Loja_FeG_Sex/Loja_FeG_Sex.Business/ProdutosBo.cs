@@ -25,14 +25,9 @@ namespace Loja_FeG_Sex.Business
             return repositorio.ListarTodos();
         }
 
-        //public IEnumerable<ProdutosVo> ListarTodos(int id)
-        //{
-        //    return repositorio.ListarTodos(id);
-        //}
-
-        //public IEnumerable<ProdutosVo> ListarTodos(string filtro, decimal? qtde)
-        //{
-        //    return repositorio.ListarTodos(filtro, qtde);
-        //}
+        public IEnumerable<ProdutosVo> ListarAtivos()
+        {
+            return repositorio.ListarAtivos();
+        }
     }
 }

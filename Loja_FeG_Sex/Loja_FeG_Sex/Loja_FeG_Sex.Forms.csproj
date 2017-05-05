@@ -69,11 +69,35 @@
       <DependentUpon>FormCalculadora.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Calculadora\Operacoes.cs" />
+    <Compile Include="Forms\ChaLingerie\FormEditarLingeries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChaLingerie\FormEditarLingeries.Designer.cs">
+      <DependentUpon>FormEditarLingeries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChaLingerie\FormInsereLingeries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChaLingerie\FormInsereLingeries.Designer.cs">
+      <DependentUpon>FormInsereLingeries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChaLingerie\FormLingeries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChaLingerie\FormLingeries.Designer.cs">
+      <DependentUpon>FormLingeries.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Clientes\FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Clientes\FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Clientes\FormEditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\FormEditarCliente.Designer.cs">
+      <DependentUpon>FormEditarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Clientes\FormInsereCliente.cs">
       <SubType>Form</SubType>
@@ -92,6 +116,12 @@
     </Compile>
     <Compile Include="Forms\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Produtos\FormEditarProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Produtos\FormEditarProdutos.Designer.cs">
+      <DependentUpon>FormEditarProdutos.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Produtos\FormInsereProduto.cs">
       <SubType>Form</SubType>
@@ -122,8 +152,20 @@
     <EmbeddedResource Include="Forms\Calculadora\FormCalculadora.resx">
       <DependentUpon>FormCalculadora.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChaLingerie\FormEditarLingeries.resx">
+      <DependentUpon>FormEditarLingeries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChaLingerie\FormInsereLingeries.resx">
+      <DependentUpon>FormInsereLingeries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChaLingerie\FormLingeries.resx">
+      <DependentUpon>FormLingeries.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clientes\FormEditarCliente.resx">
+      <DependentUpon>FormEditarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\FormInsereCliente.resx">
       <DependentUpon>FormInsereCliente.cs</DependentUpon>
@@ -133,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Produtos\FormEditarProdutos.resx">
+      <DependentUpon>FormEditarProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Produtos\FormInsereProduto.resx">
       <DependentUpon>FormInsereProduto.cs</DependentUpon>

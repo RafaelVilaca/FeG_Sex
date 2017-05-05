@@ -42,9 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteRepositorio.cs" />
+    <Compile Include="LingeriesRepositorio.cs" />
     <Compile Include="ProdutoRepositorio.cs" />
     <Compile Include="Repositorio\Contexto.cs" />
     <Compile Include="Repositorio\ICliente.cs" />
+    <Compile Include="Repositorio\ILingeries.cs" />
     <Compile Include="Repositorio\IProdutos.cs" />
     <Compile Include="Repositorio\IRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

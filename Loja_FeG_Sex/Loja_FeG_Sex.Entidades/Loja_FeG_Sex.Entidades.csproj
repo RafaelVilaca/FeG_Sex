@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BaseVo.cs" />
     <Compile Include="ClientesVo.cs" />
+    <Compile Include="LingeriesVo.cs" />
     <Compile Include="ProdutosVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VendasVo.cs" />

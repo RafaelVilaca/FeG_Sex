@@ -13,8 +13,10 @@ namespace Loja_FeG_Sex.Entidades
         public DateTime Dt_Cadastro { get; set; }
         public decimal Vl_Compra { get; set; }
         public decimal Vl_Venda { get; set; }
+        public bool Ativo { get; set; }
 
         public string compraFormatado => $"R${Vl_Compra}";
         public string vendaFormatado => $"R${Vl_Venda}";
+        public string Situacao => Ativo == true ? "Ativo" : "Desativo";
     }
 }
