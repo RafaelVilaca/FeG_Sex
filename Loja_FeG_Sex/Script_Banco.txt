@@ -269,7 +269,7 @@ insert into Castigos (Descricao, Pessoa) Values
 ('Dançar Hula-Hula, como as Havaianas.',	1),
 ('Dançar Tango com alguma convidada.',	1),
 ('Cantar o hino nacional.',	1),
-('Escolher três amigas pra brincar de Ciranda-Cirandinha.',	1),
+('Escolher três amigas pra brincar de Ciranda - Cirandinha.',	1),
 ('Imitar um bebê chorando.',	1),
 ('Imitar um macaco se coçando.',	1),
 ('Dançar Funk até o chão.',	1),

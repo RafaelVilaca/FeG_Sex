@@ -58,7 +58,7 @@ namespace Loja_FeG_Sex.Forms.Castigos
             {
                 do
                 {
-                    _numero = _buscaRandomica.Next(0, 24);
+                    _numero = _buscaRandomica.Next(0, castigosConvidadas.Length);
                 } while (_tabelaConvidadas.Contains(_numero));
                 _tabelaConvidadas[i] = _numero;
 
@@ -76,7 +76,7 @@ namespace Loja_FeG_Sex.Forms.Castigos
             {
                 do
                 {
-                    _numero = _buscaRandomica.Next(0, 16);
+                    _numero = _buscaRandomica.Next(0, castigosNoiva.Length);
                 } while (_tabelaNoiva.Contains(_numero));
                 _tabelaNoiva[i] = _numero;
 
