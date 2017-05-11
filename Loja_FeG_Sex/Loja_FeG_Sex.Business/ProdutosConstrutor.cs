@@ -4,7 +4,7 @@ namespace Loja_FeG_Sex.Business
 {
     public class ProdutosConstrutor
     {
-        public static ProdutosBo produtosBo()
+        public static ProdutosBo ProdutosBo()
         {
             return new ProdutosBo(new ProdutoRepositorio());
         }

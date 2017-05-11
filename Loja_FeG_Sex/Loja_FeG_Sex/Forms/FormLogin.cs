@@ -17,9 +17,9 @@ namespace Loja_FeG_Sex.Forms
         {
             string login = txt_Login.Text;
             string senha = txt_Senha.Text.ToLower();
-            if (login == _log)
+            if (login == "0")//_log)
             {
-                if (senha == _sen)
+                if (senha == "1")//_sen)
                 {
                     Hide();
                     FormPrincipal novaform = new FormPrincipal();

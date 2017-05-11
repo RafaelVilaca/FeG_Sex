@@ -2,8 +2,6 @@
 using Loja_FeG_Sex.Entidades;
 using Loja_FeG_Sex.Forms.Calculadora;
 using System;
-using System.Collections.Generic;
-
 using System.Windows.Forms;
 
 namespace Loja_FeG_Sex.Forms.Vendas
@@ -15,7 +13,7 @@ namespace Loja_FeG_Sex.Forms.Vendas
         public FormInsereVenda()
         {
             InitializeComponent();
-            _vendasBo = VendasConstrutor.vendasBo();
+            _vendasBo = VendasConstrutor.VendasBo();
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -33,22 +31,18 @@ namespace Loja_FeG_Sex.Forms.Vendas
         {
             try
             {
-                IEnumerable<ClientesVo> clientes;
-                IEnumerable<ProdutosVo> produtos;
-
-                clientes = ClientesConstrutor.clienteBo().ListarAtivos();
-                produtos = ProdutosConstrutor.produtosBo().ListarAtivos();
+                var clientes = ClientesConstrutor.ClienteBo()
+                    .ListarAtivos();
+                var produtos = ProdutosConstrutor.ProdutosBo()
+                    .ListarAtivos();
 
                 cb_Cliente.DataSource = clientes;
-                cb_Cliente.ValueMember = "Id_Cliente";
+                cb_Cliente.ValueMember = "IdCliente";
                 cb_Cliente.DisplayMember = "Nome";
-                //cb_Cliente.MaxDropDownItems = 10;
 
                 cb_Produto.DataSource = produtos;
-                cb_Produto.ValueMember = "Id_Prod";
-                cb_Produto.DisplayMember = "Descricao";
-
-                //cb_Produto.MaxDropDownItems = 10;            
+                cb_Produto.ValueMember = "IdProd";
+                cb_Produto.DisplayMember = "Descricao";            
 
                 txt_Data.Text = DateTime.Now.ToString();
                 lblRecebimento.Visible = false;
@@ -70,11 +64,11 @@ namespace Loja_FeG_Sex.Forms.Vendas
             int verificaEstoque = (cb_Produto.SelectedItem as ProdutosVo).Qtde;
             string nomeTipoPagamento = "";
 
-            if (rd_AVista.Checked == true)
+            if (rd_AVista.Checked)
                 nomeTipoPagamento = "À Vista";
-            else if (rd_boleto.Checked == true)
+            else if (rd_boleto.Checked)
                 nomeTipoPagamento = "Boleto";
-            else if (rd_cartao.Checked == true)
+            else if (rd_cartao.Checked)
                 nomeTipoPagamento = "Cartão";
             else
                 nomeTipoPagamento = "À Prazo";
@@ -98,13 +92,13 @@ namespace Loja_FeG_Sex.Forms.Vendas
             {
                 try
                 {
-                    entidades.Id_Cliente = int.Parse(cb_Cliente.SelectedValue.ToString());
-                    entidades.Id_Prod = int.Parse(cb_Produto.SelectedValue.ToString());
-                    entidades.Dt_Transacao = DateTime.Parse(txt_Data.Text);
+                    entidades.IdCliente = int.Parse(cb_Cliente.SelectedValue.ToString());
+                    entidades.IdProd = int.Parse(cb_Produto.SelectedValue.ToString());
+                    entidades.DtTransacao = DateTime.Parse(txt_Data.Text);
                     entidades.Qtde = int.Parse(nud_QTD.Value.ToString());
-                    entidades.Vl_Venda = decimal.Parse(txt_Total.Text);
-                    entidades.Data_Recebimento = dtp_recebimento.Value;
-                    entidades.Tipo_Recebimento = nomeTipoPagamento;
+                    entidades.VlVenda = decimal.Parse(txt_Total.Text);
+                    entidades.DataRecebimento = dtp_recebimento.Value;
+                    entidades.TipoRecebimento = nomeTipoPagamento;
 
                     string nome = (cb_Cliente.SelectedItem as ClientesVo).Nome;
                     string produto = (cb_Produto.SelectedItem as ProdutosVo).Descricao;
@@ -112,8 +106,8 @@ namespace Loja_FeG_Sex.Forms.Vendas
                     if (MessageBox.Show($"Nome Cliente: {nome}" +
                                         $"\nDescrição Produto: {produto}" +
                                         $"\nQuantidade: {entidades.Qtde}" +
-                                        $"\nVenda: {entidades.vendaFormatado}" +
-                                        $"\nRecebimento: {entidades.pagamentoFormatado}", 
+                                        $"\nVenda: {entidades.VendaFormatado}" +
+                                        $"\nRecebimento: {entidades.PagamentoFormatado}", 
                         "Confirmação", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Information) == DialogResult.Yes)
                     {
@@ -134,7 +128,7 @@ namespace Loja_FeG_Sex.Forms.Vendas
         {
             try
             {
-                txt_venda_banco.Text = (cb_Produto.SelectedItem as ProdutosVo).Vl_Venda.ToString();
+                txt_venda_banco.Text = (cb_Produto.SelectedItem as ProdutosVo).VlVenda.ToString();
                 lbl_qtde_disponivel.Text = ((cb_Produto.SelectedItem as ProdutosVo).Qtde - nud_QTD.Value).ToString();
                 nud_QTD.Maximum = (cb_Produto.SelectedItem as ProdutosVo).Qtde;
                 nud_Desconto.Maximum = (nud_QTD.Value * decimal.Parse(txt_venda_banco.Text));
@@ -151,7 +145,7 @@ namespace Loja_FeG_Sex.Forms.Vendas
             {
                 txt_Total.Text = ((decimal.Parse(txt_venda_banco.Text) * nud_QTD.Value) - nud_Desconto.Value).ToString();
                 //nud_recebido.Minimum = decimal.Parse(txt_Total.Text);
-                nud_recebido.Maximum = decimal.Parse(txt_Total.Text) + 50;
+                nud_recebido.Maximum = decimal.Parse(txt_Total.Text) + 100;
             }
             catch (Exception)
             {

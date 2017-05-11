@@ -7,12 +7,12 @@ namespace Loja_FeG_Sex.Entidades
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Sexo { get; set; }
-        public DateTime Dt_Nasc { get; set; }
-        public DateTime Dt_Cadastro { get; set; }
+        public DateTime DtNasc { get; set; }
+        public DateTime DtCadastro { get; set; }
         public long? Telefone { get; set; }
         public long? Celular { get; set; }
         public string Rua { get; set; }
-        public int Numero { get; set; }
+        public int? Numero { get; set; }
         public string Bairro { get; set; }
         public string Complemento { get; set; }
         public bool Ativo { get; set; }
@@ -27,7 +27,7 @@ namespace Loja_FeG_Sex.Entidades
 
         public string Endereco => $"{Rua}, {Numero}, {Bairro}, {Complemento}";
 
-        public string Situacao => Ativo == true ? "Ativo" : "Desativo";
+        public string Situacao => Ativo ? "Ativo" : "Desativo";
 
         //public override string ToString()
         //{

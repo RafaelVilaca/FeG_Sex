@@ -1,35 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 
-namespace Loja_FeG_Sex.Repositorio
+namespace Loja_FeG_Sex.Repositorio.Repositorio
 {
     public class Contexto : IDisposable
     {
-        private readonly SqlConnection conexao;
+        private readonly SqlConnection _conexao;
 
         public Contexto()
         {
-            conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["Conexao"].ConnectionString);
-            conexao.Open();
+            _conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["Conexao"].ConnectionString);
+            _conexao.Open();
         }
 
-        public void ExecutaComando(string strQuery, List<SqlParameter> param)
-        {
-            var cmd = new SqlCommand
-            {
-                CommandText = strQuery,
-                CommandType = CommandType.Text,
-                Connection = conexao
-            };
-            foreach (var parametro in param)
-            {
-                cmd.Parameters.Add(parametro);
-            }
-            cmd.ExecuteNonQuery();
-        }
+        //public void ExecutaComando(string strQuery, List<SqlParameter> param)
+        //{
+        //    var cmd = new SqlCommand
+        //    {
+        //        CommandText = strQuery,
+        //        CommandType = CommandType.Text,
+        //        Connection = _conexao
+        //    };
+        //    foreach (var parametro in param)
+        //    {
+        //        cmd.Parameters.Add(parametro);
+        //    }
+        //    cmd.ExecuteNonQuery();
+        //}
 
         public void ExecutaProc(string nomeProc, List<SqlParameter> param)
         {
@@ -37,7 +37,7 @@ namespace Loja_FeG_Sex.Repositorio
             {
                 CommandText = nomeProc,
                 CommandType = CommandType.StoredProcedure,
-                Connection = conexao
+                Connection = _conexao
             };
             foreach (var parametro in param)
             {
@@ -48,7 +48,7 @@ namespace Loja_FeG_Sex.Repositorio
 
         public SqlDataReader ExecutaComRetorno(string strQuery, List<SqlParameter> param)
         {
-            var cmd = new SqlCommand(strQuery, conexao);
+            var cmd = new SqlCommand(strQuery, _conexao);
             foreach (var parametro in param)
             {
                 cmd.Parameters.Add(parametro);
@@ -58,8 +58,8 @@ namespace Loja_FeG_Sex.Repositorio
 
         public void Dispose()
         {
-            if (conexao.State == ConnectionState.Open)
-                conexao.Close();
+            if (_conexao.State == ConnectionState.Open)
+                _conexao.Close();
         }
     }
 }

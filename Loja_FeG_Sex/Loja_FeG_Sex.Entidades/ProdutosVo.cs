@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Loja_FeG_Sex.Entidades
 {
@@ -10,13 +6,13 @@ namespace Loja_FeG_Sex.Entidades
     {
         public string Descricao { get; set; }
         public int Qtde { get; set; }
-        public DateTime Dt_Cadastro { get; set; }
-        public decimal Vl_Compra { get; set; }
-        public decimal Vl_Venda { get; set; }
+        public DateTime DtCadastro { get; set; }
+        public decimal VlCompra { get; set; }
+        public decimal VlVenda { get; set; }
         public bool Ativo { get; set; }
 
-        public string compraFormatado => $"R${Vl_Compra}";
-        public string vendaFormatado => $"R${Vl_Venda}";
-        public string Situacao => Ativo == true ? "Ativo" : "Desativo";
+        public string CompraFormatado => $"R$ {VlCompra}";
+        public string VendaFormatado => $"R$ {VlVenda}";
+        public string Situacao => Ativo ? "Ativo" : "Desativo";
     }
 }

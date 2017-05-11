@@ -39,15 +39,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtg_Clientes = new System.Windows.Forms.DataGridView();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dt_Nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dt_Cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grp_Decrescente = new System.Windows.Forms.GroupBox();
             this.btn_dtCad_dec = new System.Windows.Forms.Button();
@@ -62,6 +53,15 @@
             this.btn_nome_asc = new System.Windows.Forms.Button();
             this.txt_Busca = new System.Windows.Forms.TextBox();
             this.btn_Editar = new System.Windows.Forms.Button();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dt_Nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dt_Cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Clientes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.grp_Decrescente.SuspendLayout();
@@ -178,89 +178,6 @@
             this.dtg_Clientes.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Navy;
             this.dtg_Clientes.Size = new System.Drawing.Size(1303, 415);
             this.dtg_Clientes.TabIndex = 0;
-            // 
-            // Nome
-            // 
-            this.Nome.DataPropertyName = "Nome";
-            this.Nome.HeaderText = "Nome";
-            this.Nome.MaxInputLength = 50;
-            this.Nome.Name = "Nome";
-            this.Nome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Nome.Width = 200;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.MaxInputLength = 50;
-            this.Email.Name = "Email";
-            this.Email.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Email.Width = 180;
-            // 
-            // Dt_Nasc
-            // 
-            this.Dt_Nasc.DataPropertyName = "Dt_Nasc";
-            this.Dt_Nasc.HeaderText = "Data Nascimento";
-            this.Dt_Nasc.MaxInputLength = 30;
-            this.Dt_Nasc.Name = "Dt_Nasc";
-            this.Dt_Nasc.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dt_Nasc.Width = 70;
-            // 
-            // Sexo
-            // 
-            this.Sexo.DataPropertyName = "Sexo";
-            this.Sexo.HeaderText = "Sexo";
-            this.Sexo.MaxInputLength = 2;
-            this.Sexo.Name = "Sexo";
-            this.Sexo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Sexo.Width = 40;
-            // 
-            // Dt_Cadastro
-            // 
-            this.Dt_Cadastro.DataPropertyName = "Dt_Cadastro";
-            this.Dt_Cadastro.HeaderText = "Data Cadastro";
-            this.Dt_Cadastro.MaxInputLength = 30;
-            this.Dt_Cadastro.Name = "Dt_Cadastro";
-            this.Dt_Cadastro.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dt_Cadastro.Width = 150;
-            // 
-            // Telefone
-            // 
-            this.Telefone.DataPropertyName = "TelefoneFormatado";
-            dataGridViewCellStyle2.NullValue = "0";
-            this.Telefone.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Telefone.HeaderText = "Telefone";
-            this.Telefone.MaxInputLength = 20;
-            this.Telefone.Name = "Telefone";
-            this.Telefone.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Celular
-            // 
-            this.Celular.DataPropertyName = "CelularFormatado";
-            dataGridViewCellStyle3.NullValue = "0";
-            this.Celular.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Celular.HeaderText = "Celular";
-            this.Celular.MaxInputLength = 20;
-            this.Celular.Name = "Celular";
-            this.Celular.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Endereco
-            // 
-            this.Endereco.DataPropertyName = "Endereco";
-            this.Endereco.HeaderText = "Endereço Completo";
-            this.Endereco.MaxInputLength = 300;
-            this.Endereco.Name = "Endereco";
-            this.Endereco.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Endereco.Width = 370;
-            // 
-            // Situacao
-            // 
-            this.Situacao.DataPropertyName = "Situacao";
-            this.Situacao.HeaderText = "Situação";
-            this.Situacao.MaxInputLength = 10;
-            this.Situacao.Name = "Situacao";
-            this.Situacao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Situacao.Width = 60;
             // 
             // groupBox1
             // 
@@ -497,6 +414,89 @@
             this.btn_Editar.Text = "Editar Clientes";
             this.btn_Editar.UseVisualStyleBackColor = false;
             this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.MaxInputLength = 50;
+            this.Nome.Name = "Nome";
+            this.Nome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Nome.Width = 200;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.MaxInputLength = 50;
+            this.Email.Name = "Email";
+            this.Email.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Email.Width = 180;
+            // 
+            // Dt_Nasc
+            // 
+            this.Dt_Nasc.DataPropertyName = "Dt_Nasc";
+            this.Dt_Nasc.HeaderText = "Data Nascimento";
+            this.Dt_Nasc.MaxInputLength = 30;
+            this.Dt_Nasc.Name = "Dt_Nasc";
+            this.Dt_Nasc.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dt_Nasc.Width = 70;
+            // 
+            // Sexo
+            // 
+            this.Sexo.DataPropertyName = "Sexo";
+            this.Sexo.HeaderText = "Sexo";
+            this.Sexo.MaxInputLength = 2;
+            this.Sexo.Name = "Sexo";
+            this.Sexo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Sexo.Width = 40;
+            // 
+            // Dt_Cadastro
+            // 
+            this.Dt_Cadastro.DataPropertyName = "Dt_Cadastro";
+            this.Dt_Cadastro.HeaderText = "Data Cadastro";
+            this.Dt_Cadastro.MaxInputLength = 30;
+            this.Dt_Cadastro.Name = "Dt_Cadastro";
+            this.Dt_Cadastro.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dt_Cadastro.Width = 150;
+            // 
+            // Telefone
+            // 
+            this.Telefone.DataPropertyName = "TelefoneFormatado";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.Telefone.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Telefone.HeaderText = "Telefone";
+            this.Telefone.MaxInputLength = 20;
+            this.Telefone.Name = "Telefone";
+            this.Telefone.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Celular
+            // 
+            this.Celular.DataPropertyName = "CelularFormatado";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.Celular.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Celular.HeaderText = "Celular";
+            this.Celular.MaxInputLength = 20;
+            this.Celular.Name = "Celular";
+            this.Celular.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Endereco
+            // 
+            this.Endereco.DataPropertyName = "Endereco";
+            this.Endereco.HeaderText = "Endereço Completo";
+            this.Endereco.MaxInputLength = 300;
+            this.Endereco.Name = "Endereco";
+            this.Endereco.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Endereco.Width = 370;
+            // 
+            // Situacao
+            // 
+            this.Situacao.DataPropertyName = "Situacao";
+            this.Situacao.HeaderText = "Situação";
+            this.Situacao.MaxInputLength = 10;
+            this.Situacao.Name = "Situacao";
+            this.Situacao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Situacao.Width = 60;
             // 
             // FormClientes
             // 

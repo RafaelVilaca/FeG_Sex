@@ -36,11 +36,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_ChaLingerie = new System.Windows.Forms.Button();
+            this.btn_Castigos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Produtos
             // 
-            this.btn_Produtos.BackColor = System.Drawing.Color.Silver;
+            this.btn_Produtos.BackColor = System.Drawing.Color.Cyan;
             this.btn_Produtos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Produtos.BackgroundImage")));
             this.btn_Produtos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Produtos.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -59,7 +60,7 @@
             // 
             // btn_Clientes
             // 
-            this.btn_Clientes.BackColor = System.Drawing.Color.LightGray;
+            this.btn_Clientes.BackColor = System.Drawing.Color.Cyan;
             this.btn_Clientes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Clientes.BackgroundImage")));
             this.btn_Clientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Clientes.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -78,7 +79,7 @@
             // 
             // btn_Vendas
             // 
-            this.btn_Vendas.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_Vendas.BackColor = System.Drawing.Color.Cyan;
             this.btn_Vendas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Vendas.BackgroundImage")));
             this.btn_Vendas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Vendas.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -97,7 +98,7 @@
             // 
             // btn_Sair
             // 
-            this.btn_Sair.BackColor = System.Drawing.Color.DimGray;
+            this.btn_Sair.BackColor = System.Drawing.Color.Red;
             this.btn_Sair.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Sair.BackgroundImage")));
             this.btn_Sair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Sair.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -106,10 +107,10 @@
             this.btn_Sair.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Sair.Font = new System.Drawing.Font("Times New Roman", 18.25F, System.Drawing.FontStyle.Bold);
             this.btn_Sair.ForeColor = System.Drawing.Color.Firebrick;
-            this.btn_Sair.Location = new System.Drawing.Point(12, 232);
+            this.btn_Sair.Location = new System.Drawing.Point(12, 287);
             this.btn_Sair.Name = "btn_Sair";
             this.btn_Sair.Size = new System.Drawing.Size(454, 49);
-            this.btn_Sair.TabIndex = 4;
+            this.btn_Sair.TabIndex = 5;
             this.btn_Sair.Text = "Sair";
             this.btn_Sair.UseVisualStyleBackColor = false;
             this.btn_Sair.Click += new System.EventHandler(this.btn_Sair_Click);
@@ -120,7 +121,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label5.Location = new System.Drawing.Point(169, 316);
+            this.label5.Location = new System.Drawing.Point(169, 372);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 30);
             this.label5.TabIndex = 23;
@@ -133,7 +134,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label2.Location = new System.Drawing.Point(197, 286);
+            this.label2.Location = new System.Drawing.Point(197, 342);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 30);
             this.label2.TabIndex = 22;
@@ -142,7 +143,7 @@
             // 
             // btn_ChaLingerie
             // 
-            this.btn_ChaLingerie.BackColor = System.Drawing.Color.Gray;
+            this.btn_ChaLingerie.BackColor = System.Drawing.Color.Cyan;
             this.btn_ChaLingerie.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_ChaLingerie.BackgroundImage")));
             this.btn_ChaLingerie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_ChaLingerie.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -159,13 +160,33 @@
             this.btn_ChaLingerie.UseVisualStyleBackColor = false;
             this.btn_ChaLingerie.Click += new System.EventHandler(this.btn_ChaLingerie_Click);
             // 
+            // btn_Castigos
+            // 
+            this.btn_Castigos.BackColor = System.Drawing.Color.LawnGreen;
+            this.btn_Castigos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Castigos.BackgroundImage")));
+            this.btn_Castigos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Castigos.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_Castigos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btn_Castigos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.btn_Castigos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Castigos.Font = new System.Drawing.Font("Times New Roman", 18.25F, System.Drawing.FontStyle.Bold);
+            this.btn_Castigos.ForeColor = System.Drawing.Color.DarkGreen;
+            this.btn_Castigos.Location = new System.Drawing.Point(12, 232);
+            this.btn_Castigos.Name = "btn_Castigos";
+            this.btn_Castigos.Size = new System.Drawing.Size(454, 49);
+            this.btn_Castigos.TabIndex = 4;
+            this.btn_Castigos.Text = "Castigos";
+            this.btn_Castigos.UseVisualStyleBackColor = false;
+            this.btn_Castigos.Click += new System.EventHandler(this.btn_Castigos_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(478, 354);
+            this.ClientSize = new System.Drawing.Size(478, 410);
+            this.Controls.Add(this.btn_Castigos);
             this.Controls.Add(this.btn_ChaLingerie);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -196,5 +217,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_ChaLingerie;
+        private System.Windows.Forms.Button btn_Castigos;
     }
 }

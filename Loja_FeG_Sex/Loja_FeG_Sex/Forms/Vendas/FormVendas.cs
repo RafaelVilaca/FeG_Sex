@@ -32,20 +32,20 @@ namespace Loja_FeG_Sex.Forms.Vendas
             {
                 if (txt_Descricao.Text != "")
                     vendas = vendas.Where(x => (x.Produto.Descricao.Contains(txt_Descricao.Text)) &&
-                    (x.Dt_Transacao >= dtp_inicial.Value && x.Dt_Transacao <= dtp_final.Value));
+                    (x.DtTransacao >= dtp_inicial.Value && x.DtTransacao <= dtp_final.Value));
 
                 if (txt_Nome.Text != "")
                     vendas = vendas.Where(x => (x.Cliente.Nome.Contains(txt_Nome.Text)) &&
-                    (x.Dt_Transacao >= dtp_inicial.Value && x.Dt_Transacao <= dtp_final.Value));
+                    (x.DtTransacao >= dtp_inicial.Value && x.DtTransacao <= dtp_final.Value));
 
                 dtg_Vendas.DataSource = vendas.Select(x => new
                 {
                     x.Cliente.Nome,
                     x.Produto.Descricao,
                     x.Qtde,
-                    x.vendaFormatado,
-                    x.Dt_Transacao,
-                    x.pagamentoFormatado
+                    vendaFormatado = x.VendaFormatado,
+                    Dt_Transacao = x.DtTransacao,
+                    pagamentoFormatado = x.PagamentoFormatado
                 }).ToList();
             }
             catch (Exception)
@@ -56,7 +56,7 @@ namespace Loja_FeG_Sex.Forms.Vendas
 
         private void FormVendas_Load(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo().ListarTodos();
+            var vendas = VendasConstrutor.VendasBo().ListarTodos();
             Lista(vendas);
             dtp_final.Value = DateTime.Now;
             dtp_inicial.Value = Convert.ToDateTime("28/04/2000");
@@ -67,7 +67,7 @@ namespace Loja_FeG_Sex.Forms.Vendas
 
         private void btn_nome_asc_Click(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo()
+            var vendas = VendasConstrutor.VendasBo()
             .ListarTodos()
             .OrderBy(x => x.Cliente.Nome);
 
@@ -76,16 +76,16 @@ namespace Loja_FeG_Sex.Forms.Vendas
 
         private void btn_transa_asc_Click(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo()
+            var vendas = VendasConstrutor.VendasBo()
                .ListarTodos()
-               .OrderBy(x => x.Dt_Transacao);
+               .OrderBy(x => x.DtTransacao);
 
             Lista(vendas);
         }
 
         private void btn_prod_asc_Click(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo()
+            var vendas = VendasConstrutor.VendasBo()
                .ListarTodos()
                .OrderBy(x => x.Produto.Descricao);
 
@@ -94,16 +94,16 @@ namespace Loja_FeG_Sex.Forms.Vendas
 
         private void btn_venda_asc_Click(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo()
+            var vendas = VendasConstrutor.VendasBo()
                 .ListarTodos()
-               .OrderBy(x => x.Vl_Venda);
+               .OrderBy(x => x.VlVenda);
 
             Lista(vendas);
         }
 
         private void btn_nome_dec_Click(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo()
+            var vendas = VendasConstrutor.VendasBo()
                .ListarTodos()
                .OrderByDescending(x => x.Cliente.Nome);
 
@@ -112,16 +112,16 @@ namespace Loja_FeG_Sex.Forms.Vendas
 
         private void btn_transa_dec_Click(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo()
+            var vendas = VendasConstrutor.VendasBo()
                .ListarTodos()
-               .OrderByDescending(x => x.Dt_Transacao);
+               .OrderByDescending(x => x.DtTransacao);
 
             Lista(vendas);
         }
 
         private void btn_prod_dec_Click(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo()
+            var vendas = VendasConstrutor.VendasBo()
                .ListarTodos()
                .OrderByDescending(x => x.Produto.Descricao);
 
@@ -130,18 +130,18 @@ namespace Loja_FeG_Sex.Forms.Vendas
 
         private void btn_venda_dec_Click(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo()
+            var vendas = VendasConstrutor.VendasBo()
                .ListarTodos()
-               .OrderByDescending(x => x.Vl_Venda);
+               .OrderByDescending(x => x.VlVenda);
 
             Lista(vendas);
         }
 
         private void BuscaDataInicial(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo()
-               .ListarTodos()
-               .OrderBy(x => x.Dt_Transacao);
+            var vendas = VendasConstrutor.VendasBo()
+               .ListarTodos(txt_Nome.Text, txt_Descricao.Text, dtp_inicial.Value, dtp_final.Value)
+               .OrderBy(x => x.DtTransacao);
 
             Lista(vendas);
             dtp_final.MinDate = dtp_inicial.Value;
@@ -149,9 +149,9 @@ namespace Loja_FeG_Sex.Forms.Vendas
 
         private void BuscaDataFinal(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo()
-               .ListarTodos()
-               .OrderByDescending(x => x.Dt_Transacao);
+            var vendas = VendasConstrutor.VendasBo()
+               .ListarTodos(txt_Nome.Text, txt_Descricao.Text, dtp_inicial.Value, dtp_final.Value)
+               .OrderByDescending(x => x.DtTransacao);
 
             Lista(vendas);
             dtp_inicial.MaxDate = dtp_final.Value;
@@ -159,16 +159,16 @@ namespace Loja_FeG_Sex.Forms.Vendas
 
         private void txt_Nome_TextChanged(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo()
-               .ListarTodos()
+            var vendas = VendasConstrutor.VendasBo()
+               .ListarTodos(txt_Nome.Text, txt_Descricao.Text, dtp_inicial.Value, dtp_final.Value)
                .OrderBy(x => x.Cliente.Nome);
             Lista(vendas);
         }
 
         private void txt_Descricao_TextChanged(object sender, EventArgs e)
         {
-            var vendas = VendasConstrutor.vendasBo()
-               .ListarTodos()
+            var vendas = VendasConstrutor.VendasBo()
+               .ListarTodos(txt_Nome.Text, txt_Descricao.Text, dtp_inicial.Value, dtp_final.Value)
                .OrderBy(x => x.Produto.Descricao);
             Lista(vendas);
         }

@@ -37,63 +37,63 @@ namespace Loja_FeG_Sex.Forms.ChaLingerie
         {
             try
             {
-                if (txt_Nome.Text != "")
-                    lingerie = lingerie.Where(x => (x.Cliente.Nome.Contains(txt_Nome.Text)) &&
-                                                   (x.Data_Evento >= dtp_inicial.Value &&
-                                                    x.Data_Evento <= dtp_final.Value));
+                //if (txt_Nome.Text != "")
+                //    lingerie = lingerie.Where(x => (x.Cliente.Nome.Contains(txt_Nome.Text)) &&
+                //                                   (x.DataEvento >= dtp_inicial.Value &&
+                //                                    x.DataEvento <= dtp_final.Value));
 
                 dtg_ChaLingerie.DataSource = lingerie.Select(x => new
                 {
                     x.Cliente.Nome,
-                    x.Data_Cadastro,
-                    x.Data_Evento,
-                    x.valorFormatado,
+                    Data_Cadastro = x.DataCadastro,
+                    Data_Evento = x.DataEvento,
+                    valorFormatado = x.ValorFormatado,
                     x.Descricao
                 }).ToList();
             }
             catch (Exception)
             {
-                MessageBox.Show("Problemas ao carregar a Lista");
+                MessageBox.Show(@"Problemas ao carregar a Lista");
             }
         }
 
         private void txt_Nome_TextChanged(object sender, EventArgs e)
         {
-            var lingerie = LingeriesConstrutor.lingerieBo()
-               .ListarTodos().Where(x => x.Cliente.Nome.Contains(txt_Nome.Text))
+            var lingerie = LingeriesConstrutor.LingerieBo()
+               .ListarTodos(txt_Nome.Text, dtp_inicial.Value, dtp_final.Value)//().Where(x => x.Cliente.Nome.Contains(txt_Nome.Text))
                .OrderBy(x => x.Cliente.Nome);
             Lista(lingerie);
         }
 
         private void btn_nome_asc_Click(object sender, EventArgs e)
         {
-            var lingerie = LingeriesConstrutor.lingerieBo()
-               .ListarTodos()
+            var lingerie = LingeriesConstrutor.LingerieBo()
+               .ListarTodos(txt_Nome.Text, dtp_inicial.Value, dtp_final.Value)
                .OrderBy(x => x.Cliente.Nome);
             Lista(lingerie);
         }
 
         private void btn_nome_dec_Click(object sender, EventArgs e)
         {
-            var lingerie = LingeriesConstrutor.lingerieBo()
-               .ListarTodos()
+            var lingerie = LingeriesConstrutor.LingerieBo()
+               .ListarTodos(txt_Nome.Text, dtp_inicial.Value, dtp_final.Value)
                .OrderByDescending(x => x.Cliente.Nome);
             Lista(lingerie);
         }
 
         private void btn_transa_asc_Click(object sender, EventArgs e)
         {
-            var lingerie = LingeriesConstrutor.lingerieBo()
-               .ListarTodos()
-               .OrderBy(x => x.Data_Evento);
+            var lingerie = LingeriesConstrutor.LingerieBo()
+               .ListarTodos(txt_Nome.Text, dtp_inicial.Value, dtp_final.Value)
+               .OrderBy(x => x.DataEvento);
             Lista(lingerie);
         }
 
         private void btn_transa_dec_Click(object sender, EventArgs e)
         {
-            var lingerie = LingeriesConstrutor.lingerieBo()
-               .ListarTodos()
-               .OrderByDescending(x => x.Data_Evento);
+            var lingerie = LingeriesConstrutor.LingerieBo()
+               .ListarTodos(txt_Nome.Text, dtp_inicial.Value, dtp_final.Value)
+               .OrderByDescending(x => x.DataEvento);
             Lista(lingerie);
         }
 
@@ -101,13 +101,15 @@ namespace Loja_FeG_Sex.Forms.ChaLingerie
         {
             try
             {
-                var lingerie = LingeriesConstrutor.lingerieBo().ListarTodos();
+                var lingerie = LingeriesConstrutor.LingerieBo().ListarTodos();
                 Lista(lingerie);
 
-                dtp_final.Value = DateTime.Now;
+                dtp_final.Value = Convert.ToDateTime("01/01/2018");
+                dtp_final.MinDate = Convert.ToDateTime("28/04/2000");
+                dtp_final.MaxDate = Convert.ToDateTime("28/04/2030");
                 dtp_inicial.Value = Convert.ToDateTime("28/04/2000");
                 dtp_inicial.MaxDate = DateTime.Now;
-                dtp_final.MinDate = Convert.ToDateTime("28/04/2000");
+                
 
                 //this.dtg_ChaLingerie.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             }
@@ -115,6 +117,16 @@ namespace Loja_FeG_Sex.Forms.ChaLingerie
             {
                 MessageBox.Show(@"Problemas ao montar a lista de Chás");
             }
+        }
+
+        private void dtp_inicial_ValueChanged(object sender, EventArgs e)
+        {
+            btn_transa_asc_Click(sender, e);
+        }
+
+        private void dtp_final_ValueChanged(object sender, EventArgs e)
+        {
+            btn_transa_dec_Click(sender, e);
         }
     }
 }

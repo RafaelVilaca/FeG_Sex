@@ -8,66 +8,87 @@ namespace Loja_FeG_Sex.Repositorio
 {
     public class LingeriesRepositorio : ILingeries
     {
-        private Contexto contexto;
+        private Contexto _contexto;
 
         public IEnumerable<LingeriesVo> ListarTodos()
         {
-            using (contexto = new Contexto())
+            using (_contexto = new Contexto())
             {
-                var strQuery = "Select cl.*, c.Nome as Nome From ChaLingerie cl ";
-                strQuery += " INNER JOIN Clientes c ";
-                strQuery += " on cl.Id_Cliente = c.Id_Cliente ";
-                strQuery += " order by c.Nome ";
-                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+                var strQuery = "Select cl.*, c.Nome as Nome From ChaLingerie cl " +
+                               " INNER JOIN Clientes c " +
+                               " on cl.Id_Cliente = c.Id_Cliente " +
+                               " order by c.Nome ";
+                var retorno = _contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+                return ReaderObjeto(retorno);
+            }
+        }
+
+        public IEnumerable<LingeriesVo> ListarTodos(string filtroNome, DateTime? dataInicial, DateTime? dataFinal)
+        {
+            using (_contexto = new Contexto())
+            {
+                var param = new List<SqlParameter>
+                {
+                    new SqlParameter() {ParameterName = "@filtroNome", Value = filtroNome},
+                    new SqlParameter() {ParameterName = "@dt_inicial", Value = dataInicial},
+                    new SqlParameter() {ParameterName = "@dt_final", Value = dataFinal}
+                };
+                var strQuery = "Select cl.*, c.Nome as Nome From ChaLingerie cl " +
+                                " INNER JOIN Clientes c " +
+                                " on cl.Id_Cliente = c.Id_Cliente " +
+                                " Where cl.Data_Evento Between @dt_inicial AND @dt_final " +
+                                " AND c.Nome LIKE ('%'+@filtroNome+'%') " +
+                                " order by c.Nome ";
+                var retorno = _contexto.ExecutaComRetorno(strQuery, param);
                 return ReaderObjeto(retorno);
             }
         }
 
         public string Salvar(LingeriesVo entidade)
         {
-            var mensagem = "";
+            string mensagem;
 
-            if (entidade.Id_ChaLingerie == null)
+            if (entidade.IdChaLingerie == null)
             {
                 var nomeProc = "sp_insert_cha";
 
-                using (contexto = new Contexto())
+                using (_contexto = new Contexto())
                 {
                     List<SqlParameter> param = new List<SqlParameter>();
 
                     param.Add(new SqlParameter() { ParameterName = "@Descricao", Value = entidade.Descricao });
-                    param.Add(new SqlParameter() { ParameterName = "@Data_Cadastro", Value = entidade.Data_Cadastro });
-                    param.Add(new SqlParameter() { ParameterName = "@Id_Cliente", Value = entidade.Id_Cliente });
-                    param.Add(new SqlParameter() { ParameterName = "@Vl_Receber", Value = entidade.Vl_Receber });
-                    param.Add(new SqlParameter() { ParameterName = "@Data_Evento", Value = entidade.Data_Evento });
+                    param.Add(new SqlParameter() { ParameterName = "@Data_Cadastro", Value = entidade.DataCadastro });
+                    param.Add(new SqlParameter() { ParameterName = "@Id_Cliente", Value = entidade.IdCliente });
+                    param.Add(new SqlParameter() { ParameterName = "@Vl_Receber", Value = entidade.VlReceber });
+                    param.Add(new SqlParameter() { ParameterName = "@Data_Evento", Value = entidade.DataEvento });
 
                     mensagem = "Cadastro inserido com Sucesso!!!";
 
-                    contexto.ExecutaProc(nomeProc, param);
+                    _contexto.ExecutaProc(nomeProc, param);
                 }
             }
             else
             {
                 var nomeProc = "sp_update_cha";
 
-                using (contexto = new Contexto())
+                using (_contexto = new Contexto())
                 {
                     List<SqlParameter> param = new List<SqlParameter>();
 
-                    param.Add(new SqlParameter() { ParameterName = "@Id_ChaLingerie", Value = entidade.Id_ChaLingerie });
+                    param.Add(new SqlParameter() { ParameterName = "@Id_ChaLingerie", Value = entidade.IdChaLingerie });
                     param.Add(new SqlParameter() { ParameterName = "@Descricao", Value = entidade.Descricao });
-                    param.Add(new SqlParameter() { ParameterName = "@Data_Cadastro", Value = entidade.Data_Cadastro });
-                    param.Add(new SqlParameter() { ParameterName = "@Id_Cliente", Value = entidade.Id_Cliente });
-                    param.Add(new SqlParameter() { ParameterName = "@Vl_Receber", Value = entidade.Vl_Receber });
-                    param.Add(new SqlParameter() { ParameterName = "@Data_Evento", Value = entidade.Data_Evento });
+                    param.Add(new SqlParameter() { ParameterName = "@Data_Cadastro", Value = entidade.DataCadastro });
+                    param.Add(new SqlParameter() { ParameterName = "@Id_Cliente", Value = entidade.IdCliente });
+                    param.Add(new SqlParameter() { ParameterName = "@Vl_Receber", Value = entidade.VlReceber });
+                    param.Add(new SqlParameter() { ParameterName = "@Data_Evento", Value = entidade.DataEvento });
 
-                    contexto.ExecutaProc(nomeProc, param);
+                    _contexto.ExecutaProc(nomeProc, param);
 
                     mensagem = "Cadastro atualizado com Sucesso!!!";
                 }
             }
 
-            return mensagem.ToString();
+            return mensagem;
         }
 
         private List<LingeriesVo> ReaderObjeto(SqlDataReader reader)
@@ -77,17 +98,17 @@ namespace Loja_FeG_Sex.Repositorio
             {
                 var clientes = new ClientesVo
                 {
-                    Id_Cliente = int.Parse(reader["Id_Cliente"].ToString()),
+                    IdCliente = int.Parse(reader["Id_Cliente"].ToString()),
                     Nome = reader["Nome"].ToString()
                 };
 
                 var temObjeto = new LingeriesVo()
                 {
-                    Id_ChaLingerie = reader["Id_ChaLingerie"] != DBNull.Value ? int.Parse(reader["Id_ChaLingerie"].ToString()) : 0,
+                    IdChaLingerie = reader["Id_ChaLingerie"] != DBNull.Value ? int.Parse(reader["Id_ChaLingerie"].ToString()) : 0,
                     Descricao = reader["Descricao"] != DBNull.Value ? reader["Descricao"].ToString() : null,
-                    Data_Cadastro = DateTime.Parse(reader["Data_Cadastro"].ToString()),
-                    Data_Evento = DateTime.Parse(reader["Data_Evento"].ToString()),
-                    Vl_Receber = reader["Vl_Receber"] != DBNull.Value ? decimal.Parse(reader["Vl_Receber"].ToString()) : 0,
+                    DataCadastro = DateTime.Parse(reader["Data_Cadastro"].ToString()),
+                    DataEvento = DateTime.Parse(reader["Data_Evento"].ToString()),
+                    VlReceber = reader["Vl_Receber"] != DBNull.Value ? decimal.Parse(reader["Vl_Receber"].ToString()) : 0,
                     Cliente = clientes
                 };
                 chaLingerie.Add(temObjeto);

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Loja_FeG_Sex.Repositorio
+namespace Loja_FeG_Sex.Repositorio.Repositorio
 {
     public interface IRepositorio<T> where T : class
     {        

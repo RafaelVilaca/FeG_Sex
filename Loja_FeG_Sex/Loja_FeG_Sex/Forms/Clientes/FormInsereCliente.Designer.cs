@@ -463,7 +463,6 @@
             this.Name = "FormInsereCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cliente";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormInsereCliente_FormClosed);
             this.Load += new System.EventHandler(this.FormInsereCliente_Load);
             this.grp_dados_Cliente.ResumeLayout(false);
             this.grp_dados_Cliente.PerformLayout();

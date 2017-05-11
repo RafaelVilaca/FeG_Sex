@@ -12,7 +12,7 @@ namespace Loja_FeG_Sex.Forms.Produtos
         public FormInsereProduto()
         {
             InitializeComponent();
-            _produtosBo = ProdutosConstrutor.produtosBo();
+            _produtosBo = ProdutosConstrutor.ProdutosBo();
         }
 
         private void Limpar()
@@ -32,45 +32,53 @@ namespace Loja_FeG_Sex.Forms.Produtos
 
         private void btn_Confirmar_Click(object sender, EventArgs e)
         {
-            bool situacao = false;
-            if (rd_Ativo.Checked == true)
+            bool situacao;
+            if (rd_Ativo.Checked)
                 situacao = true;
             else
                 situacao = false;
 
             if (txt_Descricao.Text == "" || txt_Descricao.Text.Length <= 3)
-                MessageBox.Show("Descricao Incorreta\nCorrija por favor!");
+                MessageBox.Show("Descricao Incorreta" +
+                                "\nCorrija por favor!");
 
             else if (nud_Qtd.Value == 0)
-                MessageBox.Show("Quantidade Incorreta\nCorrija por favor!");
+                MessageBox.Show("Quantidade Incorreta" +
+                                "\nCorrija por favor!");
 
             else if (nup_compra.Value == (decimal)0.00)
-                MessageBox.Show("Valor de Compra Incorreto\nCorrija por favor!");
+                MessageBox.Show("Valor de Compra Incorreto" +
+                                "\nCorrija por favor!");
 
             else if (nup_venda.Value == (decimal)0.00)
-                MessageBox.Show("Valor de Venda Incorreto\nCorrija por favor!");
+                MessageBox.Show("Valor de Venda Incorreto" +
+                                "\nCorrija por favor!");
 
             else if (nup_venda.Value < nup_compra.Value)
-                MessageBox.Show("Valor de Venda não pode ser menor que de Compra\nCorrija por favor!");
+                MessageBox.Show("Valor de Venda não pode ser menor que de Compra" +
+                                "\nCorrija por favor!");
 
             else
             {
                 try
                 {
-                    ProdutosVo entidades = new ProdutosVo();
+                    var entidades = new ProdutosVo
+                    {
+                        Descricao = txt_Descricao.Text,
+                        VlCompra = nup_compra.Value,
+                        VlVenda = nup_venda.Value,
+                        DtCadastro = DateTime.Parse(txt_Data.Text),
+                        Qtde = int.Parse(nud_Qtd.Text),
+                        Ativo = situacao
+                    };
 
-                    entidades.Descricao = txt_Descricao.Text;
-                    entidades.Vl_Compra = nup_compra.Value;
-                    entidades.Vl_Venda = nup_venda.Value;
-                    entidades.Dt_Cadastro = DateTime.Parse(txt_Data.Text);
-                    entidades.Qtde = int.Parse(nud_Qtd.Text);
-                    entidades.Ativo = situacao;
 
                     if (MessageBox.Show(
-                        "Descrição: " + entidades.Descricao +
-                        "\nValor da Compra: " + entidades.Vl_Compra +
-                        "\nValor da Venda: " + entidades.Vl_Venda +
-                        "\nQuantidade: " + entidades.Qtde, "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        $"Descrição: {entidades.Descricao}" +
+                        $"\nValor da Compra: {entidades.VlCompra}" +
+                        $"\nValor da Venda: {entidades.VlVenda}" +
+                        $"\nQuantidade: {entidades.Qtde}", 
+                        @"Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         string mensagem = _produtosBo.Salvar(entidades);
                         MessageBox.Show(mensagem);
@@ -79,7 +87,8 @@ namespace Loja_FeG_Sex.Forms.Produtos
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Problemas ao inserir produto \nTente Novamente");
+                    MessageBox.Show("Problemas ao inserir produto" +
+                                    "\nTente Novamente");
                 }
             }
         }

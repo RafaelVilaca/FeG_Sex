@@ -6,27 +6,32 @@ namespace Loja_FeG_Sex.Business
 {
     public class ClientesBo
     {
-        private readonly ICliente repositorio;
+        private readonly ICliente _repositorio;
         //private ClienteRepositorio clienteRepositorio;
 
         public ClientesBo(ICliente repo)
         {
-            repositorio = repo;
+            _repositorio = repo;
         }
 
         public string Salvar(ClientesVo clientes)
         {
-            return repositorio.Salvar(clientes);
+            return _repositorio.Salvar(clientes);
+        }
+        
+        public IEnumerable<ClientesVo> ListarTodos(string filtro)
+        {
+            return _repositorio.ListarTodos(filtro);
         }
 
         public IEnumerable<ClientesVo> ListarTodos()
         {
-            return repositorio.ListarTodos();
+            return _repositorio.ListarTodos();
         }
 
         public IEnumerable<ClientesVo> ListarAtivos()
         {
-            return repositorio.ListarAtivos();
+            return _repositorio.ListarAtivos();
         }
     }
 }

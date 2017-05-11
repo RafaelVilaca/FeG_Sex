@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Loja_FeG_Sex.Entidades
 {
@@ -11,21 +7,21 @@ namespace Loja_FeG_Sex.Entidades
 
         public string Descricao { get; set; }
 
-        public DateTime Data_Cadastro { get; set; }
+        public DateTime DataCadastro { get; set; }
 
         public ClientesVo Cliente { get; set; }
 
-        public decimal Vl_Receber { get; set; }
+        public decimal VlReceber { get; set; }
 
-        public DateTime Data_Evento { get; set; }
+        public DateTime DataEvento { get; set; }
 
         public LingeriesVo()
         {
-            this.Cliente = new ClientesVo();
+            Cliente = new ClientesVo();
         }
 
-        public string valorFormatado => $"R$ {Vl_Receber}";
+        public string ValorFormatado => $"R$ {VlReceber}";
 
-        public string NomeCliente => Cliente.Nome;
+        public string NomeCliente => $"Cliente: {Cliente.Nome},   Data: {DataEvento}";
     }
 }

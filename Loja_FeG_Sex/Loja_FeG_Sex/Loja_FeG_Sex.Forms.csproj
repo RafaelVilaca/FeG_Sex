@@ -69,6 +69,36 @@
       <DependentUpon>FormCalculadora.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Calculadora\Operacoes.cs" />
+    <Compile Include="Forms\Castigos\FormCastigos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Castigos\FormCastigos.Designer.cs">
+      <DependentUpon>FormCastigos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Castigos\FormEditarCastigos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Castigos\FormEditarCastigos.Designer.cs">
+      <DependentUpon>FormEditarCastigos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Castigos\FormEscolha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Castigos\FormEscolha.Designer.cs">
+      <DependentUpon>FormEscolha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Castigos\FormInserirCastigos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Castigos\FormInserirCastigos.Designer.cs">
+      <DependentUpon>FormInserirCastigos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Castigos\FormJogar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Castigos\FormJogar.Designer.cs">
+      <DependentUpon>FormJogar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ChaLingerie\FormEditarLingeries.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +181,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Calculadora\FormCalculadora.resx">
       <DependentUpon>FormCalculadora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Castigos\FormCastigos.resx">
+      <DependentUpon>FormCastigos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Castigos\FormEditarCastigos.resx">
+      <DependentUpon>FormEditarCastigos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Castigos\FormEscolha.resx">
+      <DependentUpon>FormEscolha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Castigos\FormInserirCastigos.resx">
+      <DependentUpon>FormInserirCastigos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Castigos\FormJogar.resx">
+      <DependentUpon>FormJogar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChaLingerie\FormEditarLingeries.resx">
       <DependentUpon>FormEditarLingeries.cs</DependentUpon>

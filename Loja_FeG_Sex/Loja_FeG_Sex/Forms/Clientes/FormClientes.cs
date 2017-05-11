@@ -31,13 +31,14 @@ namespace Loja_FeG_Sex.Forms.Clientes
         {
             try
             {
-                dtg_Clientes.DataSource = clientes.Where(x => x.Nome.Contains(txt_Busca.Text))
+                dtg_Clientes.DataSource = clientes
+                    //.Where(x => x.Nome.Contains(txt_Busca.Text))
                     .Select(x => new
                     {
                         x.Nome,
                         x.Email,
-                        x.Dt_Nasc,
-                        x.Dt_Cadastro,
+                        Dt_Nasc = x.DtNasc,
+                        Dt_Cadastro = x.DtCadastro,
                         x.Sexo,
                         x.TelefoneFormatado,
                         x.CelularFormatado,
@@ -61,67 +62,83 @@ namespace Loja_FeG_Sex.Forms.Clientes
 
         public void FormClientes_Load(object sender, EventArgs e)
         {
-            var clientes = ClientesConstrutor.clienteBo().ListarTodos();
+            var clientes = ClientesConstrutor.ClienteBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderBy(x => x.Nome);
             Lista(clientes);
         }
 
         private void btn_nome_asc_Click(object sender, EventArgs e)
         {
-            var clientes = ClientesConstrutor.clienteBo().ListarTodos();
-            Lista(clientes);
+            FormClientes_Load(sender, e);
         }
 
         private void btn_nome_dec_Click(object sender, EventArgs e)
         {
-            var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderByDescending(x => x.Nome);
+            var clientes = ClientesConstrutor.ClienteBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderByDescending(x => x.Nome);
             Lista(clientes);
         }
 
         private void btn_dtCad_dec_Click(object sender, EventArgs e)
         {
-            var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderByDescending(x => x.Dt_Cadastro);
+            var clientes = ClientesConstrutor.ClienteBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderByDescending(x => x.DtCadastro);
             Lista(clientes);
         }
 
         private void btn_sexo_dec_Click(object sender, EventArgs e)
         {
-            var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderByDescending(x => x.Sexo);
+            var clientes = ClientesConstrutor.ClienteBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderByDescending(x => x.Sexo);
             Lista(clientes);
         }
 
         private void btn_sexo_asc_Click(object sender, EventArgs e)
         {
-            var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderBy(x => x.Sexo);
+            var clientes = ClientesConstrutor.ClienteBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderBy(x => x.Sexo);
             Lista(clientes);
         }
 
         private void btn_dtCad_asc_Click(object sender, EventArgs e)
         {
-            var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderBy(x => x.Dt_Cadastro);
+            var clientes = ClientesConstrutor.ClienteBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderBy(x => x.DtCadastro);
             Lista(clientes);
         }
 
         private void btn_Nasc_asc_Click(object sender, EventArgs e)
         {
-            var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderBy(x => x.Dt_Nasc);
+            var clientes = ClientesConstrutor.ClienteBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderBy(x => x.DtNasc);
             Lista(clientes);
         }
 
         private void btn_dtNasc_dec_Click(object sender, EventArgs e)
         {
-            var clientes = ClientesConstrutor.clienteBo().ListarTodos().OrderByDescending(x => x.Dt_Nasc);
+            var clientes = ClientesConstrutor.ClienteBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderByDescending(x => x.DtNasc);
             Lista(clientes);
         }
 
         private void txt_Busca_TextChanged(object sender, EventArgs e)
         {
-            var clientes = ClientesConstrutor.clienteBo().ListarTodos();
+            var clientes = ClientesConstrutor.ClienteBo()
+                .ListarTodos(txt_Busca.Text);
             Lista(clientes);
         }
 
         private void btn_Editar_Click(object sender, EventArgs e)
         {
-            FormEditarCliente editarCliente = new FormEditarCliente(/*this*/);
+            var editarCliente = new FormEditarCliente(/*this*/);
             editarCliente.ShowDialog();
             FormClientes_Load(sender, e);
         }

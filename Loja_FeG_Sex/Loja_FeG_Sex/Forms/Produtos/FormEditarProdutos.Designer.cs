@@ -193,6 +193,7 @@
             this.nup_venda.Name = "nup_venda";
             this.nup_venda.Size = new System.Drawing.Size(75, 26);
             this.nup_venda.TabIndex = 4;
+            this.nup_venda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nup_venda.ThousandsSeparator = true;
             // 
             // nup_compra
@@ -207,6 +208,7 @@
             this.nup_compra.Name = "nup_compra";
             this.nup_compra.Size = new System.Drawing.Size(75, 26);
             this.nup_compra.TabIndex = 3;
+            this.nup_compra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nup_compra.ThousandsSeparator = true;
             // 
             // label4
@@ -249,9 +251,9 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label8.Location = new System.Drawing.Point(223, 76);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(127, 19);
+            this.label8.Size = new System.Drawing.Size(134, 19);
             this.label8.TabIndex = 24;
-            this.label8.Text = "Valor de Compra:";
+            this.label8.Text = "Valor Compra Un.:";
             // 
             // nud_Qtd
             // 
@@ -259,6 +261,7 @@
             this.nud_Qtd.Name = "nud_Qtd";
             this.nud_Qtd.Size = new System.Drawing.Size(75, 26);
             this.nud_Qtd.TabIndex = 2;
+            this.nud_Qtd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 

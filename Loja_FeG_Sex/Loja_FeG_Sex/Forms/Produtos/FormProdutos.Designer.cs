@@ -38,12 +38,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtg_Produtos = new System.Windows.Forms.DataGridView();
-            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dt_Cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Vl_Compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Vl_Venda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nud_busca = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,6 +56,12 @@
             this.btn_qtde_dec = new System.Windows.Forms.Button();
             this.btn_desc_dec = new System.Windows.Forms.Button();
             this.btn_Editar_Produto = new System.Windows.Forms.Button();
+            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dt_Cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vl_Compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vl_Venda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Produtos)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_busca)).BeginInit();
@@ -186,58 +186,6 @@
             this.dtg_Produtos.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Navy;
             this.dtg_Produtos.Size = new System.Drawing.Size(802, 424);
             this.dtg_Produtos.TabIndex = 24;
-            // 
-            // Descricao
-            // 
-            this.Descricao.DataPropertyName = "Descricao";
-            this.Descricao.HeaderText = "Descrição";
-            this.Descricao.MaxInputLength = 100;
-            this.Descricao.Name = "Descricao";
-            this.Descricao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Descricao.Width = 305;
-            // 
-            // Qtde
-            // 
-            this.Qtde.DataPropertyName = "Qtde";
-            this.Qtde.HeaderText = "Qtde";
-            this.Qtde.MaxInputLength = 5;
-            this.Qtde.Name = "Qtde";
-            this.Qtde.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Qtde.Width = 50;
-            // 
-            // Dt_Cadastro
-            // 
-            this.Dt_Cadastro.DataPropertyName = "Dt_Cadastro";
-            this.Dt_Cadastro.HeaderText = "Data Cadastro";
-            this.Dt_Cadastro.MaxInputLength = 20;
-            this.Dt_Cadastro.Name = "Dt_Cadastro";
-            this.Dt_Cadastro.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dt_Cadastro.Width = 150;
-            // 
-            // Vl_Compra
-            // 
-            this.Vl_Compra.DataPropertyName = "compraFormatado";
-            this.Vl_Compra.HeaderText = "Valor Compra";
-            this.Vl_Compra.MaxInputLength = 10;
-            this.Vl_Compra.Name = "Vl_Compra";
-            this.Vl_Compra.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Vl_Venda
-            // 
-            this.Vl_Venda.DataPropertyName = "vendaFormatado";
-            this.Vl_Venda.HeaderText = "Valor Venda";
-            this.Vl_Venda.MaxInputLength = 10;
-            this.Vl_Venda.Name = "Vl_Venda";
-            this.Vl_Venda.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Situacao
-            // 
-            this.Situacao.DataPropertyName = "Situacao";
-            this.Situacao.HeaderText = "Situação";
-            this.Situacao.MaxInputLength = 10;
-            this.Situacao.Name = "Situacao";
-            this.Situacao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Situacao.Width = 70;
             // 
             // groupBox1
             // 
@@ -532,6 +480,58 @@
             this.btn_Editar_Produto.Text = "Editar Produto";
             this.btn_Editar_Produto.UseVisualStyleBackColor = false;
             this.btn_Editar_Produto.Click += new System.EventHandler(this.btn_Editar_Produto_Click);
+            // 
+            // Descricao
+            // 
+            this.Descricao.DataPropertyName = "Descricao";
+            this.Descricao.HeaderText = "Descrição";
+            this.Descricao.MaxInputLength = 100;
+            this.Descricao.Name = "Descricao";
+            this.Descricao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Descricao.Width = 305;
+            // 
+            // Qtde
+            // 
+            this.Qtde.DataPropertyName = "Qtde";
+            this.Qtde.HeaderText = "Qtde";
+            this.Qtde.MaxInputLength = 5;
+            this.Qtde.Name = "Qtde";
+            this.Qtde.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Qtde.Width = 50;
+            // 
+            // Dt_Cadastro
+            // 
+            this.Dt_Cadastro.DataPropertyName = "Dt_Cadastro";
+            this.Dt_Cadastro.HeaderText = "Data Cadastro";
+            this.Dt_Cadastro.MaxInputLength = 20;
+            this.Dt_Cadastro.Name = "Dt_Cadastro";
+            this.Dt_Cadastro.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dt_Cadastro.Width = 150;
+            // 
+            // Vl_Compra
+            // 
+            this.Vl_Compra.DataPropertyName = "CompraFormatado";
+            this.Vl_Compra.HeaderText = "Valor Compra";
+            this.Vl_Compra.MaxInputLength = 10;
+            this.Vl_Compra.Name = "Vl_Compra";
+            this.Vl_Compra.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Vl_Venda
+            // 
+            this.Vl_Venda.DataPropertyName = "VendaFormatado";
+            this.Vl_Venda.HeaderText = "Valor Venda";
+            this.Vl_Venda.MaxInputLength = 10;
+            this.Vl_Venda.Name = "Vl_Venda";
+            this.Vl_Venda.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Situacao
+            // 
+            this.Situacao.DataPropertyName = "Situacao";
+            this.Situacao.HeaderText = "Situação";
+            this.Situacao.MaxInputLength = 10;
+            this.Situacao.Name = "Situacao";
+            this.Situacao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Situacao.Width = 70;
             // 
             // FormProdutos
             // 

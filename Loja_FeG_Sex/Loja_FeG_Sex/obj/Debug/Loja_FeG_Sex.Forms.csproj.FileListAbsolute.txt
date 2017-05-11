@@ -72,3 +72,8 @@ C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\L
 C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.Forms.FormLogin.resources
 C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.Forms.Produtos.FormProdutos.resources
 C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.Forms.Vendas.FormVendas.resources
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.Forms.Castigos.FormEditarCastigos.resources
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.Forms.Castigos.FormEscolha.resources
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.Forms.Castigos.FormInserirCastigos.resources
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.Forms.Castigos.FormCastigos.resources
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex\obj\Debug\Loja_FeG_Sex.Forms.Castigos.FormJogar.resources

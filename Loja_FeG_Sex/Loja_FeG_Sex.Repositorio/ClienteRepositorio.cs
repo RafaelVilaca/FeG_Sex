@@ -2,111 +2,118 @@
 using Loja_FeG_Sex.Repositorio.Repositorio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Loja_FeG_Sex.Repositorio
 {
     public class ClienteRepositorio : ICliente
     {
-        private Contexto contexto;
+        private Contexto _contexto;
 
         public IEnumerable<ClientesVo> ListarTodos()
         {
-            using (contexto = new Contexto())
+            using (_contexto = new Contexto())
             {
-                var strQuery = "Select * From Clientes ";
-                strQuery += " order by Nome ";
-                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+                var strQuery = "Select * From Clientes " +
+                               " order by Nome ";
+                var retorno = _contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
                 return ReaderObjeto(retorno);
             }
         }
 
         public IEnumerable<ClientesVo> ListarAtivos()
         {
-            using (contexto = new Contexto())
+            using (_contexto = new Contexto())
             {
-                var strQuery = "Select c.* From Clientes c ";
-                strQuery += " Where c.Ativo = 1 ";
-                strQuery += " order by Nome ";
-                var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
+                var strQuery = "Select c.* From Clientes c " +
+                               " Where c.Ativo = 1 " +
+                               " order by Nome ";
+                var retorno = _contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
                 return ReaderObjeto(retorno);
             }
         }
 
-        //public IEnumerable<ClientesVo> ListarTodos(string filtro)
-        //{
-        //    List<SqlParameter> param = new List<SqlParameter>();
-        //    param.Add(new SqlParameter() { ParameterName = "@filtro", Value = filtro });
-
-        //    using (contexto = new Contexto())
-        //    {
-        //        var strQuery = "Select * From Clientes ";
-        //        strQuery += " where Nome Like('%@filtro%') ";
-        //        strQuery += " order by Nome ";
-        //        var retorno = contexto.ExecutaComRetorno(strQuery, new List<SqlParameter>());
-        //        return ReaderObjeto(retorno);
-        //    }
-        //}
+        public IEnumerable<ClientesVo> ListarTodos(string filtro)
+        {
+            using (_contexto = new Contexto())
+            {
+                // ReSharper disable once ObjectCreationAsStatement
+                var param = new List<SqlParameter>
+                {
+                    new SqlParameter() {ParameterName = "@filtro", Value = filtro}
+                };
+                var strQuery = "Select * From Clientes " +
+                               " where Nome Like('%'+@filtro+'%') " +
+                               " order by Nome ";
+                var retorno = _contexto.ExecutaComRetorno(strQuery, param);
+                return ReaderObjeto(retorno);
+            }
+        }
 
         public string Salvar(ClientesVo entidade)
         {
-            var mensagem = "";
+            string mensagem;
 
-            if (entidade.Id_Cliente == null)
+            if (entidade.IdCliente == null)
             {
                 var nomeProc = "sp_insert_cliente";
 
-                using (contexto = new Contexto())
+                using (_contexto = new Contexto())
                 {
-                    List<SqlParameter> param = new List<SqlParameter>();
+                    var param = new List<SqlParameter>
+                    {
+                        new SqlParameter() {ParameterName = "@Nome", Value = entidade.Nome},
+                        new SqlParameter() {ParameterName = "@Email", Value = entidade.Email},
+                        new SqlParameter() {ParameterName = "@Sexo", Value = entidade.Sexo},
+                        new SqlParameter() {ParameterName = "@Dt_Nasc", Value = entidade.DtNasc},
+                        new SqlParameter() {ParameterName = "@Dt_Cadastro", Value = entidade.DtCadastro},
+                        new SqlParameter() {ParameterName = "@Rua", Value = entidade.Rua},
+                        new SqlParameter() {ParameterName = "@Numero", Value = entidade.Numero},
+                        new SqlParameter() {ParameterName = "@Bairro", Value = entidade.Bairro},
+                        new SqlParameter() {ParameterName = "@Complemento", Value = entidade.Complemento},
+                        new SqlParameter() {ParameterName = "@Celular", Value = entidade.Celular},
+                        new SqlParameter() {ParameterName = "@Telefone", Value = entidade.Telefone},
+                        new SqlParameter() {ParameterName = "@Ativo", Value = entidade.Ativo}
+                    };
 
-                    param.Add(new SqlParameter() { ParameterName = "@Nome", Value = entidade.Nome });
-                    param.Add(new SqlParameter() { ParameterName = "@Email", Value = entidade.Email });
-                    param.Add(new SqlParameter() { ParameterName = "@Sexo", Value = entidade.Sexo });
-                    param.Add(new SqlParameter() { ParameterName = "@Dt_Nasc", Value = entidade.Dt_Nasc });
-                    param.Add(new SqlParameter() { ParameterName = "@Dt_Cadastro", Value = entidade.Dt_Cadastro });
-                    param.Add(new SqlParameter() { ParameterName = "@Rua", Value = entidade.Rua });
-                    param.Add(new SqlParameter() { ParameterName = "@Numero", Value = entidade.Numero });
-                    param.Add(new SqlParameter() { ParameterName = "@Bairro", Value = entidade.Bairro });
-                    param.Add(new SqlParameter() { ParameterName = "@Complemento", Value = entidade.Complemento });
-                    param.Add(new SqlParameter() { ParameterName = "@Celular", Value = entidade.Celular });
-                    param.Add(new SqlParameter() { ParameterName = "@Telefone", Value = entidade.Telefone });
-                    param.Add(new SqlParameter() { ParameterName = "@Ativo", Value = entidade.Ativo });
 
                     mensagem = "Cadastro inserido com Sucesso!!!";
 
-                    contexto.ExecutaProc(nomeProc, param);
+                    _contexto.ExecutaProc(nomeProc, param);
                 }
             }
             else
             {
                 var nomeProc = "sp_update_cliente";
 
-                using (contexto = new Contexto())
+                using (_contexto = new Contexto())
                 {
-                    List<SqlParameter> param = new List<SqlParameter>();
+                    var param = new List<SqlParameter>
+                    {
+                        new SqlParameter() {ParameterName = "@ID", Value = entidade.IdCliente},
+                        new SqlParameter() {ParameterName = "@Nome", Value = entidade.Nome},
+                        new SqlParameter() {ParameterName = "@Email", Value = entidade.Email},
+                        new SqlParameter() {ParameterName = "@Sexo", Value = entidade.Sexo},
+                        new SqlParameter() {ParameterName = "@Dt_Nasc", Value = entidade.DtNasc},
+                        new SqlParameter() {ParameterName = "@Dt_Cadastro", Value = entidade.DtCadastro},
+                        new SqlParameter() {ParameterName = "@Rua", Value = entidade.Rua},
+                        new SqlParameter() {ParameterName = "@Numero", Value = entidade.Numero},
+                        new SqlParameter() {ParameterName = "@Bairro", Value = entidade.Bairro},
+                        new SqlParameter() {ParameterName = "@Complemento", Value = entidade.Complemento},
+                        new SqlParameter() {ParameterName = "@Celular", Value = entidade.Celular},
+                        new SqlParameter() {ParameterName = "@Telefone", Value = entidade.Telefone},
+                        new SqlParameter() {ParameterName = "@Ativo", Value = entidade.Ativo}
+                    };
 
-                    param.Add(new SqlParameter() { ParameterName = "@ID", Value = entidade.Id_Cliente });
-                    param.Add(new SqlParameter() { ParameterName = "@Nome", Value = entidade.Nome });
-                    param.Add(new SqlParameter() { ParameterName = "@Email", Value = entidade.Email });
-                    param.Add(new SqlParameter() { ParameterName = "@Sexo", Value = entidade.Sexo });
-                    param.Add(new SqlParameter() { ParameterName = "@Dt_Nasc", Value = entidade.Dt_Nasc });
-                    param.Add(new SqlParameter() { ParameterName = "@Dt_Cadastro", Value = entidade.Dt_Cadastro });
-                    param.Add(new SqlParameter() { ParameterName = "@Rua", Value = entidade.Rua });
-                    param.Add(new SqlParameter() { ParameterName = "@Numero", Value = entidade.Numero });
-                    param.Add(new SqlParameter() { ParameterName = "@Bairro", Value = entidade.Bairro });
-                    param.Add(new SqlParameter() { ParameterName = "@Complemento", Value = entidade.Complemento });
-                    param.Add(new SqlParameter() { ParameterName = "@Celular", Value = entidade.Celular });
-                    param.Add(new SqlParameter() { ParameterName = "@Telefone", Value = entidade.Telefone });
-                    param.Add(new SqlParameter() { ParameterName = "@Ativo", Value = entidade.Ativo });
 
-                    contexto.ExecutaProc(nomeProc, param);
+                    _contexto.ExecutaProc(nomeProc, param);
 
                     mensagem = "Cadastro atualizado com Sucesso!!!";
                 }
             }
 
-            return mensagem.ToString();
+            return mensagem;
         }
 
         private List<ClientesVo> ReaderObjeto(SqlDataReader reader)
@@ -116,12 +123,12 @@ namespace Loja_FeG_Sex.Repositorio
             {
                 var temObjeto = new ClientesVo()
                 {
-                    Id_Cliente = reader["Id_Cliente"] != DBNull.Value ? int.Parse(reader["Id_Cliente"].ToString()) : 0,
+                    IdCliente = reader["Id_Cliente"] != DBNull.Value ? int.Parse(reader["Id_Cliente"].ToString()) : 0,
                     Nome = reader["Nome"] != DBNull.Value ? reader["Nome"].ToString() : null,
                     Email = reader["Email"] != DBNull.Value ? reader["Email"].ToString() : null,
                     Sexo = reader["Sexo"] != DBNull.Value ? reader["Sexo"].ToString() : "",
-                    Dt_Cadastro = DateTime.Parse(reader["Dt_Cadastro"].ToString()),
-                    Dt_Nasc = DateTime.Parse(reader["Dt_Nasc"].ToString()),
+                    DtCadastro = DateTime.Parse(reader["Dt_Cadastro"].ToString()),
+                    DtNasc = DateTime.Parse(reader["Dt_Nasc"].ToString()),
                     Telefone = reader["Telefone"] != DBNull.Value ? long.Parse(reader["Telefone"].ToString()) : 0,
                     Celular = reader["Celular"] != DBNull.Value ? long.Parse(reader["Celular"].ToString()) : 0,
                     Rua = reader["Rua"] != DBNull.Value ? reader["Rua"].ToString() : null,

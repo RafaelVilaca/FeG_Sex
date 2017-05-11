@@ -228,3 +228,78 @@ Values (@Descricao, @Data_Cadastro, @Id_Cliente, @Vl_Receber, @Data_Evento);
 END
 
 GO
+
+Create Table Castigos(
+Id_Castigo int identity primary key,
+Descricao varchar(200),
+Pessoa bit
+);
+
+GO
+
+Create Proc sp_insert_castigo
+@Descricao varchar(200),
+@Pessoa bit
+AS
+Begin
+Insert into Castigos(Descricao, Pessoa) Values(@Descricao, @Pessoa)
+End
+
+GO
+
+Create Proc sp_update_castigo
+@Id_Castigo int,
+@Descricao varchar(200),
+@Pessoa bit
+AS
+Begin
+Update Castigos SET Descricao = @Descricao, Pessoa = @Pessoa Where Id_Castigo = @Id_Castigo
+End
+
+GO
+
+insert into Castigos (Descricao, Pessoa) Values
+('Dublar uma música cafona usando uma vassoura como microfone.',	1),
+('Copinhos com água e alguns com vodka entre eles e escolher qual tomar.',	1),
+('Colocar várias chiquinhas coloridas no cabelo.',	1),
+('Fazer pintinhas nas bochechas como a Chiquinha do Chaves.',	1),
+('Passar batom em apenas metade da boca.',	1),
+('Com a boca cheia de farinha, deve dizer 5 palavas que comecem com a letra F, sem cuspir ou babar.',	1),
+('Dançar com outra convidada, pressionando uma bexiga na barriga. Não pode estourar e nem deixar cair.',	1),
+('Dançar Hula-Hula, como as Havaianas.',	1),
+('Dançar Tango com alguma convidada.',	1),
+('Cantar o hino nacional.',	1),
+('Escolher três amigas pra brincar de Ciranda-Cirandinha.',	1),
+('Imitar um bebê chorando.',	1),
+('Imitar um macaco se coçando.',	1),
+('Dançar Funk até o chão.',	1),
+('Assobiar com a boca cheia de água.',	1),
+('Dançar Poli Dance.',	1),
+('Se declarar para uma vassoura.',	1),
+('Morder uma maçã que estará em uma vasilha cheia de aguá sem usar as mãos.',	1),
+('Dançar a música: Florentina do Tiririca.',	1),
+('Escolher uma pessoa para dançar forró.',	1),
+('Subir numa cadeira e cantar a música: Atirei o pau no gato.',	1),
+('Tomar refrigerante em um prato sem incliná-lo.',	1),
+('Levar uma chicotada da noiva.',	1),
+('Dançar no BOB.',	1),
+('Se declarar de amor ao noivo, usando objetos que serão escolhidos em sequência pela organizadora.',	0),
+('A noiva deve procurar a aliança em um prato cheio de farinha usando somente a boca.',	0),
+('Colocar uma calcinha, sunga ou um maiô por cima da roupa.',	0),
+('Colocar um sutiã por cima da roupa.',	0),
+('Cuidar de um ovo até o final do chá sem quebrar. Faça uma carinha e lhe dê um nome.',	0),
+('Pedir desculpas de joelhos à sogra por ter roubado o filho dela.',	0),
+('Simular um strip tease.',	0),
+('Dançar sensualmente numa cadeira.',	0),
+('Amarre na cintura um barbante com uma caneta na ponta. Dançando, deve colocar a caneta dentro de uma garrafa.',	0),
+('Pedir a mão do noivo pra mãe dele.',	0),
+('Dancinha sexy na cadeira.',	0),
+('Falar em 10 segundos 5 nomes que se iniciem com a mesma letra do noivo.',	0),
+('Dançar a Música do Gás.',	0),
+('Fazer Moon Walk do Michael Jackson.',	0),
+('Dançar um Morto muito Louco.',	0),
+('Mostrar como se dança a valsa ou dança dos noivos (com uma convidada).',	0);
+
+GO
+
+insert into Clientes Values ('Administrador', 'ADM@administrador.com.br', 'M', '1990-08-11', '2017-05-11', 1600000000, 16999999999, 'Administrados', 1010, 'Administrando','ADM', 1);

@@ -1,0 +1,7 @@
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex.Repositorio\bin\Release\Loja_FeG_Sex.Repositorio.dll
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex.Repositorio\bin\Release\Loja_FeG_Sex.Repositorio.pdb
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex.Repositorio\bin\Release\Loja_FeG_Sex.Entidades.dll
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex.Repositorio\bin\Release\Loja_FeG_Sex.Entidades.pdb
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex.Repositorio\obj\Release\Loja_FeG_Sex.Repositorio.csprojResolveAssemblyReference.cache
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex.Repositorio\obj\Release\Loja_FeG_Sex.Repositorio.dll
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex.Repositorio\obj\Release\Loja_FeG_Sex.Repositorio.pdb

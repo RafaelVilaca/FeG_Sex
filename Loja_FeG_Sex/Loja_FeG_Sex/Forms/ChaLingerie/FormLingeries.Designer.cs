@@ -50,16 +50,16 @@
             this.txt_Nome = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dtg_ChaLingerie = new System.Windows.Forms.DataGridView();
-            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_Cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorFormatado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_insereCha = new System.Windows.Forms.Button();
             this.btn_Sair = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_editarCha = new System.Windows.Forms.Button();
+            this.NomeCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_Cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorFormatado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.grp_Decrescente.SuspendLayout();
             this.grp_Crescente.SuspendLayout();
@@ -205,21 +205,21 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label6.Location = new System.Drawing.Point(260, 16);
+            this.label6.Location = new System.Drawing.Point(241, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 15);
+            this.label6.Size = new System.Drawing.Size(111, 15);
             this.label6.TabIndex = 35;
-            this.label6.Text = "Data Inicial:";
+            this.label6.Text = "Data Inicial Evento:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label4.Location = new System.Drawing.Point(372, 16);
+            this.label4.Location = new System.Drawing.Point(355, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 15);
+            this.label4.Size = new System.Drawing.Size(105, 15);
             this.label4.TabIndex = 34;
-            this.label4.Text = "Data Final:";
+            this.label4.Text = "Data Final Evento:";
             // 
             // dtp_inicial
             // 
@@ -232,6 +232,7 @@
             this.dtp_inicial.Size = new System.Drawing.Size(102, 21);
             this.dtp_inicial.TabIndex = 2;
             this.dtp_inicial.Value = new System.DateTime(2016, 4, 28, 14, 19, 0, 0);
+            this.dtp_inicial.ValueChanged += new System.EventHandler(this.dtp_inicial_ValueChanged);
             // 
             // dtp_final
             // 
@@ -243,6 +244,7 @@
             this.dtp_final.Name = "dtp_final";
             this.dtp_final.Size = new System.Drawing.Size(102, 21);
             this.dtp_final.TabIndex = 3;
+            this.dtp_final.ValueChanged += new System.EventHandler(this.dtp_final_ValueChanged);
             // 
             // txt_Nome
             // 
@@ -284,8 +286,8 @@
             this.dtg_ChaLingerie.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_ChaLingerie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_ChaLingerie.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NomeCliente,
             this.Descricao,
-            this.Nome_Cliente,
             this.Data_Evento,
             this.Data_Cadastro,
             this.valorFormatado});
@@ -319,53 +321,6 @@
             this.dtg_ChaLingerie.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_ChaLingerie.Size = new System.Drawing.Size(892, 416);
             this.dtg_ChaLingerie.TabIndex = 40;
-            // 
-            // Descricao
-            // 
-            this.Descricao.DataPropertyName = "Descricao";
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Descricao.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Descricao.HeaderText = "Descricao do Chá";
-            this.Descricao.MaxInputLength = 200;
-            this.Descricao.Name = "Descricao";
-            this.Descricao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Descricao.Width = 245;
-            // 
-            // Nome_Cliente
-            // 
-            this.Nome_Cliente.DataPropertyName = "Nome";
-            this.Nome_Cliente.HeaderText = "Nome Cliente";
-            this.Nome_Cliente.MaxInputLength = 100;
-            this.Nome_Cliente.Name = "Nome_Cliente";
-            this.Nome_Cliente.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Nome_Cliente.Width = 200;
-            // 
-            // Data_Evento
-            // 
-            this.Data_Evento.DataPropertyName = "Data_Evento";
-            this.Data_Evento.HeaderText = "Data do Evento";
-            this.Data_Evento.MaxInputLength = 30;
-            this.Data_Evento.Name = "Data_Evento";
-            this.Data_Evento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Data_Evento.Width = 150;
-            // 
-            // Data_Cadastro
-            // 
-            this.Data_Cadastro.DataPropertyName = "Data_Cadastro";
-            this.Data_Cadastro.HeaderText = "Data do Cadastro";
-            this.Data_Cadastro.MaxInputLength = 15;
-            this.Data_Cadastro.Name = "Data_Cadastro";
-            this.Data_Cadastro.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Data_Cadastro.Width = 150;
-            // 
-            // valorFormatado
-            // 
-            this.valorFormatado.DataPropertyName = "valorFormatado";
-            this.valorFormatado.HeaderText = "Valor Recebido";
-            this.valorFormatado.MaxInputLength = 15;
-            this.valorFormatado.Name = "valorFormatado";
-            this.valorFormatado.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.valorFormatado.Width = 120;
             // 
             // label5
             // 
@@ -450,6 +405,53 @@
             this.btn_editarCha.UseVisualStyleBackColor = false;
             this.btn_editarCha.Click += new System.EventHandler(this.btn_editaCliente_Click);
             // 
+            // NomeCliente
+            // 
+            this.NomeCliente.DataPropertyName = "Nome";
+            this.NomeCliente.HeaderText = "Nome Cliente";
+            this.NomeCliente.MaxInputLength = 100;
+            this.NomeCliente.Name = "NomeCliente";
+            this.NomeCliente.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NomeCliente.Width = 200;
+            // 
+            // Descricao
+            // 
+            this.Descricao.DataPropertyName = "Descricao";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Descricao.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Descricao.HeaderText = "Descricao do Chá";
+            this.Descricao.MaxInputLength = 200;
+            this.Descricao.Name = "Descricao";
+            this.Descricao.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Descricao.Width = 245;
+            // 
+            // Data_Evento
+            // 
+            this.Data_Evento.DataPropertyName = "Data_Evento";
+            this.Data_Evento.HeaderText = "Data do Evento";
+            this.Data_Evento.MaxInputLength = 30;
+            this.Data_Evento.Name = "Data_Evento";
+            this.Data_Evento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Data_Evento.Width = 150;
+            // 
+            // Data_Cadastro
+            // 
+            this.Data_Cadastro.DataPropertyName = "Data_Cadastro";
+            this.Data_Cadastro.HeaderText = "Data do Cadastro";
+            this.Data_Cadastro.MaxInputLength = 15;
+            this.Data_Cadastro.Name = "Data_Cadastro";
+            this.Data_Cadastro.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Data_Cadastro.Width = 150;
+            // 
+            // valorFormatado
+            // 
+            this.valorFormatado.DataPropertyName = "ValorFormatado";
+            this.valorFormatado.HeaderText = "Valor Recebido";
+            this.valorFormatado.MaxInputLength = 15;
+            this.valorFormatado.Name = "valorFormatado";
+            this.valorFormatado.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.valorFormatado.Width = 120;
+            // 
             // FormLingeries
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -504,8 +506,8 @@
         private System.Windows.Forms.Button btn_Sair;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_editarCha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomeCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_Evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_Cadastro;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorFormatado;

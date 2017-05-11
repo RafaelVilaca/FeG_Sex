@@ -85,7 +85,7 @@
             this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cancelar.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancelar.ForeColor = System.Drawing.Color.Firebrick;
-            this.btn_Cancelar.Location = new System.Drawing.Point(395, 211);
+            this.btn_Cancelar.Location = new System.Drawing.Point(565, 211);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(142, 46);
             this.btn_Cancelar.TabIndex = 6;
@@ -104,7 +104,7 @@
             this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Confirmar.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Confirmar.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Confirmar.Location = new System.Drawing.Point(245, 211);
+            this.btn_Confirmar.Location = new System.Drawing.Point(415, 211);
             this.btn_Confirmar.Name = "btn_Confirmar";
             this.btn_Confirmar.Size = new System.Drawing.Size(144, 46);
             this.btn_Confirmar.TabIndex = 5;
@@ -127,7 +127,7 @@
             this.grp_dados_Cliente.ForeColor = System.Drawing.Color.AliceBlue;
             this.grp_dados_Cliente.Location = new System.Drawing.Point(12, 39);
             this.grp_dados_Cliente.Name = "grp_dados_Cliente";
-            this.grp_dados_Cliente.Size = new System.Drawing.Size(525, 152);
+            this.grp_dados_Cliente.Size = new System.Drawing.Size(698, 152);
             this.grp_dados_Cliente.TabIndex = 1;
             this.grp_dados_Cliente.TabStop = false;
             this.grp_dados_Cliente.Text = "Dados do Chá";
@@ -135,14 +135,14 @@
             // nud_Valor
             // 
             this.nud_Valor.DecimalPlaces = 2;
-            this.nud_Valor.Location = new System.Drawing.Point(51, 64);
+            this.nud_Valor.Location = new System.Drawing.Point(573, 77);
             this.nud_Valor.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.nud_Valor.Name = "nud_Valor";
-            this.nud_Valor.Size = new System.Drawing.Size(86, 26);
+            this.nud_Valor.Size = new System.Drawing.Size(85, 26);
             this.nud_Valor.TabIndex = 3;
             this.nud_Valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nud_Valor.ThousandsSeparator = true;
@@ -151,7 +151,7 @@
             // 
             this.dtp_Evento.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dtp_Evento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_Evento.Location = new System.Drawing.Point(7, 111);
+            this.dtp_Evento.Location = new System.Drawing.Point(7, 82);
             this.dtp_Evento.Name = "dtp_Evento";
             this.dtp_Evento.Size = new System.Drawing.Size(156, 26);
             this.dtp_Evento.TabIndex = 4;
@@ -162,7 +162,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label1.Location = new System.Drawing.Point(33, 91);
+            this.label1.Location = new System.Drawing.Point(33, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 19);
             this.label1.TabIndex = 46;
@@ -185,7 +185,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label6.Location = new System.Drawing.Point(16, 71);
+            this.label6.Location = new System.Drawing.Point(538, 84);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 19);
             this.label6.TabIndex = 30;
@@ -197,7 +197,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label9.Location = new System.Drawing.Point(19, 42);
+            this.label9.Location = new System.Drawing.Point(541, 55);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(121, 19);
             this.label9.TabIndex = 26;
@@ -232,7 +232,7 @@
             this.cb_Cliente.FormattingEnabled = true;
             this.cb_Cliente.Location = new System.Drawing.Point(203, 10);
             this.cb_Cliente.Name = "cb_Cliente";
-            this.cb_Cliente.Size = new System.Drawing.Size(334, 27);
+            this.cb_Cliente.Size = new System.Drawing.Size(507, 27);
             this.cb_Cliente.TabIndex = 0;
             this.cb_Cliente.SelectedIndexChanged += new System.EventHandler(this.cb_Cliente_SelectedIndexChanged);
             // 
@@ -254,7 +254,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(552, 269);
+            this.ClientSize = new System.Drawing.Size(722, 269);
             this.Controls.Add(this.cb_Cliente);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);

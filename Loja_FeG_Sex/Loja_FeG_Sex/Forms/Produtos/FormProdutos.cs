@@ -40,9 +40,9 @@ namespace Loja_FeG_Sex.Forms.Produtos
                 {
                     x.Descricao,
                     x.Qtde,
-                    x.Dt_Cadastro,
-                    x.compraFormatado,
-                    x.vendaFormatado,
+                    Dt_Cadastro = x.DtCadastro,
+                    compraFormatado = x.CompraFormatado,
+                    vendaFormatado = x.VendaFormatado,
                     x.Situacao
                 }).ToList();
 
@@ -63,86 +63,109 @@ namespace Loja_FeG_Sex.Forms.Produtos
 
         private void FormProdutos_Load(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos().OrderBy(x => x.Descricao);
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderBy(x => x.Descricao);
             Lista(produtos);
         }
 
         private void btn_desc_asc_Click(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos().OrderBy(x => x.Descricao);
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderBy(x => x.Descricao);
             Lista(produtos);
         }
 
         private void btn_desc_dec_Click(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos().OrderByDescending(x => x.Descricao);
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderByDescending(x => x.Descricao);
             Lista(produtos);
         }
 
         private void btn_qtde_asc_Click(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos().OrderBy(x => x.Qtde);
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderBy(x => x.Qtde);
             Lista(produtos);
         }
 
         private void btn_qtde_dec_Click(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos().OrderByDescending(x => x.Qtde);
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderByDescending(x => x.Qtde);
             Lista(produtos);
         }
 
         private void btn_dt_Cad_asc_Click(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos().OrderBy(x => x.Dt_Cadastro);
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderBy(x => x.DtCadastro);
             Lista(produtos);
         }
 
         private void btn_dt_cad_dec_Click(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos().OrderByDescending(x => x.Dt_Cadastro);
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderByDescending(x => x.DtCadastro);
             Lista(produtos);
         }
 
         private void btn_compra_dec_Click(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos().OrderByDescending(x => x.Vl_Compra);
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderByDescending(x => x.VlCompra);
             Lista(produtos);
         }
 
         private void btn_Compra_asc_Click(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos().OrderBy(x => x.Vl_Compra);
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderBy(x => x.VlCompra);
             Lista(produtos);
         }
 
         private void btn_Venda_asc_Click(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos().OrderBy(x => x.Vl_Venda);
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderBy(x => x.VlVenda);
             Lista(produtos);
         }
 
         private void btn_venda_dec_Click(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos().OrderByDescending(x => x.Vl_Venda);
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text)
+                .OrderByDescending(x => x.VlVenda);
             Lista(produtos);
         }
 
         private void txt_Busca_TextChanged(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos();//.Where(x => x.Descricao.Contains(txt_Busca.Text));
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text);//.Where(x => x.Descricao.Contains(txt_Busca.Text));
             Lista(produtos);
         }
 
         private void nud_busca_ValueChanged(object sender, EventArgs e)
         {
-            var produtos = ProdutosConstrutor.produtosBo().ListarTodos();//.Where(x => x.Qtde <= nud_busca.Value);
+            var produtos = ProdutosConstrutor.ProdutosBo()
+                .ListarTodos(txt_Busca.Text);//.Where(x => x.Qtde <= nud_busca.Value);
             Lista(produtos);
-
         }
 
         private void btn_Editar_Produto_Click(object sender, EventArgs e)
         {
-            FormEditarProdutos editarProduto = new FormEditarProdutos();
+            var editarProduto = new FormEditarProdutos();
             editarProduto.ShowDialog();
             FormProdutos_Load(sender, e);
         }

@@ -1,6 +1,7 @@
 ﻿using Loja_FeG_Sex.Forms.ChaLingerie;
 using System;
 using System.Windows.Forms;
+using Loja_FeG_Sex.Forms.Castigos;
 using Loja_FeG_Sex.Forms.Clientes;
 using Loja_FeG_Sex.Forms.Produtos;
 using Loja_FeG_Sex.Forms.Vendas;
@@ -48,6 +49,14 @@ namespace Loja_FeG_Sex.Forms
         {
             //btn_Sair_Click(sender, e);
             Application.Restart();
+        }
+
+        private void btn_Castigos_Click(object sender, EventArgs e)
+        {
+            FormEscolha janelaCastigos = new FormEscolha();
+            this.Visible = false;
+            janelaCastigos.ShowDialog();
+            Visible = true;
         }
     }
 }

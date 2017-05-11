@@ -7,27 +7,27 @@ namespace Loja_FeG_Sex.Business
 {
     public class VendasBo
     {
-        private readonly IVendas repositorio;
+        private readonly IVendas _repositorio;
         //private VendaRepositorio vendaRepositorio;
 
         public VendasBo(IVendas repo)
         {
-            repositorio = repo;
+            _repositorio = repo;
         }
 
         public string Salvar(VendasVo vendas)
         {
-            return repositorio.Salvar(vendas);
+            return _repositorio.Salvar(vendas);
         }
 
         public IEnumerable<VendasVo> ListarTodos()
         {
-            return repositorio.ListarTodos();
+            return _repositorio.ListarTodos();
         }
 
-        //public IEnumerable<VendasVo> ListarTodos(string filtroNome, string filtroProduto, DateTime? dataInicial, DateTime? dataFinal)
-        //{
-        //    return repositorio.ListarTodos(filtroNome, filtroProduto, dataInicial, dataFinal);
-        //}
+        public IEnumerable<VendasVo> ListarTodos(string filtroNome, string filtroProduto, DateTime? dataInicial, DateTime? dataFinal)
+        {
+            return _repositorio.ListarTodos(filtroNome, filtroProduto, dataInicial, dataFinal);
+        }
     }
 }

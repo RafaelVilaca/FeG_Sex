@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseVo.cs" />
+    <Compile Include="CastigosVo.cs" />
     <Compile Include="ClientesVo.cs" />
     <Compile Include="LingeriesVo.cs" />
     <Compile Include="ProdutosVo.cs" />
