@@ -5,8 +5,8 @@ namespace Loja_FeG_Sex.Forms
 {
     public partial class FormLogin : Form
     {
-        private readonly string _log = "FeG_SeX";
-        private readonly string _sen = "fegsex2017";
+        private readonly string _log = "F&G";
+        private readonly string _sen = "sex2017";
 
         public FormLogin()
         {
@@ -17,9 +17,9 @@ namespace Loja_FeG_Sex.Forms
         {
             string login = txt_Login.Text;
             string senha = txt_Senha.Text.ToLower();
-            if (login == "0")//_log)
+            if (login == _log)
             {
-                if (senha == "1")//_sen)
+                if (senha == _sen)
                 {
                     Hide();
                     FormPrincipal novaform = new FormPrincipal();

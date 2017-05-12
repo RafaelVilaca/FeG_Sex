@@ -12,3 +12,4 @@ C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\L
 C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex.Entidades\bin\Debug\Loja_FeG_Sex.Entidades.pdb
 C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex.Entidades\obj\Debug\Loja_FeG_Sex.Entidades.dll
 C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex.Entidades\obj\Debug\Loja_FeG_Sex.Entidades.pdb
+C:\Users\usuario\Desktop\Cursos\Eng - Projetinhos\Repositories\FeG_Sex\FeG_Sex\Loja_FeG_Sex\Loja_FeG_Sex.Entidades\obj\Debug\Loja_FeG_Sex.Entidades.csprojResolveAssemblyReference.cache
